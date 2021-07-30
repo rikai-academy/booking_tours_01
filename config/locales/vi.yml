@@ -1,7 +1,16 @@
 vi:
   global:
+    name: "BTP"
     error: "lỗi"
     form: "Biểu mẫu chứa"
+    home: "Trang Chủ"
+    help: "Trợ Giúp"
+    login: "Đăng Nhập"
+    signup: "Đăng ký ngay!"
+    profile: "Hồ sơ"
+    settings: "Cài đặt"
+    logout: "Đăng xuất"
+    account: "Tài khoản"
   users:
     shared:
       not_found: "Không tìm thấy người dùng"
@@ -18,3 +27,11 @@ vi:
         phone_number: "Số điện thoại"
         address: "Địa chỉ"
         date_of_birth: "Ngày sinh"
+  sessions:
+    new:
+      login: "Đăng Nhập"
+      new_user: "Chưa có tài khoản?"
+      password: "Mật khẩu"
+      remember_me: "Nhớ tôi trên máy tính này"
+      danger: "Sai tài khoản hoặc mật khẩu"
+      forgot: "(quên mật khẩu)"

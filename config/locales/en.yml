@@ -1,7 +1,16 @@
 en:
   global:
+    name: "BTP"
     error: "error"
     form: "The form contains"
+    home: "Home"
+    help: "Help"
+    login: "Log in"
+    signup: "Sign up now!"
+    profile: "Profile"
+    settings: "Settings"
+    logout: "Log out"
+    account: "Account"
   users:
     shared:
       not_found: "User not found"
@@ -18,3 +27,11 @@ en:
         phone_number: "Phone number"
         address: "Address"
         date_of_birth: "Date of birth"
+  sessions:
+    new:
+      login: "Log in"
+      new_user: "New user?"
+      password: "Password"
+      remember_me: "Remember me on this computer"
+      danger: "Invalid email/password combination"
+      forgot: "(forgot password)"
