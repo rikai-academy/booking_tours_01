@@ -1,42 +1,56 @@
-<header class="navbar navbar-fixed-top navbar-inverse"> 
-  <div class="container">
-    <%= link_to t("global.name"), root_path, id: "logo" %>         
-    <nav>
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed"
-                data-toggle="collapse"
-                data-target="#bs-example-navbar-collapse-1"
-                aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>
-      </div>
-      <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
-          id="bs-example-navbar-collapse-1">
-        <li><%= link_to "EN", locale:"en" %></li>
-        <li><%= link_to "VI", locale:"vi" %></li>
-        <li><%= link_to t("global.home"), "#" %></li>
-        <li><%= link_to t("global.help"), "#" %></li>
-        <% if logged_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= t "global.account" %> <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to t("global.profile"), current_user %></li>
-              <li><%= link_to t("global.settings") %></li>
-              <li class="divider"></li> 
-              <li>
-                <%= link_to t("global.logout"), logout_path, method: :delete %>
-              </li>
-            </ul>
+<header>
+  <div class="container-fluid bg-dark">
+    <nav class="container navbar navbar-expand-lg navbar-dark ">
+      <%= link_to "Travel", "#", class:"navbar-brand"%>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <%= link_to root_path, :class => 'nav-link' do %>
+              <%=t("staticpages.home.home")%> <span class="sr-only">(current)</span>
+            <% end %>
           </li>
-        <% else %>
-          <li><%= link_to t("global.login"), login_path %></li>
-        <% end %>
-      </ul> 
-    </nav> 
+          <li class="nav-item">
+            <%= link_to t("staticpages.home.tour"), "#", class:"nav-link"%>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%=t("staticpages.home.reviews")%>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to t("staticpages.home.places"), "#", class:"dropdown-item"%>
+              <%= link_to t("staticpages.home.food"), "#", class:"dropdown-item"%>
+            </div>
+          </li>
+          <% if logged_in? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%=t("staticpages.home.account")%>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <%= link_to t("staticpages.home.profile"), "#", class:"dropdown-item"%>
+                <%= link_to t("staticpages.home.setting"), "#", class:"dropdown-item"%>
+                <%= link_to t("staticpages.home.logout"), logout_path, method: :delete, class:"dropdown-item"%>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to t("staticpages.home.signin"), login_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to t("staticpages.home.signup"), signup_path, class:"nav-link"%>
+            </li>
+          <% end %>
+          <li class="nav-item">
+            <%= link_to "EN", {locale:"en"}, {class:"nav-link"} %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "VI", {locale:"vi"}, {class:"nav-link"} %>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </div>
 </header>
