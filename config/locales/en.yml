@@ -1,11 +1,20 @@
 en:
+  global:
+    error: "error"
+    form: "The form contains"
   users:
+    shared:
+      not_found: "User not found"
     new:
       signup: "Sign up"
       create: "Create my account"
+      welcome: "Welcome to Booking Tours"
   activerecord:
     attributes:
       user:
         password: "Password"
         password_confirmation: "Confirmation"
         name: "Name"
+        phone_number: "Phone number"
+        address: "Address"
+        date_of_birth: "Date of birth"

@@ -1,11 +1,20 @@
 vi:
+  global:
+    error: "lỗi"
+    form: "Biểu mẫu chứa"
   users:
+    shared:
+      not_found: "Không tìm thấy người dùng"
     new:
       signup: "Đăng ký"
       create: "Tạo tài khoản"
+      welcome: "Chào mừng bạn đến với Booking Tours"
   activerecord:
     attributes:
       user:
         password: "Mật khẩu"
         password_confirmation: "Nhập lại mật khẩu"
         name: "Tên người dùng"
+        phone_number: "Số điện thoại"
+        address: "Địa chỉ"
+        date_of_birth: "Ngày sinh"
