@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse"> 
   <div class="container">
-    <%= link_to t("global.logo"), root_path, id: "logo" %>         
+    <%= link_to t("global.name"), root_path, id: "logo" %>         
     <nav>
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed"
@@ -17,8 +17,25 @@
           id="bs-example-navbar-collapse-1">
         <li><%= link_to "EN", locale:"en" %></li>
         <li><%= link_to "VI", locale:"vi" %></li>
-        <li><%= link_to t("static_pages.home"), root_path %></li>
-        <li><%= link_to t("static_pages.help"), '#' %></li>
+        <li><%= link_to t("global.home"), "#" %></li>
+        <li><%= link_to t("global.help"), "#" %></li>
+        <% if logged_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= t "global.account" %> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t("global.profile"), current_user %></li>
+              <li><%= link_to t("global.settings") %></li>
+              <li class="divider"></li> 
+              <li>
+                <%= link_to t("global.logout"), logout_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to t("global.login"), login_path %></li>
+        <% end %>
       </ul> 
     </nav> 
   </div>

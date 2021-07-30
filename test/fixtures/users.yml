@@ -1,0 +1,7 @@
+michael:
+  name: Michael Example
+  email: michael@example.com
+  address: "KTX Bach Khoa"
+  phone_number: "0389844022"
+  date_of_birth: "1999/01/01"
+  password_digest: <%= User.digest('password') %>
