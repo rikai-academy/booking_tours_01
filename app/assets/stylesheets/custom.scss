@@ -1,184 +1,77 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome";
 
-/* mixins, variables, etc. */
-$gray-medium-light: #eaeaea;
-
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/* typography */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1;
-}
-
-/* universal */
-
-body {
-  padding-top: 60px;
-}
-
-section {
-  overflow: auto;
-}
-
-textarea {
-  resize: vertical;
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
+.area {
+  position: relative;
   margin-bottom: 30px;
-  text-align: center;
 }
 
-.center {
-  text-align: center;
-
-  h1 {
-    margin-bottom: 10px;
-  }
+.area .area-content {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
 }
 
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $gray-light;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
-/* header */
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
+.area .area-content p {
+  margin-bottom: 0;
+  font-size: 22px;
   color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
+  font-weight: 400;
+}
 
-  &:hover {
-    color: #fff;
+.place {
+  position: relative;
+  margin-bottom: 30px;
+  background: #fff;
+	
+  a {
     text-decoration: none;
   }
 }
 
-/* miscellaneous */
+.area .area-content p a {
+  font-size: 12px;
+  border-radius: 30px;
+  font-weight: 400;
+  padding: 0 12px;
+  background: #1ec6b6;
+}
 
-.debug_dump {
-  clear: both;
-  float: left;
+.area .thumb img {
+  border-radius: 5px;
   width: 100%;
-  margin-top: 45px;
-  
-  @include box_sizing;
 }
 
-/* sidebar */
-
-aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-  
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0;
-    }
-  }
+.section-place {
+  background: #f7fafd;
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-.gravatar_edit {
-  margin-top: 15px;
-}
-
-/* forms */
-
-input,
-textarea,
-select,
-.uneditable-input {
-  border: 1px solid #bbb;
+.place .thumb img {
+  border-radius: 5px;
   width: 100%;
-  margin-bottom: 15px;
-  
-  @include box_sizing;
 }
 
-input {
-  height: auto !important;
+.place .price {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #1ec6b6;
+  padding: 7px 18px 4px 18px;
+  border-radius: 18px;
+  color: #fff;
+  font-size: 16px;
 }
 
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-  
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
+.place .place-content {
+  padding: 27px 20px 25px 20px;
 }
 
-#session_remember_me {
-  width: auto;
-  margin-left: 0;
+.place .place-content a h3 {
+  color: #000;
+  font-size: 22px;
 }
 
-#error_explanation {
-  color: red;
-  
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
-}
-
-.field_with_errors {
-  @extend .has-error;
-  
-  .form-control {
-    color: $state-danger-text;
-  }
+.place .place-content p {
+  color: #7a838b;
+  font-size: 14px;
 }

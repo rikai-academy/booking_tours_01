@@ -1,7 +1,12 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
-gem "rails",                      "~> 6.1.3", ">= 6.1.3.2"      
+gem "rails",                      "~> 6.1.3", ">= 6.1.3.2"  
+# Bootstrap
+gem "bootstrap", "~> 4.1.3"
+#jquery
+gem "jquery-rails"
+#font-awesome
+gem "font-awesome-rails", "~> 4.7", ">= 4.7.0.7"    
 gem "rails-i18n"
 gem "bcrypt"
 gem "omniauth"

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
-    root "users#new"
+    root 'static_pages#home'
     get "/signup",    to: "users#new"
     get "/login",     to: "sessions#new"
     post "/login",    to: "sessions#create"
@@ -8,3 +8,4 @@ Rails.application.routes.draw do
     resources :users
   end
 end
+
