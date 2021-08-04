@@ -35,6 +35,10 @@ en:
       remember_me: "Remember me on this computer"
       danger: "Invalid email/password combination"
       forgot: "(forgot password)"
+      facebook: "Sign in with Facebook"
+      google: "Sign in with Google"
+      twitter: "Sign in with Twitter"
+      error: "There are some errors, let try later" 
   staticpages:
     home:
       home: "Home"
