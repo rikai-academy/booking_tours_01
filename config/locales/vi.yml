@@ -35,6 +35,10 @@ vi:
       remember_me: "Nhớ tôi trên máy tính này"
       danger: "Sai tài khoản hoặc mật khẩu"
       forgot: "(quên mật khẩu)"
+      facebook: "Đăng nhập với Facebook"
+      google: "Đăng nhập với Google"
+      twitter: "Đăng nhập với Twitter"
+      error: "Có một số lỗi xảy ra, xin hẫy thử lại sau"      
   staticpages:
     home:
       home: "Trang chủ"

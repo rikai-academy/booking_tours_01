@@ -18,6 +18,9 @@
       <%= f.submit t("sessions.new.login"), class: "btn btn-primary" %>
     <% end %>
     
-    <p><%= t "sessions.new.new_user" %> <%= link_to t("global.signup"), signup_path %></p>
+    <p><%= t "sessions.new.new_user" %> <%= link_to t("global.signup"), signup_path %></p> 
+    <%= link_to fa_icon("facebook", text: t("sessions.new.facebook")), user_facebook_omniauth_authorize_path, class: "btn btn-lg btn-block btn-facebook", method: :post %>
+    <%= link_to fa_icon("google", text: t("sessions.new.google")), user_google_oauth2_omniauth_authorize_path, class: "btn btn-lg btn-block btn-google", method: :post %>
+    <%= link_to fa_icon("twitter", text: t("sessions.new.twitter")), user_twitter_omniauth_authorize_path, class: "btn btn-lg btn-block btn-twitter", method: :post %>
   </div>
 </div>
