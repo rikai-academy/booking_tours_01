@@ -1,3 +1,137 @@
-// Place all the styles related to the StaticPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+//review
+.content {
+  padding: 35px 0;
+}
+
+.vt-post {
+  .caption {
+    padding: 25px 0;
+    margin: 0 0 20px 0;
+    color: #36a0e7;
+    font-weight: 300;
+    font-size: 34px;
+    line-height: 42px;
+    float: left;
+    width: 100%;
+    text-align: left;
+
+    p {
+      line-height: 28px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #000;
+    }
+  }
+
+  .post-img {
+    a {
+      img {
+        border-radius: 3px 0 0 0;
+      }
+    }
+  }
+
+  .author-info {
+    border-radius: 0 0 0 3px;
+    border-bottom: none;
+    border-right: 1px solid #ddd;
+    padding: 15px 12px 15px 12px;
+
+    ul {
+      li {
+        padding-left: 15px;
+        padding-right: 15px;
+        float: none;
+      }
+    }
+  }
+}
+
+.post-list {
+  padding: 90px 0;
+}
+
+.post-detail {
+  padding: 40px 0;
+  margin-top: 120px;
+}
+
+.post {
+  width: 100%;
+  float: left;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  background: #fff;
+  margin-bottom: 40px;
+  border-radius: 3px;
+
+  .author-info {
+    padding: 15px 15px 15px 15px;
+    text-align: left;
+    min-height: 60px;
+    border-bottom: 1px solid #ddd;
+    background: #fcfcfc;
+    float: left;
+    width: 100%;
+  }
+
+  .post-type {
+    float: left;
+    width: 100%;
+  }
+}
+
+.post .post-img a img {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  height: auto;
+  border-radius: 3px 3px 0 0;
+}
+
+.post .post-img a {
+  display: block;
+}
+
+.post .post-img:hover a img {
+  opacity: 0.7;
+}
+
+.post .author-info .list-inline {
+  margin: 0;
+}
+
+.post .author-info ul li {
+  float: left;
+  border-left: 1px solid #ddd;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  p {
+    line-height: 16px;
+    color: #3b4952;
+    font-weight: 300;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  a {
+    color: #3b4952;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .info {
+    float: left;
+  }
+}
+
+.md-heading {
+  font-size: 24px !important;
+  line-height: 36px !important;
+  margin-bottom: 15px !important;
+}

@@ -13,15 +13,15 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to t("staticpages.home.tour"), "#", class:"nav-link"%>
+            <%= link_to t("staticpages.home.tour"), tour_path, class:"nav-link"%>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%=t("staticpages.home.reviews")%>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to t("staticpages.home.places"), "#", class:"dropdown-item"%>
-              <%= link_to t("staticpages.home.food"), "#", class:"dropdown-item"%>
+              <%= link_to t("staticpages.home.places"), place_path, class:"dropdown-item"%>
+              <%= link_to t("staticpages.home.food"), food_path, class:"dropdown-item"%>
             </div>
           </li>
           <% if logged_in? %>

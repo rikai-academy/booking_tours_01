@@ -6,7 +6,10 @@ gem "bootstrap", "~> 4.1.3"
 #jquery
 gem "jquery-rails"
 #font-awesome
-gem "font-awesome-rails", "~> 4.7", ">= 4.7.0.7"    
+gem "font-awesome-rails", "~> 4.7", ">= 4.7.0.7"
+gem "faker", "~>2.1.2"
+gem "will_paginate", "~>3.1.8"
+gem "bootstrap-will_paginate", "~>1.0.0"  
 gem "rails-i18n"
 gem "bcrypt"
 gem "devise"

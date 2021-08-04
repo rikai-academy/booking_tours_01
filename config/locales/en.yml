@@ -76,3 +76,14 @@ en:
       product: "Product"
       domestic: "Domestic tour"
       foreign:  "Foreign tour"
+  tour:
+    tour:
+      tourlist: "All tour"
+  review:
+    review:
+      posted: "Posted on:"
+      name: "Review 1"
+      content: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla."
+      readmore: "Read more"
+      foodreview: "Food Review"
+      placereview: "Place Review"
