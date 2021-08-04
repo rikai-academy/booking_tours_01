@@ -17,6 +17,14 @@
   font-size: 22px;
   color: #fff;
   font-weight: 400;
+
+  a {
+    font-size: 12px;
+    border-radius: 30px;
+    font-weight: 400;
+    padding: 0 12px;
+    background: #1ec6b6;
+  }
 }
 
 .place {
@@ -27,14 +35,6 @@
   a {
     text-decoration: none;
   }
-}
-
-.area .area-content p a {
-  font-size: 12px;
-  border-radius: 30px;
-  font-weight: 400;
-  padding: 0 12px;
-  background: #1ec6b6;
 }
 
 .area .thumb img {
@@ -64,18 +64,19 @@
 
 .place .place-content {
   padding: 27px 20px 25px 20px;
-}
 
-.place .place-content a h3 {
-  color: #000;
-  font-size: 22px;
+  p {
+    color: #7a838b;
+    font-size: 14px;
+  }
+  
+  a {
+    h3 {
+      color: #000;
+      font-size: 22px;
+    }
+  }
 }
-
-.place .place-content p {
-  color: #7a838b;
-  font-size: 14px;
-}
-
 #session_remember_me {
   width: auto;
   margin-left: 0;

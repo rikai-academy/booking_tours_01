@@ -48,7 +48,7 @@ vi:
       places: "Địa điểm"
       signin: "Đăng nhập"
       signup: "Đăng kí"
-      acount: "Tài khoản"
+      account: "Tài khoản"
       setting: "Cài đặt"
       profile: "Thông tin"
       logout: "Đăng xuất"
@@ -76,3 +76,14 @@ vi:
       product: "Sản phẩm"
       domestic: "Tour trong nước"
       foreign:  "Tour nước ngoài"
+  tour:
+    tour:
+      tourlist: "Danh sách tour"
+  review:
+    review:
+      posted: "Đã đăng lúc:"
+      name: "Review 1"
+      content: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla."
+      readmore: "Xem thêm"
+      foodreview: "Review đồ ăn"
+      placereview: "Review địa điểm"
