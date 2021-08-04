@@ -9,9 +9,12 @@ gem "jquery-rails"
 gem "font-awesome-rails", "~> 4.7", ">= 4.7.0.7"    
 gem "rails-i18n"
 gem "bcrypt"
+gem "devise"
 gem "omniauth"
 gem "omniauth-google-oauth2"
-gem "json"
+gem "omniauth-facebook"
+gem "omniauth-twitter"
+gem "omniauth-rails_csrf_protection"
 gem "bootstrap-sass",             ">= 3.4.1"
 gem "puma",                       "~> 5.3.1"
 gem "sass-rails",                 ">= 6.0.0"
@@ -27,10 +30,11 @@ group :development, :test do
 end
 
 group :development do
-  gem "web-console",            ">= 4.1.0"
-  gem "listen",                 ">= 3.4.1"
-  gem "spring",                 "~> 2.1.1"
-  gem "spring-watcher-listen",  "~> 2.0.1"
+  gem "web-console",              ">= 4.1.0"
+  gem "listen",                   ">= 3.4.1"
+  gem "spring",                   "~> 2.1.1"
+  gem "spring-watcher-listen",    "~> 2.0.1"
+  gem "win32console",             "~> 1.3.2"
 end
 
 group :test do
