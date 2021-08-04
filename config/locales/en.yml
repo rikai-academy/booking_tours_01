@@ -14,10 +14,20 @@ en:
   users:
     shared:
       not_found: "User not found"
+      not_right: "This action need right to accept"
     new:
       signup: "Sign up"
       create: "Create my account"
       welcome: "Welcome to Booking Tours"
+    show:
+      edit: "Edit"
+    edit:
+      title: "Edit user"
+      update: "Update your profile"
+      save: "Save changes"
+      change: "Change"
+      updated: "Profile updated"
+      danger: "Please log in."
   activerecord:
     attributes:
       user:

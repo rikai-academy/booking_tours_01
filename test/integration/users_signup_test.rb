@@ -10,8 +10,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          address: "",
                                          phone_number: "",
                                          date_of_birth: "",
-                                         password: "",
-                                         password_confirmation: "" } }
+                                         password: "foo",
+                                         password_confirmation: "bar" } }
     end
     assert_template "users/new"
     assert_select "div#error_explanation"

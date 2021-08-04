@@ -14,10 +14,20 @@ vi:
   users:
     shared:
       not_found: "Không tìm thấy người dùng"
+      not_right: "Hành động này cần có quyền hạn nhất định"
     new:
       signup: "Đăng ký"
       create: "Tạo tài khoản"
       welcome: "Chào mừng bạn đến với Booking Tours"
+    show:
+      edit: "Chỉnh sửa"
+    edit:
+      title: "Chỉnh sửa thông tin"
+      update: "Cập nhật thông tin của bạn"
+      save: "Lưu thay đổi"
+      change: "Thay đổi"
+      updated: "Cập nhật hồ sơ thành công"
+      danger: "Vui lòng đăng nhập trước."
   activerecord:
     attributes:
       user:
