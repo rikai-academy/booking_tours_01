@@ -11,7 +11,9 @@
             </div>
           </div>
           <div class=row>
-            <%= will_paginate class:"ml-auto"%>
+          <%= will_paginate @collection, :previous_label => "<i class='fas fa-arrow-left'></i>" + t("global.previous"),
+                                         :next_label => t("global.next") + "<i class='fas fa-arrow-right'></i>",
+                                         class: "ml-auto" %>
           </div>
           <div class="row">
             <% @tours.each do |tour| %>

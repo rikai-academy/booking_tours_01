@@ -11,6 +11,9 @@ en:
     settings: "Settings"
     logout: "Log out"
     account: "Account"
+    users: "Users"
+    previous: "Previous"
+    next: "Next"
   users:
     shared:
       not_found: "User not found"
@@ -28,6 +31,12 @@ en:
       change: "Change"
       updated: "Profile updated"
       danger: "Please log in."
+    index:
+      title: "All users"
+      delete: "Delete"
+      confirm: "Are you sure?"
+      deleted: "User deleted"
+      failed: "User didn't deleted"
   activerecord:
     attributes:
       user:
@@ -49,6 +58,9 @@ en:
       google: "Sign in with Google"
       twitter: "Sign in with Twitter"
       error: "There are some errors, let try later" 
+  admin:
+    users:
+      add: "Add a new user"
   staticpages:
     home:
       home: "Home"

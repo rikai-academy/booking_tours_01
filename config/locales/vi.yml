@@ -11,6 +11,9 @@ vi:
     settings: "Cài đặt"
     logout: "Đăng xuất"
     account: "Tài khoản"
+    users: "Người dùng"
+    previous: "Trước"
+    next: "Sau"
   users:
     shared:
       not_found: "Không tìm thấy người dùng"
@@ -28,6 +31,12 @@ vi:
       change: "Thay đổi"
       updated: "Cập nhật hồ sơ thành công"
       danger: "Vui lòng đăng nhập trước."
+    index:
+      title: "Tất cả người dùng"
+      delete: "Xóa"
+      confirm: "Bạn chắc chắc chứ?"
+      deleted: "Xóa người dùng thành công"
+      failed: "Xóa người dùng không thành công"
   activerecord:
     attributes:
       user:
@@ -49,6 +58,9 @@ vi:
       google: "Đăng nhập với Google"
       twitter: "Đăng nhập với Twitter"
       error: "Có một số lỗi xảy ra, xin hẫy thử lại sau"      
+  admin:
+    users:
+      add: "Thêm một người dùng mới"
   staticpages:
     home:
       home: "Trang chủ"
@@ -97,3 +109,4 @@ vi:
       readmore: "Xem thêm"
       foodreview: "Review đồ ăn"
       placereview: "Review địa điểm"
+

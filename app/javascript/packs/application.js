@@ -4,7 +4,8 @@ require("@rails/activestorage").start()
 require("channels")
 
 require("bootstrap")
-import "../stylesheets/application"
+import "@fortawesome/fontawesome-free/css/all";
+import "../stylesheets/application";
 document.addEventListener("turbolinks:load", ()=>{
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()

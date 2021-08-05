@@ -54,11 +54,11 @@
               <%= @user.address %>
             </div>
           </div>
-          <% if current_user?(@user) %>
+          <% if current_user?(@user) || current_user&.admin? %>
             <hr>
             <div class="row">
               <div class="col-sm-12">
-              <%= link_to t("users.show.edit"), edit_user_path(current_user), target: "_blank", class: "btn btn-info" %>
+              <%= link_to t("users.show.edit"), edit_user_path(@user), target: "_blank", class: "btn btn-info" %>
               </div>
             </div>
           <% end %>
