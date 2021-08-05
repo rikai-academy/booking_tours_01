@@ -101,6 +101,9 @@ vi:
   tour:
     tour:
       tourlist: "Danh sách tour"
+      searchalert: "Không có tour nào được tìm thấy"
+      previous: "Trước"
+      next: "Sau"
   review:
     review:
       posted: "Đã đăng lúc:"
