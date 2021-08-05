@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_03_025254) do
+ActiveRecord::Schema.define(version: 2021_08_03_030343) do
 
   create_table "tours", force: :cascade do |t|
     t.string "tour_name"
@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(version: 2021_08_03_025254) do
     t.date "date_of_birth"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "encrypted_password"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.string "remember_digest"
     t.string "provider"
     t.string "uid"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

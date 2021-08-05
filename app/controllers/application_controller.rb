@@ -12,6 +12,28 @@ class ApplicationController < ActionController::Base
         redirect_to login_url
       end
     end
+
+    # Confirms the correct user.
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user) || current_user.admin?
+    rescue ActiveRecord::RecordNotFound
+      flash[:danger] = t("users.shared.not_right")
+      redirect_to root_url
+    end
+
+    # Confirms an admin user.
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
+
+    # Strong parameters
+    def user_params
+      params.require(:user).permit(:name, :email, :address,
+                                   :phone_number, :date_of_birth,
+                                   :password, :password_confirmation)
+    end
+
     
     # i18n method
   

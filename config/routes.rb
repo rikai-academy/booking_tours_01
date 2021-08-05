@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy"
     get "/tour",      to: "tours#tour"
     resources :users
+    namespace :admin do
+      resources :users, only: [:new, :create]
+    end
   end
 end
 
