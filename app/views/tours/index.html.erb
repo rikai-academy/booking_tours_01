@@ -34,41 +34,16 @@
               </div>
             </div>
           </div>
+          <div class="row">
+            <%= link_to t('tour.tour.create'), new_tour_path, {class:"btn btn-danger ml-auto"} %>
+          </div>
           <div class=row>
-          <%= will_paginate @collection, :previous_label => "<i class='fas fa-arrow-left'></i>" + t("global.previous"),
+            <%= will_paginate @collection, :previous_label => "<i class='fas fa-arrow-left'></i>" + t("global.previous"),
                                          :next_label => t("global.next") + "<i class='fas fa-arrow-right'></i>",
                                          class: "ml-auto" %>
           </div>
           <div class="row">
-            <% @tours.each do |tour| %>
-              <div class="col-lg-4">
-                <div class="place">
-                  <div class="thumb">
-                    <%= link_to image_tag("place1.png")%>
-                    <%= link_to "$500", "#", class:"price"%>          
-                  </div>
-                  <div class="place-content">
-                    <%= link_to "#" do %>
-                      <h3><%=tour.tour_name%></h3>
-                    <% end %>
-                    <p>United State of America</p>
-                    <div class="rating d-flex justify-content-between">
-                      <span>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </span>
-                      <div class="days">
-                        <i class="fa fa-clock-o"></i>
-                        <%= link_to ("5 "+t("staticpages.home.day")), "#"%>
-                      </div>
-                    </div>
-                  </div>
-                </div>	
-              </div>
-            <% end %>
+            <%= render @tours%>
           </div>
         <%end%>
       </div>
