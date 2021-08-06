@@ -101,6 +101,9 @@ en:
   tour:
     tour:
       tourlist: "All tour"
+      searchalert: "Tour not found!"
+      previous: "Previous"
+      next: "Next"
   review:
     review:
       posted: "Posted on:"

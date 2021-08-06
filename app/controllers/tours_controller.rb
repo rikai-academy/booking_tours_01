@@ -1,5 +1,8 @@
 class ToursController < ApplicationController
-  def tour
-    @tours= Tour.paginate(page: params[:page])
+  def index
+    @tours = Tour.search(params[:term]).paginate(page: params[:page])
+  end
+  def tour_params
+    params.require(:tour).permit(:term)
   end
 end
