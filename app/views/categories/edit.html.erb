@@ -1,0 +1,8 @@
+<% provide(:title, t("category.category.updatebtn")) %>
+<% provide(:button_label, t("category.category.updatebtn")) %>
+<%= form_with(model: @category, local: true) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.label :category_name %>
+  <%= f.text_field :category_name, class: "form-control" %>  
+  <%= f.submit "Create", class: "btn btn-primary mt-4" %>
+<% end %>

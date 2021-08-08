@@ -144,3 +144,16 @@ en:
       readmore: "Read more"
       foodreview: "Food Review"
       placereview: "Place Review"
+  category:
+    category:
+      title: "Category"
+      name: "Name"
+      action: "Action"
+      manage: "Manage Category"
+      createbtn: "Create"
+      updatebtn: "Update"
+      deletebtn: "Delete"
+      new: "Created successfully"
+      delete: "Deleted successfully"
+      update: "Updated successfully"
+      fail: "Error! An error occurred. Please try again later"
