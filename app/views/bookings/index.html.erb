@@ -1,0 +1,42 @@
+<div class="container mb-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"> </th>
+              <th scope="col">Tour</th>
+              <th scope="col"><%= t "bookings.index.state" %></th>
+              <th scope="col" class="text-right"><%= t "bookings.index.price" %></th>
+              <th> </th>
+            </tr>
+          </thead>
+            <tbody>
+              <% if @bookings.any? %>
+                <%= render @bookings %>
+              <% end %>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><strong><%= t "bookings.index.total" %></td>
+                <td class="text-right"><strong>346,90 €</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="row">
+          <div class="col-sm-12  col-md-6">
+            <%= link_to t("bookings.index.continue"), tours_path, class: "btn btn-block btn-light" %>
+          </div>
+          <div class="col-sm-12 col-md-6 text-right">
+            <%= link_to t("bookings.index.pay"), payment_path, class: "btn btn-lg btn-block btn-success text-uppercase" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

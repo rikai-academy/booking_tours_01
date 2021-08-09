@@ -33,7 +33,6 @@ class ApplicationController < ActionController::Base
                                    :phone_number, :date_of_birth,
                                    :password, :password_confirmation)
     end
-
     
     # i18n method
   

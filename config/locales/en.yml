@@ -37,6 +37,21 @@ en:
       confirm: "Are you sure?"
       deleted: "User deleted"
       failed: "User didn't deleted"
+  bookings:
+    shared:
+      not_found: "Booking not found"
+      failed: "Something went wrong!!"
+    index:
+      cancel: "Cancel your booking"
+      inform: "Booking was cancelled successfully"
+      continue: "Continue your booking"
+      confirm: "Are you sure?"
+      pay: "Confirm and Pay"
+      state: "State"
+      price: "Price"
+      total: "Total"
+    checkout:
+      success: "Your space was booked successfully."      
   activerecord:
     attributes:
       user:
@@ -99,7 +114,9 @@ en:
       domestic: "Domestic tour"
       foreign:  "Foreign tour"
   tour:
-    tour:
+    shared:
+      not_found: "Tour not found"
+    index:
       tourlist: "All tour"
       searchalert: "Tour not found!"
       previous: "Previous"
@@ -115,6 +132,10 @@ en:
       update: "Update tour"
     new:
       new: "Create tour"  
+    show:
+      available: "Available"
+      full: "Full"
+      booking: "Booking"
   review:
     review:
       posted: "Posted on:"

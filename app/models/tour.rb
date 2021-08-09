@@ -1,4 +1,8 @@
 class Tour < ApplicationRecord
+  has_many :bookings
+  has_many :users, through: :bookings
+
+
   validates :tour_name, presence: true, length: { maximum: 50}
   validates :description, presence: true, length: { maximum: 255}
   validates :status, presence: true

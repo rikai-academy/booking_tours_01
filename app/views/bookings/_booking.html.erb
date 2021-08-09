@@ -1,0 +1,8 @@
+<tr>
+  <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+    <td><%= booking.tour.tour_name %></td>
+    <td><%= booking.status %></td>
+    <td class="text-right"><%= booking.total %>$</td>
+    <td class="text-right"><%= link_to t("bookings.index.cancel"), booking, method: :delete,
+                               class: "btn btn-sm btn-danger", data: {confirm: t("bookings.index.confirm")} %></td>
+</tr>
