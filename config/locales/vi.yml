@@ -146,4 +146,17 @@ vi:
       readmore: "Xem thêm"
       foodreview: "Review đồ ăn"
       placereview: "Review địa điểm"
+  category:
+    category:
+      title: "Category"
+      name: "Tên"
+      action: "Hành động"
+      manage: "Quản lí Category"
+      createbtn: "Thêm"
+      updatebtn: "Sửa"
+      deletebtn: "Xóa"
+      new: "Đã tạo thành công!"
+      delete: "Đã xóa thành công!"
+      update: "Đã sửa thành công!"
+      fail: "Đã xảy ra lỗi!"
 

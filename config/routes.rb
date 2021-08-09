@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'category/new'
   devise_for :users,
               controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
     resources :bookings
     resources :tours
     resources :users
+    resources :categories
     namespace :admin do
       resources :users, only: [:new, :create]
     end
