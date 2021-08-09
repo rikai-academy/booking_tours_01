@@ -104,6 +104,17 @@ vi:
       searchalert: "Không có tour nào được tìm thấy"
       previous: "Trước"
       next: "Sau"
+      new: "Đã thêm tour thành công!"
+      create: "Thêm tour"
+      update: "Sửa"
+      delete: "Xóa"
+      updated: "Cập nhật thành công!"
+      deleted: "Đã xóa thành công!"
+      fail: "Đã xảy ra lỗi!"
+    edit:
+      update: "Cập nhật tour"
+    new:
+      new: "Thêm tour"      
   review:
     review:
       posted: "Đã đăng lúc:"

@@ -104,6 +104,17 @@ en:
       searchalert: "Tour not found!"
       previous: "Previous"
       next: "Next"
+      new: "Created success!"
+      create: "Create tour"
+      update: "Update"
+      delete: "Delete"
+      updated: "Updated success!"
+      deleted: "Deleted success!"
+      fail: "Done error out during deletion."
+    edit:
+      update: "Update tour"
+    new:
+      new: "Create tour"  
   review:
     review:
       posted: "Posted on:"

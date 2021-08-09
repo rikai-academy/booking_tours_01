@@ -1,0 +1,37 @@
+<div class="col-lg-4">
+  <div class="place">
+    <div class="thumb">
+      <%= link_to image_tag("place1.png"), tour_path(tour.id) %>
+        <%= tour.price %>          
+    </div>
+    <div class="place-content">
+      <%= link_to "#" do %>
+        <h3><%= link_to tour.tour_name, tour %></h3>
+      <% end %>
+      <p><%= tour.description %></p>
+      <p><%= tour.tour_amount %></p>
+      <% if tour.status %>
+        <p><%= t "tour.show.available" %></p>
+      <% else %>
+        <p><%= t "tour.show.full" %></p>
+      <% end %>
+      <div class="rating d-flex justify-content-between">
+        <span>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </span>
+        <div class="days">
+          <i class="fa fa-clock-o"></i>
+          <span><%= (tour.date_end - tour.date_begin).to_s + t("staticpages.home.day") %></span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <%= link_to t('tour.tour.update'), edit_tour_path(tour.id), {class:"btn btn-danger"} %>
+      <%= link_to t('tour.tour.delete'), tour, method: :delete, data: { confirm: "You sure?" } ,class:"btn btn-danger"%>
+    </div>
+  </div>	
+</div> 
