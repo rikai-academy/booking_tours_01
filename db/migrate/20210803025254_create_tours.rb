@@ -8,7 +8,7 @@ class CreateTours < ActiveRecord::Migration[6.1]
       t.integer :cur_amount, default: 0, null: false
       t.date :date_begin
       t.date :date_end
-      t.float :price
+      t.integer :price
 
       t.timestamps
     end

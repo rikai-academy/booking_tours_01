@@ -16,7 +16,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
       log_in @user
       flash[:success] = t("users.new.welcome")
-      redirect_to user_path(@user.id)
+      redirect_back_or @user
     else
       flash[:error] = t("sessions.new.error")
       redirect_to root_url
@@ -25,5 +25,5 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def failure
     redirect_to root_url
-  end
+  end 
 end

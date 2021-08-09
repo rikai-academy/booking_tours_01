@@ -25,20 +25,9 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
-
   private
 
     def booking_params
       params.permit(:tour_id, :price)
-    end
-  
-    # Before filters
-    
-    # Find a booking
-    def load_booking
-      @booking = current_user.bookings.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      flash[:danger] = t("bookings.shared.not_found")
-      redirect_to root_url
     end
 end

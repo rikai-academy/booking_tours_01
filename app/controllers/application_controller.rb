@@ -33,7 +33,15 @@ class ApplicationController < ActionController::Base
                                    :phone_number, :date_of_birth,
                                    :password, :password_confirmation)
     end
-    
+
+    # Find a booking
+    def load_booking
+      @booking = current_user.bookings.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:danger] = t("bookings.shared.not_found")
+      redirect_to root_url
+    end
+
     # i18n method
   
     def default_url_options
@@ -49,5 +57,5 @@ class ApplicationController < ActionController::Base
       if I18n.available_locales.map(&:to_s).include?(parsed_locale)
         parsed_locale.to_sym
       end
-    end
+    end   
 end

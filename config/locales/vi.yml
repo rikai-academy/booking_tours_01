@@ -14,6 +14,7 @@ vi:
     users: "Người dùng"
     previous: "Trước"
     next: "Sau"
+    bookings: "Yêu thích"
   users:
     shared:
       not_found: "Không tìm thấy người dùng"
@@ -41,17 +42,29 @@ vi:
     shared:
       not_found: "Không tìm thấy yêu cầu"
       failed: "Có lỗi xảy ra, vui lòng thử lại sau!"
+      success: "Thành công"
+      home: "Tiếp tục tới trang chủ"
+      trouble: "Có vấn đề?"
+      contact: "Liên hệ với chúng tôi"
+      paid: "Bạn đã thanh toán "
+      status: "Trạng thái thanh toán: "
+      cancel: "Huỷ bỏ"
+      info: "Có lỗi phát sinh, vui lòng thử lại sau."
+      pay_now: "Thanh toán ngay!"
     index:
       cancel: "Hủy đơn"
       inform: "Bạn đã hủy đơn thành công"
       continue: "Tiếp tục đặt"
       confirm: "Bạn chắc chứ?"
       pay: "Xác nhận và thanh toán"
-      state: "Tình trạng"
+      currency: "Tiền tệ"
       price: "Đơn giá"
       total: "Tổng"
+      state: "Tình trạng"
     checkout:
       success: "Bạn đã đặt thành công."
+      full: "Tour này đã hết chỗ"
+      notice: "Có tour đầy trong các tour của bạn, vui lòng kiểm tra lại"
   activerecord:
     attributes:
       user:

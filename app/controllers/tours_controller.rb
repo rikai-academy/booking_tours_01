@@ -9,7 +9,7 @@ class ToursController < ApplicationController
   def create
     @tour = Tour.new(tour_params) 
     if @tour.save
-      flash[:success] = t("tour.tour.new")
+      flash[:success] = t("tour.index.new")
       redirect_to @tour
     else 
       render :new
@@ -21,7 +21,7 @@ class ToursController < ApplicationController
   end
   def update
     if @tour.update(tour_params)
-      flash[:success] = t("tour.tour.updated")
+      flash[:success] = t("tour.index.updated")
       redirect_to @tour
     else
       render :edit
@@ -29,9 +29,9 @@ class ToursController < ApplicationController
   end
   def destroy
     if @tour.destroy
-      flash[:success] = t("tour.tour.deleted")
+      flash[:success] = t("tour.index.deleted")
     else
-      flash[:danger] = t("tour.tour.fail")
+      flash[:danger] = t("tour.index.fail")
     end
     redirect_to tours_url
   end
@@ -43,7 +43,7 @@ class ToursController < ApplicationController
     def load_tour
       @tour = Tour.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      flash[:danger] = t("tour.tour.fail")
+      flash[:danger] = t("tour.index.fail")
       redirect_to root_url
     end
 end

@@ -1,8 +1,14 @@
 <tr>
   <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-    <td><%= booking.tour.tour_name %></td>
-    <td><%= booking.status %></td>
-    <td class="text-right"><%= booking.total %>$</td>
-    <td class="text-right"><%= link_to t("bookings.index.cancel"), booking, method: :delete,
+  <td><%= booking.tour.tour_name %></td>
+  <td><%= booking.status %></td>
+  <td><%= Stripe::Price.retrieve(booking.stripe_price_id)&.currency %></td>
+  <td><%= (Stripe::Price.retrieve(booking.stripe_price_id)&.unit_amount / 100).to_f %></td>
+  <td class="text-center"><%= button_to t("bookings.shared.pay_now"), checkout_path,
+                                                    params: {id: booking.id},
+                                                    method: :post,
+                                                    remote: true,
+                                                    class: "btn btn-primary" %></td>
+  <td class="text-right"><%= link_to t("bookings.index.cancel"), booking, method: :delete,
                                class: "btn btn-sm btn-danger", data: {confirm: t("bookings.index.confirm")} %></td>
 </tr>

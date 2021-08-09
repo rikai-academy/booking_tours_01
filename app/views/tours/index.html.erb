@@ -22,7 +22,7 @@
   <div class=row d-flex justify-content-center>
     <% if @tours.size==0%>
       <div class="col-lg-12 text-center">
-        <h3><%=t("tour.tour.searchalert")%></h3>
+        <h3><%=t("tour.index.searchalert")%></h3>
       </div>
     <%else%>
       <div class="section-content section-place mt-4">
@@ -30,12 +30,12 @@
           <div class="row justify-content-center">
             <div class="col-lg-6">
               <div class="section-title text-center">
-                <h3><%=t("tour.tour.tourlist")%></h3>
+                <h3><%=t("tour.index.tourlist")%></h3>
               </div>
             </div>
           </div>
           <div class="row">
-            <%= link_to t('tour.tour.create'), new_tour_path, {class:"btn btn-danger ml-auto"} %>
+            <%= link_to t('tour.index.create'), new_tour_path, {class:"btn btn-danger ml-auto"} %>
           </div>
           <div class=row>
             <%= will_paginate @collection, :previous_label => "<i class='fas fa-arrow-left'></i>" + t("global.previous"),

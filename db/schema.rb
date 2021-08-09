@@ -17,8 +17,11 @@ ActiveRecord::Schema.define(version: 2021_08_08_024411) do
     t.integer "tour_id", null: false
     t.integer "total"
     t.integer "status"
+    t.string "currency", default: "usd"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "stripe_price_id"
+    t.string "stripe_product_id"
     t.index ["tour_id"], name: "index_bookings_on_tour_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_08_08_024411) do
     t.integer "cur_amount", default: 0, null: false
     t.date "date_begin"
     t.date "date_end"
-    t.float "price"
+    t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -57,6 +60,7 @@ ActiveRecord::Schema.define(version: 2021_08_08_024411) do
     t.string "provider"
     t.string "uid"
     t.boolean "admin", default: false
+    t.string "stripe_customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
