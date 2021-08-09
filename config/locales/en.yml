@@ -101,6 +101,7 @@ en:
       acount: "Acount"
       setting: "Settings"
       profile: "Profile"
+      reviews: "Review"
       logout: "Log out"
       welcome: "Welcome to Travel!"
       bookingtour: "Booking tour now"
@@ -151,12 +152,24 @@ en:
       booking: "Booking"
   review:
     review:
+      title: "Review"
+      allreview: "All review"
       posted: "Posted on:"
       name: "Review 1"
       content: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla."
       readmore: "Read more"
       foodreview: "Food Review"
       placereview: "Place Review"
+      new: "Created success!"
+      updated: "Updated success!"
+      deleted: "Deleted success!"
+      fail: "Done error out during deletion."
+    edit:
+      title: "Update Review"
+      update: "Update"
+    new:
+      title: "Create Review"
+      create: "Create"
   category:
     category:
       title: "Category"

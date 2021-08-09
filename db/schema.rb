@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_08_024411) do
+ActiveRecord::Schema.define(version: 2021_08_09_075301) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 2021_08_08_024411) do
     t.string "category_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "user_id", null: false
+    t.string "review_name"
+    t.text "review_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_reviews_on_category_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "tours", force: :cascade do |t|
@@ -67,4 +78,6 @@ ActiveRecord::Schema.define(version: 2021_08_08_024411) do
 
   add_foreign_key "bookings", "tours"
   add_foreign_key "bookings", "users"
+  add_foreign_key "reviews", "categories"
+  add_foreign_key "reviews", "users"
 end
