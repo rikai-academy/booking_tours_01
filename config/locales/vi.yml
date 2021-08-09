@@ -37,6 +37,21 @@ vi:
       confirm: "Bạn chắc chắc chứ?"
       deleted: "Xóa người dùng thành công"
       failed: "Xóa người dùng không thành công"
+  bookings:
+    shared:
+      not_found: "Không tìm thấy yêu cầu"
+      failed: "Có lỗi xảy ra, vui lòng thử lại sau!"
+    index:
+      cancel: "Hủy đơn"
+      inform: "Bạn đã hủy đơn thành công"
+      continue: "Tiếp tục đặt"
+      confirm: "Bạn chắc chứ?"
+      pay: "Xác nhận và thanh toán"
+      state: "Tình trạng"
+      price: "Đơn giá"
+      total: "Tổng"
+    checkout:
+      success: "Bạn đã đặt thành công."
   activerecord:
     attributes:
       user:
@@ -99,7 +114,9 @@ vi:
       domestic: "Tour trong nước"
       foreign:  "Tour nước ngoài"
   tour:
-    tour:
+    shared:
+      not_found: "Không tìm thấy tour"
+    index:
       tourlist: "Danh sách tour"
       searchalert: "Không có tour nào được tìm thấy"
       previous: "Trước"
@@ -115,6 +132,12 @@ vi:
       update: "Cập nhật tour"
     new:
       new: "Thêm tour"      
+    show:
+      available: "Còn trống"
+      full: "Đã hết chỗ"
+      booking: "Đặt"
+    destroy:
+      inform: "Bạn đã hủy tour thành công, tiền sẽ được trả lại sớm"
   review:
     review:
       posted: "Đã đăng lúc:"

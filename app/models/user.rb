@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :bookings
+  has_many :tours, through: :bookings
+
   devise :database_authenticatable,
          :recoverable, :trackable, :omniauthable,
          omniauth_providers: [:facebook, :google_oauth2, :twitter]
