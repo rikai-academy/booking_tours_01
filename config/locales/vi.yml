@@ -101,6 +101,7 @@ vi:
       account: "Tài khoản"
       setting: "Cài đặt"
       profile: "Thông tin"
+      reviews: "Review"
       logout: "Đăng xuất"
       welcome: "Chào mừng đến với Travel!"
       bookingtour: "Đặt vé ngay!"
@@ -153,12 +154,24 @@ vi:
       inform: "Bạn đã hủy tour thành công, tiền sẽ được trả lại sớm"
   review:
     review:
+      title: "Review"
+      allreview: "Tất cả review"
       posted: "Đã đăng lúc:"
       name: "Review 1"
       content: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla."
       readmore: "Xem thêm"
       foodreview: "Review đồ ăn"
       placereview: "Review địa điểm"
+      new: "Đã thêm tour thành công!"
+      updated: "Cập nhật thành công!"
+      deleted: "Đã xóa thành công!"
+      fail: "Đã xảy ra lỗi!"
+    edit:
+      title: "Cập nhật Review"
+      update: "Cập nhật"
+    new:
+      title: "Thêm Review"
+      create: "Thêm"
   category:
     category:
       title: "Category"

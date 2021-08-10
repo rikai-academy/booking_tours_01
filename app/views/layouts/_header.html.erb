@@ -42,6 +42,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                 <%= link_to t("staticpages.home.profile"), current_user, class: "dropdown-item" %>
                 <%= link_to t("staticpages.home.setting"), "#" , class: "dropdown-item" %>
+                <%= link_to t("staticpages.home.reviews"), reviews_path, class: "dropdown-item" %>
                 <%= link_to t("staticpages.home.logout"), logout_path, method: :delete, class: "dropdown-item" %>
               </div>
             </li>
