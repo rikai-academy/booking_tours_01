@@ -50,5 +50,5 @@ class CategoriesController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     flash[:danger] = t("category.category.fail")
     redirect_to categories_path
-  end
+  end 
 end

@@ -8,9 +8,13 @@ Rails.application.routes.draw do
     get "/place",   to: "static_pages#reviewplace"
     get "/signup",    to: "users#new"
     get "/login",     to: "sessions#new"
+    get "/success",     to: "checkout#success"
+    get "/cancel",     to: "checkout#cancel"
     post "/login",    to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
     resources :bookings
+    post "/checkout",  to: "checkout#create"
+    resources :webhooks, only: :create
     resources :tours
     resources :users
     resources :categories

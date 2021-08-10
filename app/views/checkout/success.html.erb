@@ -1,0 +1,20 @@
+<% provide(:title, t("bookings.shared.success")) %>
+<div class="jumbotron text-center">
+  <h1 class="display-3"><%= t "bookings.shared.success" %></h1>
+  <p class="lead"><strong><%= t "bookings.shared.paid" %></strong>
+                          <%= @result[:total] %>
+                          <%= @result[:currency] %> </p>
+  <hr>
+  <p>
+    <%= t "bookings.shared.trouble" %>
+    <a href="">
+      <%= t "bookings.shared.contact" %>
+    </a>
+  </p>
+  <p class="lead"><%= link_to t("bookings.shared.home"), root_url, class: "btn btn-primary btn-sm" %></p>
+  <br>
+  <% @result[:tours].each do |tour| %>
+    <br>
+    <%= tour %>
+  <% end %>
+</div>

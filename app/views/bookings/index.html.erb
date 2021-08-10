@@ -8,7 +8,8 @@
               <th scope="col"> </th>
               <th scope="col">Tour</th>
               <th scope="col"><%= t "bookings.index.state" %></th>
-              <th scope="col" class="text-right"><%= t "bookings.index.price" %></th>
+              <th scope="col"><%= t "bookings.index.currency" %></th>
+              <th scope="col"><%= t "bookings.index.price" %></th>
               <th> </th>
             </tr>
           </thead>
@@ -20,8 +21,10 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
+                <td></td>
                 <td><strong><%= t "bookings.index.total" %></td>
-                <td class="text-right"><strong>346,90 €</strong></td>
+                <td class="text-right"><strong><%= total_price(@bookings) %></strong></td>
               </tr>
             </tbody>
           </table>
@@ -33,7 +36,10 @@
             <%= link_to t("bookings.index.continue"), tours_path, class: "btn btn-block btn-light" %>
           </div>
           <div class="col-sm-12 col-md-6 text-right">
-            <%= link_to t("bookings.index.pay"), payment_path, class: "btn btn-lg btn-block btn-success text-uppercase" %>
+            <%= link_to t("bookings.index.pay"), checkout_path,
+                                                 method: :post,
+                                                 remote: true,
+                                                 class: "btn btn-lg btn-block btn-success text-uppercase" %>
           </div>
         </div>
       </div>

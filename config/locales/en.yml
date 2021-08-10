@@ -14,6 +14,7 @@ en:
     users: "Users"
     previous: "Previous"
     next: "Next"
+    bookings: "Favorite"
   users:
     shared:
       not_found: "User not found"
@@ -41,17 +42,29 @@ en:
     shared:
       not_found: "Booking not found"
       failed: "Something went wrong!!"
+      success: "Success"
+      home: "Continue to Homepage"
+      trouble: "Having trouble?"
+      contact: "Contact us"
+      paid: "You paid "
+      status: "Checkout status: "
+      cancel: "Cancel"
+      info: "Something went wrong, please try again later"
+      pay_now: "Pay now!"
     index:
       cancel: "Cancel your booking"
       inform: "Booking was cancelled successfully"
       continue: "Continue your booking"
       confirm: "Are you sure?"
       pay: "Confirm and Pay"
-      state: "State"
+      currency: "Currency"
       price: "Price"
       total: "Total"
+      state: "State"
     checkout:
-      success: "Your space was booked successfully."      
+      full: "This tour was full"
+      success: "Your space was booked successfully."
+      notice: "There is full tour in your tours, please check again!" 
   activerecord:
     attributes:
       user:

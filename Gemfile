@@ -5,6 +5,7 @@ gem "rails",                      "~> 6.1.3", ">= 6.1.3.2"
 gem "bootstrap",                  "~> 4.1.3"
 #jquery
 gem "jquery-rails"
+gem "money-rails"
 gem "font-awesome-rails",         "~> 4.7", ">= 4.7.0.7"
 gem "rails-i18n"
 gem "bcrypt"

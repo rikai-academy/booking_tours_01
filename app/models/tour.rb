@@ -1,7 +1,7 @@
 class Tour < ApplicationRecord
+  include CheckAvailable
   has_many :bookings
   has_many :users, through: :bookings
-
 
   validates :tour_name, presence: true, length: { maximum: 50}
   validates :description, presence: true, length: { maximum: 255}

@@ -5,6 +5,7 @@ class CreateBookings < ActiveRecord::Migration[6.1]
       t.references :tour, null: false, foreign_key: true
       t.integer :total
       t.integer :status
+      t.string :currency, default: "usd"
       
       t.timestamps
     end

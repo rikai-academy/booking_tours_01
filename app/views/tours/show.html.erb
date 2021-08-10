@@ -2,5 +2,5 @@
 <%= form_with url: bookings_path do |f| %>
   <%= f.hidden_field :tour_id, value: @tour.id %>
   <%= f.hidden_field :price, value: @tour.price %>
-  <%= f.submit t("tour.show.booking"), class: "button mt1" %>
+  <%= f.submit t("tour.show.booking"), class: "button mt1", disabled: !@tour.status %>
 <% end %>
