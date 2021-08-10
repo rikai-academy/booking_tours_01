@@ -9,6 +9,16 @@
   left: 30px;
 }
 
+.place {
+  position: relative;
+  margin-bottom: 30px;
+  background: #fff;
+
+  a {
+    text-decoration: none;
+  }
+}
+
 .area .area-content p {
   margin-bottom: 0;
   font-size: 22px;
@@ -21,16 +31,6 @@
     font-weight: 400;
     padding: 0 12px;
     background: #1ec6b6;
-  }
-}
-
-.place {
-  position: relative;
-  margin-bottom: 30px;
-  background: #fff;
-	
-  a {
-    text-decoration: none;
   }
 }
 
@@ -74,6 +74,7 @@
     }
   }
 }
+
 #session_remember_me {
   width: auto;
   margin-left: 0;

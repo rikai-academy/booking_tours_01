@@ -14,6 +14,20 @@
           </div>
         </div>
       </div>
+      <div class="card mt-3">
+        <ul class="list-group list-group-flush">
+        <% if current_user?(@user) %>
+          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+            <h6 class="mb-0 text-center">
+              <%= link_to billing_path, method: :post, data: { disable_with: t("global.validate") } do %>
+                <i class="fas fa-money-check"></i>
+                <%= t("global.payment") %>
+              <% end %>
+            </h6>
+          </li>
+        <% end %>
+        </ul>
+      </div>
     </div>
 
     <div class="col-md-8">
