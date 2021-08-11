@@ -189,12 +189,16 @@ vi:
       updated: "Cập nhật thành công!"
       deleted: "Đã xóa thành công!"
       fail: "Đã xảy ra lỗi!"
+      back: "Quay lại"
     edit:
       title: "Cập nhật Review"
       update: "Cập nhật"
     new:
       title: "Thêm Review"
       create: "Thêm"
+    show: 
+      like: "Thích"
+      dislike: "Bỏ thích"
   category:
     category:
       title: "Category"

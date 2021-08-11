@@ -1,1 +1,11 @@
+<a href="/reviews" class="<%=addbackclass(@review)%>"><%=t("review.review.back")%></a>
 <%=render @review%>
+<div class="row d-flex justify-content-center">
+  <% if logged_in? %>
+    <%if @review.liked?(current_user)%>
+      <%=link_to t("review.show.dislike"), like_path(@review), method:"put", class: 'btn btn-secondary' %>
+    <%else%>
+      <%=link_to t("review.show.like"), like_path(@review), method:"put", class: 'btn btn-primary' %>
+    <%end%>
+  <%end%>
+</div>
