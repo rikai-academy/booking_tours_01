@@ -4,7 +4,7 @@
   <td><%= booking.status %></td>
   <td><%= Stripe::Price.retrieve(booking.stripe_price_id)&.currency %></td>
   <td><%= (Stripe::Price.retrieve(booking.stripe_price_id)&.unit_amount / 100).to_f %></td>
-  <td class="text-center"><%= button_to t("bookings.shared.pay_now"), checkout_path,
+  <td class="text-center"><%= button_to t("bookings.shared.pay_now"), checkout_index_path,
                                                     params: {id: booking.id},
                                                     method: :post,
                                                     remote: true,

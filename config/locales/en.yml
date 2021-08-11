@@ -1,4 +1,8 @@
 en:
+  date: 
+    formats:
+      by_day: "%b %d"
+      by_month: "%b %Y"
   global:
     name: "BTP"
     error: "error"
@@ -11,12 +15,12 @@ en:
     settings: "Settings"
     logout: "Log out"
     account: "Account"
-    users: "Users"
     previous: "Previous"
     next: "Next"
     bookings: "Favorite"
     payment: "Payment method"
     validate: "Validate..."
+    revenues: "Revenues"
   users:
     shared:
       not_found: "User not found"
@@ -91,6 +95,10 @@ en:
   admin:
     users:
       add: "Add a new user"
+    shared:
+      manage: Manage
+      users: "Users"
+      revenues: "Revenues"
   staticpages:
     home:
       home: "Home"
@@ -185,3 +193,8 @@ en:
       delete: "Deleted successfully"
       update: "Updated successfully"
       fail: "Error! An error occurred. Please try again later"
+  chart:
+    title1: "Revenues by Month"
+    title2: "Revenues by Day"
+    y_title: "Revenue"
+    empty: "No data to display!"

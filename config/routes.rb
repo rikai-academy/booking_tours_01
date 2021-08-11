@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :checkout, only: :create
     resources :billing,  only: :create
     resources :webhooks, only: :create
+    resources :revenues, only: :index
     resources :tours
     resources :users
     resources :categories

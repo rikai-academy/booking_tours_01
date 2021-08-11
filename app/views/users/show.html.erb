@@ -19,7 +19,7 @@
         <% if current_user?(@user) %>
           <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
             <h6 class="mb-0 text-center">
-              <%= link_to billing_path, method: :post, data: { disable_with: t("global.validate") } do %>
+              <%= link_to billing_index_path, method: :post, data: { disable_with: t("global.validate") } do %>
                 <i class="fas fa-money-check"></i>
                 <%= t("global.payment") %>
               <% end %>
