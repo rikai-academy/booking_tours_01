@@ -1,4 +1,8 @@
 vi:
+  date:
+    formats:
+      by_day: "%d %b "
+      by_month: "%b %Y"
   global:
     name: "BTP"
     error: "lỗi"
@@ -11,12 +15,12 @@ vi:
     settings: "Cài đặt"
     logout: "Đăng xuất"
     account: "Tài khoản"
-    users: "Người dùng"
     previous: "Trước"
     next: "Sau"
     bookings: "Yêu thích"
     payment: "Phương thức thanh toán"
     validate: "Đang xác nhận..."
+    revenues: "Doanh thu"
   users:
     shared:
       not_found: "Không tìm thấy người dùng"
@@ -91,6 +95,10 @@ vi:
   admin:
     users:
       add: "Thêm một người dùng mới"
+    shared:
+      manage: "Quản lý"
+      users: "Người dùng"
+      revenues: "Doanh thu"
   staticpages:
     home:
       home: "Trang chủ"
@@ -187,4 +195,9 @@ vi:
       delete: "Đã xóa thành công!"
       update: "Đã sửa thành công!"
       fail: "Đã xảy ra lỗi!"
+  chart:
+    title1: "Doanh thu theo tháng"
+    title2: "Doanh thu theo ngày"
+    y_title: "Doanh thu"
+    empty: "Không có dữ liệu để hiển thị"
 

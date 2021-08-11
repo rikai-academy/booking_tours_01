@@ -37,13 +37,18 @@
           <div class="row">
             <%= link_to t('tour.index.create'), new_tour_path, {class:"btn btn-danger ml-auto"} %>
           </div>
-          <div class=row>
-            <%= will_paginate @collection, :previous_label => "<i class='fas fa-arrow-left'></i>" + t("global.previous"),
-                                         :next_label => t("global.next") + "<i class='fas fa-arrow-right'></i>",
-                                         class: "ml-auto" %>
+          <div class="row d-flex justify-content-center">
+          <%= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer,
+                                         previous_label: "<i class='fas fa-arrow-left'></i>" + t("global.previous"),
+                                         next_label: t("global.next") + "<i class='fas fa-arrow-right'></i>" %>
           </div>
           <div class="row">
             <%= render @tours%>
+          </div>
+          <div class="row d-flex justify-content-center">
+          <%= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer,
+                                         previous_label: "<i class='fas fa-arrow-left'></i>" + t("global.previous"),
+                                         next_label: t("global.next") + "<i class='fas fa-arrow-right'></i>" %>
           </div>
         <%end%>
       </div>

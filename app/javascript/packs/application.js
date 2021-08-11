@@ -6,6 +6,7 @@ require("channels")
 require("bootstrap")
 import "@fortawesome/fontawesome-free/css/all";
 import "../stylesheets/application";
+import "chartkick/chart.js";
 document.addEventListener("turbolinks:load", ()=>{
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()

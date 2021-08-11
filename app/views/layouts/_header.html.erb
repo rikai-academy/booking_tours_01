@@ -27,8 +27,15 @@
           </li>
           <% if logged_in? %>
             <% if current_user.admin? %>
-              <li class="nav-item">
-                <%= link_to t("global.users"), users_path, class: "nav-link" %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+                                                            aria-haspopup="true" aria-expanded="false">
+                  <%= t "admin.shared.manage" %>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to t("admin.shared.users"), users_path, class:"dropdown-item"%>
+                  <%= link_to t("admin.shared.revenues"), revenues_path, class:"dropdown-item"%>
+                </div>
               </li>
             <% end %>
             <li class="nav-item">
@@ -43,6 +50,7 @@
                 <%= link_to t("staticpages.home.profile"), current_user, class: "dropdown-item" %>
                 <%= link_to t("staticpages.home.setting"), "#" , class: "dropdown-item" %>
                 <%= link_to t("staticpages.home.reviews"), reviews_path, class: "dropdown-item" %>
+                <div class="dropdown-divider"></div>
                 <%= link_to t("staticpages.home.logout"), logout_path, method: :delete, class: "dropdown-item" %>
               </div>
             </li>
