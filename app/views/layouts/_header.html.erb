@@ -35,6 +35,8 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <%= link_to t("admin.shared.users"), users_path, class:"dropdown-item"%>
                   <%= link_to t("admin.shared.revenues"), revenues_path, class:"dropdown-item"%>
+                  <%= link_to t("admin.shared.review"), reviews_path, class:"dropdown-item"%>
+                  <%= link_to t("admin.shared.categoríe"), categories_path, class:"dropdown-item"%>
                 </div>
               </li>
             <% end %>
@@ -49,7 +51,11 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                 <%= link_to t("staticpages.home.profile"), current_user, class: "dropdown-item" %>
                 <%= link_to t("staticpages.home.setting"), "#" , class: "dropdown-item" %>
-                <%= link_to t("staticpages.home.reviews"), reviews_path, class: "dropdown-item" %>
+                <% if logged_in? %>
+                  <% if !current_user.admin? %>
+                    <%= link_to t("staticpages.home.reviews"), reviews_path, class: "dropdown-item" %>
+                  <%end%>
+                <%end%>
                 <div class="dropdown-divider"></div>
                 <%= link_to t("staticpages.home.logout"), logout_path, method: :delete, class: "dropdown-item" %>
               </div>
