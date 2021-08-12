@@ -99,6 +99,8 @@ vi:
       manage: "Quản lý"
       users: "Người dùng"
       revenues: "Doanh thu"
+      reviews: "Review"
+      categories: "Danh mục"
   staticpages:
     home:
       home: "Trang chủ"

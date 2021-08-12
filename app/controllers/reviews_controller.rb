@@ -4,7 +4,11 @@ class ReviewsController < ApplicationController
   before_action :load_review, only: [:show, :edit, :update, :destroy]
 
   def index
-    @reviews = Review.filter(current_user.id).paginate(page: params[:page])
+    if current_user.admin?
+      @reviews = Review.paginate(page: params[:page])
+    else
+      @reviews = Review.filter(current_user.id).paginate(page: params[:page])
+    end
   end
 
   def new

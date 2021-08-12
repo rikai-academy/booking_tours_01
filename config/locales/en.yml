@@ -99,6 +99,8 @@ en:
       manage: Manage
       users: "Users"
       revenues: "Revenues"
+      reviews: "Reviews"
+      categoríe: "Categories"
   staticpages:
     home:
       home: "Home"
