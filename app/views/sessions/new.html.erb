@@ -1,35 +1,40 @@
-<% provide(:title, t("sessions.new.login")) %> 
-<h1><%= t "sessions.new.login" %></h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-      
-      <%= f.label :password, t("sessions.new.password") %>
-      <%= link_to t("sessions.new.forgot"), "#" %>
-      <%= f.password_field :password, class: 'form-control' %>
-      
-      <%= f.label :remember_me, class: "checkbox inline" do %>
-        <%= f.check_box :remember_me %>
-        <span><%= t "sessions.new.remember_me" %></span>
+<% provide(:title, t("sessions.new.login")) %>
+  <div class="container">
+  <div class="row d-flex justify-content-center my-4">
+    <h1><%= t "sessions.new.login" %></h1>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+        
+        <%= f.label :password, t("sessions.new.password") %>
+        <%= link_to t("sessions.new.forgot"), "#" %>
+        <%= f.password_field :password, class: 'form-control' %>
+        
+        <%= f.label :remember_me, class: "checkbox inline" do %>
+          <%= f.check_box :remember_me %>
+          <span><%= t "sessions.new.remember_me" %></span>
+        <% end %>
+        
+        <%= f.submit t("sessions.new.login"), class: "btn btn-primary btn-lg btn-block" %>
       <% end %>
       
-      <%= f.submit t("sessions.new.login"), class: "btn btn-primary" %>
-    <% end %>
-    
-    <p><%= t "sessions.new.new_user" %> <%= link_to t("global.signup"), signup_path %></p> 
-    <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-lg btn-block btn-facebook", method: :post do %>
-      <i class="fab fa-facebook-square"></i>
-      <%= t("sessions.new.facebook") %>
-    <% end %>
-    <%= link_to user_google_oauth2_omniauth_authorize_path, class: "btn btn-lg btn-block btn-google", method: :post do %>
-      <i class="fab fa-google-plus-square"></i>
-      <%= t("sessions.new.google") %>
-    <% end %>
-      <%= link_to user_twitter_omniauth_authorize_path, class: "btn btn-lg btn-block btn-twitter", method: :post do %>
-      <i class="fab fa-twitter-square"></i>
-      <%= t("sessions.new.twitter") %>
-    <% end %>
+      <p><%= t "sessions.new.new_user" %> <%= link_to t("global.signup"), signup_path %></p>
+      <hr class="my-3">
+      <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-lg btn-block btn-facebook", method: :post do %>
+        <i class="fab fa-facebook-square"></i>
+        <%= t("sessions.new.facebook") %>
+      <% end %>
+      <%= link_to user_google_oauth2_omniauth_authorize_path, class: "btn btn-lg btn-block btn-google", method: :post do %>
+        <i class="fab fa-google-plus-square"></i>
+        <%= t("sessions.new.google") %>
+      <% end %>
+        <%= link_to user_twitter_omniauth_authorize_path, class: "btn btn-lg btn-block btn-twitter", method: :post do %>
+        <i class="fab fa-twitter-square"></i>
+        <%= t("sessions.new.twitter") %>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -4,7 +4,7 @@ en:
       by_day: "%b %d"
       by_month: "%b %Y"
   global:
-    name: "BTP"
+    name: "Travelify"
     error: "error"
     form: "The form contains"
     home: "Home"
@@ -17,7 +17,7 @@ en:
     account: "Account"
     previous: "Previous"
     next: "Next"
-    bookings: "Favorite"
+    bookings: "My Tours"
     payment: "Payment method"
     validate: "Validate..."
     revenues: "Revenues"
@@ -28,7 +28,7 @@ en:
     new:
       signup: "Sign up"
       create: "Create my account"
-      welcome: "Welcome to Booking Tours"
+      welcome: "Welcome to Travelify"
     show:
       edit: "Edit"
     edit:
@@ -95,6 +95,8 @@ en:
   admin:
     users:
       add: "Add a new user"
+      create: "Create a account"
+      button: "Create"
     shared:
       manage: Manage
       users: "Users"
@@ -115,7 +117,7 @@ en:
       profile: "Profile"
       reviews: "Review"
       logout: "Log out"
-      welcome: "Welcome to Travel!"
+      welcome: "Welcome to Travelify!"
       bookingtour: "Booking tour now"
       previous: "Previous"
       next: "Next"
@@ -139,6 +141,10 @@ en:
       product: "Product"
       domestic: "Domestic tour"
       foreign:  "Foreign tour"
+    thanks:
+      thanks: "Thank you!"
+      strong: "Please pay attention to your cellphone."
+      promise: "Our staff will contact you soon! We really appreciate you giving us a moment of your time today. Thanks for being you."
   tour:
     shared:
       not_found: "Tour not found"
@@ -161,7 +167,12 @@ en:
     show:
       available: "Available"
       full: "Full"
-      booking: "Booking"
+      booking: "Add to My Tours"
+      contact: "Contact information"
+      name: "Name"
+      phone_number: "Phone number"
+      send: "Send"
+      message: "Leave your message here!"
   review:
     review:
       title: "Review"

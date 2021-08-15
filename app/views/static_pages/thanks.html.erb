@@ -1,0 +1,25 @@
+<% provide(:title, t("staticpages.thanks.thanks")) %>
+<div class="thankyou-page">
+  <div class="_header mt-0">
+    <h1><%= t "staticpages.thanks.thanks" %></h1>
+  </div>
+  <div class="_body">
+    <div class="_box text-center">
+      <h2>
+        <strong><%= t "staticpages.thanks.strong" %></strong>
+      </h2>
+      <p>
+        <%= t "staticpages.thanks.promise" %>
+      </p>
+    </div>
+    </div>
+    <div class="_footer">
+        <p>
+          <%= t("bookings.shared.trouble") %>
+          <a href="">
+            <%= t "bookings.shared.contact" %>
+          </a>
+        </p>
+        <%= link_to t("bookings.shared.home"), root_url, class: "btn btn-primary btn-sm" %>
+    </div>
+</div>
