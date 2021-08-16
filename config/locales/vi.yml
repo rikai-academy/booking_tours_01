@@ -4,7 +4,7 @@ vi:
       by_day: "%d %b "
       by_month: "%b %Y"
   global:
-    name: "BTP"
+    name: "Travelify"
     error: "lỗi"
     form: "Biểu mẫu chứa"
     home: "Trang Chủ"
@@ -17,7 +17,7 @@ vi:
     account: "Tài khoản"
     previous: "Trước"
     next: "Sau"
-    bookings: "Yêu thích"
+    bookings: "Tour Của Tôi"
     payment: "Phương thức thanh toán"
     validate: "Đang xác nhận..."
     revenues: "Doanh thu"
@@ -95,6 +95,8 @@ vi:
   admin:
     users:
       add: "Thêm một người dùng mới"
+      create: "Tạo một tài khoản"
+      button: "Tạo"
     shared:
       manage: "Quản lý"
       users: "Người dùng"
@@ -139,6 +141,10 @@ vi:
       product: "Sản phẩm"
       domestic: "Tour trong nước"
       foreign:  "Tour nước ngoài"
+    thanks:
+      thanks: "Xin cảm ơn!"
+      strong: "Vui lòng để ý tới điện thoại của bạn."
+      promise: "Nhân viên của chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất! Chúng tôi thực sự cảm kích vì bạn đã dành chút thời gian cho chúng tôi hôm nay. Xin chân thành cảm ơn."
   tour:
     shared:
       not_found: "Không tìm thấy tour"
@@ -161,7 +167,12 @@ vi:
     show:
       available: "Còn trống"
       full: "Đã hết chỗ"
-      booking: "Đặt"
+      booking: "Thêm vào Tour Của Tôi"
+      contact: "Thông tin liên hệ"
+      name: "Tên"
+      phone_number: "Số điện thoại"
+      send: "Gửi"
+      message: "Để lại tin nhắn ở đây!"
     destroy:
       inform: "Bạn đã hủy tour thành công, tiền sẽ được trả lại sớm"
   review:

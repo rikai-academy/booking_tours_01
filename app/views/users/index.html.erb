@@ -1,18 +1,26 @@
 <% provide(:title, t("users.index.title")) %>
-<h1><%= t "users.index.title" %></h1>
-<%= link_to t("admin.users.add"), new_admin_user_path, class: "btn-block btn btn-lg btn-primary" %>
-<div class="row d-flex justify-content-center">
+<div class="container bg-light">
+  <div class="d-flex justify-content-center text-center">
+    <h1><%= t "users.index.title" %></h1>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <%= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer,
+                                            previous_label: "<i class='fas fa-arrow-left'></i>" + t("global.previous"),
+                                            next_label: t("global.next") + "<i class='fas fa-arrow-right'></i>" %>
+  </div>
+
+  <div class="d-flex justify-content-end">
+    <%= link_to t("admin.users.add"), new_admin_user_path, class: "btn btn-lg btn-primary" %>
+  </div>
+  
+  <ul class="users">
+    <%= render @users %>
+  </ul>
+
+  <div class="row d-flex justify-content-center">
   <%= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer,
                                           previous_label: "<i class='fas fa-arrow-left'></i>" + t("global.previous"),
                                           next_label: t("global.next") + "<i class='fas fa-arrow-right'></i>" %>
-</div>
-
-<ul class="users">
-  <%= render @users %>
-</ul>
-
-<div class="row d-flex justify-content-center">
-<%= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer,
-                                         previous_label: "<i class='fas fa-arrow-left'></i>" + t("global.previous"),
-                                         next_label: t("global.next") + "<i class='fas fa-arrow-right'></i>" %>
+  </div>
 </div>

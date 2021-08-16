@@ -3,6 +3,7 @@ Rails.application.routes.draw do
               controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root "static_pages#home"
+    get "/thanks",    to: "static_pages#thanks"
     get "/food",      to: "static_pages#reviewfood"
     get "/place",     to: "static_pages#reviewplace"
     get "/signup",    to: "users#new"
