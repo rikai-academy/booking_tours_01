@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :tours, through: :bookings
   has_many :reviews, dependent: :destroy
+  has_many :like_reviews, dependent: :destroy
+  has_many :ratings, dependent: :destroy
 
   devise :database_authenticatable,
          :recoverable, :trackable, :omniauthable,

@@ -21,8 +21,8 @@
               <%=t("staticpages.home.reviews")%>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to t("staticpages.home.places"), place_path, class:"dropdown-item"%>
-              <%= link_to t("staticpages.home.food"), food_path, class:"dropdown-item"%>
+              <%= link_to t("staticpages.home.places"),  place_path(id: 2), class:"dropdown-item"%>
+              <%= link_to t("staticpages.home.food"), food_path(id: 1), class:"dropdown-item"%>
             </div>
           </li>
           <% if logged_in? %>
@@ -50,7 +50,6 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                 <%= link_to t("staticpages.home.profile"), current_user, class: "dropdown-item" %>
-                <%= link_to t("staticpages.home.setting"), "#" , class: "dropdown-item" %>
                 <% if logged_in? %>
                   <% if !current_user.admin? %>
                     <%= link_to t("staticpages.home.reviews"), reviews_path, class: "dropdown-item" %>

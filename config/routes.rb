@@ -4,14 +4,15 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root "static_pages#home"
     get "/thanks",    to: "static_pages#thanks"
-    get "/food",      to: "static_pages#reviewfood"
-    get "/place",     to: "static_pages#reviewplace"
+    get "/reviews/food",      to: "static_pages#reviewfood", as: "food"
+    get "/reviews/place",      to: "static_pages#reviewplace", as: "place"
     get "/signup",    to: "users#new"
     get "/login",     to: "sessions#new"
     get "/success",   to: "checkout#success"
     get "/cancel",    to: "checkout#cancel"
     post "/login",    to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
+    put "/reviews/:id/like",    to: "reviews#like", as:"like"
     resources :bookings
     resources :checkout, only: :create
     resources :billing,  only: :create

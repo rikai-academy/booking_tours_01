@@ -1,13 +1,15 @@
 <% provide(:title, t("review.review.title")) %>
-<div class="row">
-  <h3><%=t("review.review.allreview")%></h3>
-</div>
-<div class=row>
-  <%= link_to t('review.new.create'), new_review_path, {class:"btn btn-info mr-auto"} %>
-  <%= will_paginate @collection, :previous_label => "<i class='fas fa-arrow-left'></i>" + t("global.previous"), 
-                              :next_label => t("global.next") + "<i class='fas fa-arrow-right'></i>", 
-                               class: "ml-auto" %>
-</div>
-<div class="row mt-4">
-  <%= render @reviews%>
+<div class="container">
+  <div class="row">
+    <h3><%=t("review.review.allreview")%></h3>
+  </div>
+  <div class=row>
+    <%= link_to t('review.new.create'), new_review_path, {class:"btn btn-info mr-auto"} %>
+    <%= will_paginate @collection, :previous_label => "<i class='fas fa-arrow-left'></i>" + t("global.previous"), 
+                                :next_label => t("global.next") + "<i class='fas fa-arrow-right'></i>", 
+                                class: "ml-auto" %>
+  </div>
+  <div class="row mt-4">
+    <%= render @reviews%>
+  </div>
 </div>

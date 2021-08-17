@@ -187,12 +187,16 @@ en:
       updated: "Updated success!"
       deleted: "Deleted success!"
       fail: "Done error out during deletion."
+      back: "Back"
     edit:
       title: "Update Review"
       update: "Update"
     new:
       title: "Create Review"
       create: "Create"
+    show: 
+      like: "Like"
+      dislike: "Dislike"
   category:
     category:
       title: "Category"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_09_075301) do
+ActiveRecord::Schema.define(version: 2021_08_10_132707) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -30,6 +30,26 @@ ActiveRecord::Schema.define(version: 2021_08_09_075301) do
     t.string "category_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "like_reviews", force: :cascade do |t|
+    t.integer "review_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["review_id", "user_id"], name: "index_like_reviews_on_review_id_and_user_id", unique: true
+    t.index ["review_id"], name: "index_like_reviews_on_review_id"
+    t.index ["user_id"], name: "index_like_reviews_on_user_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "tour_id", null: false
+    t.integer "user_id", null: false
+    t.integer "stars"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tour_id"], name: "index_ratings_on_tour_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -78,6 +98,10 @@ ActiveRecord::Schema.define(version: 2021_08_09_075301) do
 
   add_foreign_key "bookings", "tours"
   add_foreign_key "bookings", "users"
+  add_foreign_key "like_reviews", "reviews"
+  add_foreign_key "like_reviews", "users"
+  add_foreign_key "ratings", "tours"
+  add_foreign_key "ratings", "users"
   add_foreign_key "reviews", "categories"
   add_foreign_key "reviews", "users"
 end

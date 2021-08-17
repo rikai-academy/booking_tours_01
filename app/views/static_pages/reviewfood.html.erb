@@ -3,12 +3,14 @@
   <div class="row justify-content-center">
     <div class="col-lg-12">
       <div class="section-title ">
-        <h3><%=t("review.review.foodreview")%></h3>
+        <h3>
+          <%=t("review.review.foodreview")%>
+        </h3>
       </div>
     </div>
   </div>
   <div class="row mt-4">
-    <%for i in 0..5 %>
+    <% for review in @reviews %>
       <div class="col-md-12 col-lg-12">
         <article class="post vt-post">
           <div class="row">
@@ -20,7 +22,7 @@
                 <ul class="list-inline">
                   <li>
                     <div class="info">
-                      <p><%=t("review.review.posted")%> <span>Mar 21, 2021</span></p>
+                      <p><%=t("review.review.posted")%> <span><%=review.created_at%></span></p>
                     </div>
                   </li>
                 </ul>
@@ -28,8 +30,8 @@
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
               <div class="caption">
-                <h3 class="md-heading"><%=link_to t("review.review.name")%></h3>
-                <p><%=t("review.review.content")%></p>
+                <h3 class="md-heading"><%=link_to review.review_name, review_path(review.id)%></h3>
+                <p><%=review.review_content%></p>
                 <%=link_to t("review.review.readmore"), "#", class:"btn btn-default", role:"button"%>
               </div>
             </div>

@@ -1,4 +1,4 @@
-<div class="col-md-12 col-lg-12">
+<div class="col-md-12 col-lg-12 mt-4">
   <article class="post vt-post">
     <div class="row">
       <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4">
@@ -20,10 +20,14 @@
           <h3 class="md-heading"><%=link_to review.review_name, review_path(review.id)%></h3>
           <p style="display: -webkit-box;-webkit-line-clamp: 4;-webkit-box-orient: vertical;overflow: hidden;"><%=review.review_content%></p>
           <%=link_to t("review.review.readmore"), review_path(review.id), class:"btn btn-default", role:"button"%>
+          <i id="like_review_<%= review.id %>" class=" <%=  review.like_reviews.find_by(user_id: current_user.id) ? 'fas' : 'far' %> fa-thumbs-up"></i>
+          <span id="like_review_count_<%= review.id %>"><%= review.like_reviews.count %><span>
         </div>
         <div>
-          <%= link_to t('review.edit.update'), edit_review_path(review.id), {class:"btn btn-danger"} %>
-          <%= link_to t('review.edit.delete'), review, method: :delete, data: { confirm: "You sure?" } ,class:"btn btn-danger"%>
+          <%if review.user_id==current_user.id%>
+            <%= link_to t('review.edit.update'), edit_review_path(review.id), {class:"btn btn-danger"} %>
+            <%= link_to t('review.edit.delete'), review, method: :delete, data: { confirm: "You sure?" } ,class:"btn btn-danger"%>
+          <%end%>
         </div>
       </div>
     </div>
