@@ -3,6 +3,7 @@ vi:
     formats:
       by_day: "%d %b "
       by_month: "%b %Y"
+      long: "%A, %d/%m/%Y"
   global:
     name: "Travelify"
     error: "lỗi"
@@ -21,6 +22,7 @@ vi:
     payment: "Phương thức thanh toán"
     validate: "Đang xác nhận..."
     revenues: "Doanh thu"
+    lang: "VI"
   users:
     shared:
       not_found: "Không tìm thấy người dùng"
@@ -58,9 +60,9 @@ vi:
       info: "Có lỗi phát sinh, vui lòng thử lại sau."
       pay_now: "Thanh toán ngay!"
     index:
-      cancel: "Hủy đơn"
-      inform: "Bạn đã hủy đơn thành công"
-      continue: "Tiếp tục đặt"
+      cancel: "Xóa"
+      inform: "Bạn đã xóa thành công"
+      continue: "Tiếp tục xem"
       confirm: "Bạn chắc chứ?"
       pay: "Xác nhận và thanh toán"
       currency: "Tiền tệ"
@@ -215,6 +217,9 @@ vi:
   chart:
     title1: "Doanh thu theo tháng"
     title2: "Doanh thu theo ngày"
+    title: "Doanh thu trong tháng "
     y_title: "Doanh thu"
     empty: "Không có dữ liệu để hiển thị"
-
+    month: "Tháng"
+    year: "Năm"
+    search: "Bạn muốn xem biểu đồ lúc nào?"

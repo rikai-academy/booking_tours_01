@@ -1,9 +1,9 @@
 <% provide(:title, @user.name) %>
 <div class="container main-body">
-  <div class="row gutters-sm">
-    <div class="col-md-4 mb-3">
-      <div class="card">
-        <div class="card-body">
+  <div class="row gutters-sm space-helper">
+    <div class="col-md-4 mb-helper">
+      <div class="card card-helper">
+        <div class="card-body card-body-helper">
           <div class="d-flex flex-column align-items-center text-center">
             <%= gravatar_for(@user, size: 150) %>
             <div class="mt-3">
@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <div class="card mt-3">
+      <div class="card card-helper mt-3">
         <ul class="list-group list-group-flush">
         <% if current_user?(@user) %>
           <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -31,8 +31,8 @@
     </div>
 
     <div class="col-md-8">
-      <div class="card mb-3">
-        <div class="card-body">
+      <div class="card card-helper mb-helper">
+        <div class="card-body card-body-helper">
           <div class="row">
             <div class="col-sm-3">
               <h6 class="mb-0">Name</h6>

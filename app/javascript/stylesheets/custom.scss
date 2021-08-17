@@ -1,3 +1,8 @@
+body {
+  background-color: #ffdee9;
+  background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+}
+
 .area {
   position: relative;
   margin-bottom: 30px;
@@ -116,7 +121,7 @@
   background-color: #e2e8f0;
 }
 
-.card {
+.card-helper {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   position: relative;
   display: flex;
@@ -129,14 +134,14 @@
   border-radius: 0.25rem;
 }
 
-.card-body {
+.card-body-helper {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1rem;
   margin-left: 2rem;
 }
 
-.gutters-sm {
+.space-helper {
   margin-right: -8px;
   margin-left: -8px;
 
@@ -147,7 +152,7 @@
   }
 }
 
-.mb-3 {
+.mb-helper {
   margin-bottom: 1rem !important;
 }
 
@@ -167,4 +172,32 @@
 .gradient {
   background-color: #d9afd9;
   background-image: linear-gradient(0deg, #d9afd9 0%, #97d9e1 100%);
+}
+
+// Checkout
+
+.collect {
+  background-color: #fafcfb;
+  border-radius: 20px;
+}
+
+.darkWhite {
+  color: #eaebf9;
+}
+
+.bg-top {
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+  border-radius: 10px 10px 0 0;
+}
+
+.desc {
+  color: #b8babb;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.btn-helper {
+  border-radius: 10px;
+  font-size: 80%;
 }

@@ -1,4 +1,33 @@
 <% provide(:title, t("global.revenues")) %>
+<%= form_with url: revenues_path, method: :get do |f| %>
+  <div class="form-row d-flex justify-content-center align-items-center pt-3">
+    <div class="col-auto">
+      <p class="lead"><%= t "chart.search" %> </p>
+    </div>
+    <div class="col-auto">
+      <%= f.label :month, class: "sr-only" %>
+      <%= f.number_field :month, class: "form-control mb-2", placeholder: t("chart.month"), min: 1, max: 12 %>
+    </div>
+    <div class="col-auto">
+      <%= f.label :year, class: "sr-only" %>
+      <%= f.number_field :year, class: "form-control mb-2", placeholder: t("chart.year"), min: 2000, max: Time.zone.now.year %>
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-primary mb-2" type="submit">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </div>
+<% end %>
+<% if params[:month] && params[:year] %>
+  <%= line_chart @revenues.where("cast(strftime('%m', updated_at) as int) = ?", params[:month])
+                          .where("cast(strftime('%Y', updated_at) as int) = ?", params[:year])
+                          .group_by_day_of_month(:updated_at, format: t("date.formats.by_day")).sum(:total),
+                          height: "20rem", suffix: "$",
+                          ytitle: t("chart.y_title"), title: t("chart.title") + "#{params[:month]}/#{params[:year]}",
+                          messages: { empty: t("chart.empty") } %>                           
+  <hr class="mt-5 mb-5">
+<% end %>
 <%= line_chart @revenues.group_by_day_of_month(:updated_at, format: t("date.formats.by_day")).sum(:total),
                            height: "20rem", suffix: "$",
                            ytitle: t("chart.y_title"), title: t("chart.title2"),
