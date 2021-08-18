@@ -1,7 +1,7 @@
 <header class="fixed-top">
   <div class="container-fluid bg-dark">
     <nav class="container navbar navbar-expand-lg navbar-dark ">
-      <%= link_to "Travelify", root_path, class:"navbar-brand"%>
+      <%= link_to t("global.name"), root_path, class:"navbar-brand"%>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -9,69 +9,116 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
             <%= link_to root_path, :class => 'nav-link' do %>
+              <i class="fas fa-home"></i>
               <%=t("staticpages.home.home")%> <span class="sr-only">(current)</span>
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to t("staticpages.home.tour"), tours_path, class:"nav-link"%>
+            <%= link_to tours_path, class:"nav-link" do %>
+              <i class="fas fa-suitcase"></i>
+              <%= t("staticpages.home.tour") %>
+            <% end %>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" 
                                                          aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-sticky-note"></i> 
               <%=t("staticpages.home.reviews")%>
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to t("staticpages.home.places"),  place_path(id: 2), class:"dropdown-item"%>
-              <%= link_to t("staticpages.home.food"), food_path(id: 1), class:"dropdown-item"%>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+              <%= link_to place_path(id: 2), class:"dropdown-item" do %>
+                <i class="fas fa-hotel"></i>
+                <%= t("staticpages.home.places") %>
+              <% end %>
+              <%= link_to food_path(id: 1), class:"dropdown-item" do %>
+                <i class="fas fa-utensils"></i>
+                <%= t("staticpages.home.food") %>
+              <% end %>
             </div>
           </li>
           <% if logged_in? %>
             <% if current_user.admin? %>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" 
                                                             aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-tasks"></i>
                   <%= t "admin.shared.manage" %>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <%= link_to t("admin.shared.users"), users_path, class:"dropdown-item"%>
-                  <%= link_to t("admin.shared.revenues"), revenues_path, class:"dropdown-item"%>
-                  <%= link_to t("admin.shared.review"), reviews_path, class:"dropdown-item"%>
-                  <%= link_to t("admin.shared.categoríe"), categories_path, class:"dropdown-item"%>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                  <%= link_to users_path, class:"dropdown-item" do %>
+                    <i class="fas fa-users-cog"></i>
+                    <%= t("admin.shared.users") %>
+                  <% end %>
+                  <%= link_to revenues_path, class:"dropdown-item" do %>
+                    <i class="fas fa-money-check"></i>
+                    <%= t("admin.shared.revenues") %>
+                  <% end %>
+                  <%= link_to reviews_path, class:"dropdown-item" do %>
+                    <i class="far fa-sticky-note"></i>
+                    <%= t("admin.shared.review") %>
+                  <% end %>
+                  <%= link_to categories_path, class:"dropdown-item" do %>
+                    <i class="fas fa-poll-h"></i>
+                    <%= t("admin.shared.categoríe") %>
+                  <% end %>
                 </div>
               </li>
             <% end %>
             <li class="nav-item">
-              <%= link_to t("global.bookings"), bookings_path, class: "nav-link" %>
+              <%= link_to bookings_path, class: "nav-link" do %>
+                <i class="fas fa-shopping-bag"></i>
+                <%= t("global.bookings") %>
+              <% end %>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-toggle="dropdown"
+              <a class="nav-link dropdown-toggle" id="navbarDropdown3" role="button" data-toggle="dropdown"
                                                            aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user"></i>
                 <%= t("staticpages.home.account") %>
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                <%= link_to t("staticpages.home.profile"), current_user, class: "dropdown-item" %>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                <%= link_to current_user, class: "dropdown-item" do %>
+                  <i class="fas fa-user-circle"></i>
+                  <%= t("staticpages.home.profile") %>
+                <% end %>
                 <% if logged_in? %>
                   <% if !current_user.admin? %>
-                    <%= link_to t("staticpages.home.reviews"), reviews_path, class: "dropdown-item" %>
+                    <%= link_to reviews_path, class: "dropdown-item" do %>
+                      <i class="fas fa-id-badge"></i>
+                      <%= t("staticpages.home.reviews") %>
+                    <% end %>
                   <%end%>
                 <%end%>
                 <div class="dropdown-divider"></div>
-                <%= link_to t("staticpages.home.logout"), logout_path, method: :delete, class: "dropdown-item" %>
+                <%= link_to logout_path, method: :delete, class: "dropdown-item" do %>
+                  <i class="fas fa-sign-out-alt"></i>
+                  <%= t("staticpages.home.logout") %>
+                <% end %>
               </div>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to t("staticpages.home.signin"), login_path, class:"nav-link"%>
+              <%= link_to login_path, class:"nav-link" do %>
+                <i class="fas fa-sign-in-alt"></i>
+                <%= t("staticpages.home.signin") %>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to t("staticpages.home.signup"), signup_path, class:"nav-link"%>
+              <%= link_to signup_path, class:"nav-link" do %>
+                <i class="fas fa-user-plus"></i>
+                <%= t("staticpages.home.signup") %>
+              <% end %>
             </li>
           <% end %>
-          <li class="nav-item">
-            <%= link_to "EN", {locale:"en"}, {class:"nav-link"} %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "VI", {locale:"vi"}, {class:"nav-link"} %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" 
+                                                         aria-haspopup="true" aria-expanded="false">
+              <%= t "global.lang" %> <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu lang" aria-labelledby="navbarDropdown4">
+              <%= link_to "EN", {locale:"en"}, {class:"dropdown-item"} %>
+              <%= link_to "VI", {locale:"vi"}, {class:"dropdown-item"} %>
+            </div>
           </li>
         </ul>
       </div>
