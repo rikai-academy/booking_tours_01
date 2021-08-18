@@ -228,6 +228,10 @@ en:
     show: 
       like: "Like"
       dislike: "Dislike"
+      fail: "Error! An error occurred. Please try again later."
+      reply: "Reply"
+      cancle: "Cancle"
+      comment: "Comment"
   category:
     category:
       title: "Category"

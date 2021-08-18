@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :like_reviews, dependent: :destroy
   has_many :ratings, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   devise :database_authenticatable,
          :recoverable, :trackable, :omniauthable,
