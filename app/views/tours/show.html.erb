@@ -2,21 +2,34 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-    <%= render @tour %>
-    <% if logged_in? %>
-      <%= form_with url: bookings_path do |f| %>
-        <%= f.hidden_field :tour_id, value: @tour.id %>
-        <%= f.hidden_field :price, value: @tour.price %>
-        <%= f.submit t("tour.show.booking"), class: "button mt1", disabled: !@tour.status %>
+      <%= render @tour %>
+      <div>
+        <span><%=t("tour.show.average")%></span>
+        <span id="avg"><%= "%.1f" % @avg %></span>
+        <span><i class="fa fa-star text-warning"></i></span> 
+      </div>
+      <div class="mb-4">
+        <span>
+          <input type="hidden" id="tour_id" value="<%= @tour.id %>">
+          <%(1..5).each do |i|%> 
+            <i data-stars="<%= i %>" class="rate fa fa-star <%= addcheckclass(i) %>"></i>
+          <%end%>
+        </span>
+        <span id="error" class="text-danger"></span>
+      </div>
+      <% if logged_in? %>
+        <%= form_with url: bookings_path do |f| %>
+          <%= f.hidden_field :tour_id, value: @tour.id %>
+          <%= f.hidden_field :price, value: @tour.price %>
+          <%= f.submit t("tour.show.booking"), class: "button mt1", disabled: !@tour.status %>
+        <% end %>
       <% end %>
-    <% end %>
     </div>
     <div class="col-md-4">
       <div class="card gradient">
         <h5 class="card-header bg-info text-light text-center py-4">
           <strong><%= t "tour.show.contact" %></strong>
         </h5>
-
         <div class="card-body px-1 mx-1 mt-0">
           <%= form_with url: thanks_path, method: :get, class: "text-center" do |f| %>
             <div class="row form-group mt-3 px-1">
@@ -43,12 +56,11 @@
               <label for="materialContactFormMessage"><%= t "tour.show.message" %></label>
               <textarea id="materialContactFormMessage" class="form-control md-textarea bg-transparent border-dark" rows="3"></textarea>
             </div>
-
             <%= f.submit t("tour.show.send"), class: "btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" %>
-
           <% end %>
       </div>
-
     </div>
   </div>
 </div>
+
+<%= javascript_include_tag "/js/rating.js" %>

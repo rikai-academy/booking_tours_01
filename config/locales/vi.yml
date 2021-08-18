@@ -175,6 +175,7 @@ vi:
       phone_number: "Số điện thoại"
       send: "Gửi"
       message: "Để lại tin nhắn ở đây!"
+      average: "Trung bình:"
     destroy:
       inform: "Bạn đã hủy tour thành công, tiền sẽ được trả lại sớm"
   review:

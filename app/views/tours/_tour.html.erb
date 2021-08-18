@@ -16,13 +16,6 @@
         <p><%= t "tour.show.full" %></p>
       <% end %>
       <div class="rating d-flex justify-content-between">
-        <span>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-        </span>
         <div class="days">
           <i class="fa fa-clock-o"></i>
           <span><%= (tour.date_end - tour.date_begin).to_s + t("staticpages.home.day") %></span>
