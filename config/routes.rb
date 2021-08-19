@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     post "/login",    to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
     put "/reviews/:id/like",    to: "reviews#like", as:"like"
+    resources :ratings
     resources :bookings
     resources :checkout, only: :create
     resources :billing,  only: :create
