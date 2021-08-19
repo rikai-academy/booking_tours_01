@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
   before_action :load_booking, only: [:destroy]
 
   def index
-    @bookings = current_user.bookings.where(status: 0)
+    @bookings = current_user.bookings.where(status: 0).includes(:tour)
   end
 
   def create 

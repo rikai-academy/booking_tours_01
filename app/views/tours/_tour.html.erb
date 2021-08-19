@@ -1,8 +1,12 @@
 <div class="col-lg-4">
   <div class="place">
     <div class="thumb">
-      <%= link_to image_tag("place1.png"), tour_path(tour.id) %>
-        <%= tour.price %>          
+    <% if tour.images.attached? %>
+      <% tour.images.each do |image| %>
+        <%= link_to image_tag(image), tour_path(tour.id) %>
+      <% end %>
+    <% end %>
+      <%= tour.price %>          
     </div>
     <div class="place-content">
       <%= link_to "#" do %>
@@ -25,7 +29,7 @@
     <% if current_user&.admin? %>
       <div>
         <%= link_to t('tour.index.update'), edit_tour_path(tour.id), {class:"btn btn-danger"} %>
-        <%= link_to t('tour.index.delete'), tour, method: :delete, data: { confirm: "You sure?" } ,class:"btn btn-danger"%>
+        <%= link_to t('tour.index.delete'), tour, method: :delete, data: { confirm: "You sure?" } ,class:"btn btn-danger" %>
       </div>
     <%end%>
   </div>	
