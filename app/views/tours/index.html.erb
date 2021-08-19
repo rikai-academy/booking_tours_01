@@ -22,6 +22,9 @@
   <div class=row d-flex justify-content-center>
     <% if @tours.size==0%>
       <div class="col-lg-12 text-center">
+        <div class="row">
+        <%= link_to t('tour.index.create'), new_tour_path, {class:"btn btn-danger ml-auto"} %>
+      </div>
         <h3><%=t("tour.index.searchalert")%></h3>
       </div>
     <%else%>

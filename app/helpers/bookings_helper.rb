@@ -8,6 +8,7 @@ module BookingsHelper
   end
 
   def price booking
-    (Stripe::Price.retrieve(booking.stripe_price_id)&.unit_amount).to_f
+    price = (Stripe::Price.retrieve(booking.stripe_price_id)&.unit_amount) * 100
+    number_to_currency((params[:locale] == "en") ? Money.new(price) : Money.new(price).exchange_to("VND"))
   end
 end

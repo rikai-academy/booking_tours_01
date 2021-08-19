@@ -3,12 +3,14 @@
       
   <%= f.label :tour_name %>
   <%= f.text_field :tour_name, class: "form-control" %>
+
+  <div class="field mt-3 mb-2">
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true, accept: "image/jpeg,image/gif,image/png", class: "pl-3"%>
+  </div>
       
   <%= f.label :description %>
-  <%= f.text_field :description, class: "form-control" %>
-  
-  <%= f.label :status %>
-  <%= f.text_field :status, class: "form-control" %>
+  <%= f.text_area :description, placeholder: t("tour.new.compose"), class: "form-control" %>
   
   <%= f.label :tour_amount %>
   <%= f.text_field :tour_amount, class: "form-control" %>

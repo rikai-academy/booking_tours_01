@@ -1,4 +1,14 @@
 vi:
+  number:
+    currency:
+      format:
+        delimiter: "."           
+        format: "%n %u"      
+        precision: 0      
+        separator: ","      
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "đồng"     
   date:
     formats:
       by_day: "%d %b "
@@ -165,7 +175,8 @@ vi:
     edit:
       update: "Cập nhật tour"
     new:
-      new: "Thêm tour"      
+      new: "Thêm tour"
+      compose: "Giới thiệu tour"
     show:
       available: "Còn trống"
       full: "Đã hết chỗ"
