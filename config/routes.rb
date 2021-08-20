@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :reviews
     namespace :admin do
       resources :users,  only: [:new, :create]
+      resources :tours, only: :index
     end
   end
 end

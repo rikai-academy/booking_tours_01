@@ -1,5 +1,6 @@
 class ToursController < ApplicationController
   before_action :load_tour, only: [:show, :update, :destroy, :edit]
+  before_action :admin_user, only: [:destroy, :create, :edit, :update]
   
   def index
     @tours = Tour.search(params[:term]).paginate(page: params[:page])
@@ -33,7 +34,7 @@ class ToursController < ApplicationController
   def update
     if @tour.update(tour_params)
       flash[:success] = t("tour.index.updated")
-      redirect_to @tour
+      redirect_to admin_tours_path
     else
       render :edit
     end
@@ -45,7 +46,10 @@ class ToursController < ApplicationController
     else
       flash[:danger] = t("tour.index.fail")
     end
-    redirect_to tours_url
+    redirect_to admin_tours_path
+  rescue ActiveRecord::InvalidForeignKey
+    flash[:danger] = t("tour.index.fail")
+    redirect_to admin_tours_path
   end
 
   private

@@ -14,11 +14,13 @@
       <% end %>
       <p><%= tour.description %></p>
       <p><%= tour.tour_amount %></p>
-      <% if tour.status %>
-        <p><%= t "tour.show.available" %></p>
-      <% else %>
-        <p><%= t "tour.show.full" %></p>
-      <% end %>
+      <p>
+        <% if tour.status? %>
+          <%= t "tour.show.available" %>
+        <% else %>
+          <%= t "tour.show.full" %>
+        <% end %>
+      </p>
       <div class="rating d-flex justify-content-between">
         <div class="days">
           <i class="fa fa-clock-o"></i>
