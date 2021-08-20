@@ -33,6 +33,7 @@ en:
     validate: "Validate..."
     revenues: "Revenues"
     lang: "EN"
+    all: "All "
   users:
     shared:
       not_found: "User not found"
@@ -92,6 +93,14 @@ en:
         phone_number: "Phone number"
         address: "Address"
         date_of_birth: "Date of birth"
+      tour:
+        tour_name: "Name"
+        images: "Images"
+        description: "Description"
+        tour_amount: "Amount"
+        date_begin: "Date of department"
+        date_end: "Return date"
+        price: "Price"
   sessions:
     new:
       login: "Log in"
@@ -160,6 +169,14 @@ en:
   tour:
     shared:
       not_found: "Tour not found"
+      name: "Name"
+      images: "Images"
+      description: "Description"
+      start: "Date of department"
+      end: "Return date"
+      price: "Price"
+      status: "Status"
+      amount: "Amount"
     index:
       tourlist: "All tour"
       searchalert: "Tour not found!"

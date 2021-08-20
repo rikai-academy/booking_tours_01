@@ -33,6 +33,7 @@ vi:
     validate: "Đang xác nhận..."
     revenues: "Doanh thu"
     lang: "VI"
+    all: "Tất cả "
   users:
     shared:
       not_found: "Không tìm thấy người dùng"
@@ -92,6 +93,14 @@ vi:
         phone_number: "Số điện thoại"
         address: "Địa chỉ"
         date_of_birth: "Ngày sinh"
+      tour:
+        tour_name: "Tên"
+        images: "Hình ảnh"
+        description: "Giới thiệu"
+        tour_amount: "Số lượng"
+        date_begin: "Ngày đi"
+        date_end: "Ngày về"
+        price: "Đơn giá"
   sessions:
     new:
       login: "Đăng Nhập"
@@ -160,6 +169,14 @@ vi:
   tour:
     shared:
       not_found: "Không tìm thấy tour"
+      name: "Tên"
+      images: "Hình ảnh"
+      description: "Giới thiệu"
+      start: "Ngày đi"
+      end: "Ngày về"
+      price: "Đơn giá"
+      status: "Trạng thái"
+      amount: "Số lượng"
     index:
       tourlist: "Danh sách tour"
       searchalert: "Không có tour nào được tìm thấy"

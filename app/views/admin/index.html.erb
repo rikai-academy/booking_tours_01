@@ -1,0 +1,74 @@
+<% provide(:title, t("tour.index.tourlist")) %>
+<div class="container-fuild">
+  <div class="d-flex justify-content-center text-center">
+    <h1><%= t "global.all" %> <%= pluralize(Tour.count, "tour") %></h1>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <%= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer,
+                                            previous_label: "<i class='fas fa-arrow-left'></i>" + t("global.previous"),
+                                            next_label: t("global.next") + "<i class='fas fa-arrow-right'></i>" %>
+  </div>
+
+  <div class="d-flex justify-content-end mb-2">
+    <%= link_to t("tour.new.new"), new_tour_path, target: "_blank", class: "btn btn-lg btn-primary" %>
+  </div>
+
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th><%= t "tour.shared.name" %></th>
+            <th><%= t "tour.shared.images" %></th>
+            <th><%= t "tour.shared.description" %></th>
+            <th><%= t "tour.shared.start" %></th>
+            <th><%= t "tour.shared.end" %></th>
+            <th><%= t "tour.shared.status" %></th>
+            <th><%= t "tour.shared.amount" %></th>
+            <th><%= t "tour.shared.price" %></th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @tours.each.with_index(1) do |tour, index| %>
+            <tr>
+              <td><%= index %></td>
+              <td><%= link_to (truncate tour.tour_name, length: 20), tour %></td>
+              <td>
+                <% if tour.images.attached? %>
+                  <% tour.images.each do |image| %>
+                    <%= image_tag image, width: "50px" %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td><%= truncate tour.description, length: 30 %></td>
+              <td><%= l(tour.date_begin, format: :long) %></td>
+              <td><%= l(tour.date_end, format: :long) %></td>
+              <td>
+                <% if tour.status? %>
+                  <%= t "tour.show.available" %>
+                <% else %>
+                  <%= t "tour.show.full" %>
+                <% end %>
+              </td>
+              <td><%= tour.tour_amount %></td>
+              <td><%= tour.price %></td>          
+              <td><%= link_to t("tour.index.update"), edit_tour_path(tour), target: "_blank", class: "btn btn-success" %></td>
+              <td><%= link_to t("tour.index.delete"), tour, class: "btn btn-danger", method: :delete, data: { confirm: t("users.index.confirm") } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+  <%= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer,
+                                          previous_label: "<i class='fas fa-arrow-left'></i>" + t("global.previous"),
+                                          next_label: t("global.next") + "<i class='fas fa-arrow-right'></i>" %>
+  </div>
+
+</div>

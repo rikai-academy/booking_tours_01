@@ -45,6 +45,9 @@ class UsersController < ApplicationController
       flash[:danger] = t("users.index.failed")
     end
     redirect_to users_url
+  rescue ActiveRecord::InvalidForeignKey
+    flash[:danger] = t("users.index.failed")
+    redirect_to users_url
   end
   
   private
