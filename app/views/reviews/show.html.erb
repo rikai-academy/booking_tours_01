@@ -9,3 +9,17 @@
     <%end%>
   <%end%>
 </div>
+<div class="container">
+  <div class="card my-1">
+    <div class="card-body">
+      <p class="font-weight-bold"><%=t("review.show.comment")%></p>
+      <%= form_with(model: [@review, @review.comments.build]) do |f| %>
+        <div class="form-group">
+          <%= f.text_area :cmt_content, class: 'form-control' %>
+        </div>
+        <%= f.submit t("review.show.comment"), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+  <%= render @review.comments %>
+</div>

@@ -230,6 +230,10 @@ vi:
     show: 
       like: "Thích"
       dislike: "Bỏ thích"
+      fail: "Đã xảy ra lỗi"
+      reply: "Trả lời"
+      cancle: "Hủy"
+      comment: "Bình luận"
   category:
     category:
       title: "Category"

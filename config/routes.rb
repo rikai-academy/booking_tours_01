@@ -22,7 +22,9 @@ Rails.application.routes.draw do
     resources :tours
     resources :users
     resources :categories
-    resources :reviews
+    resources :reviews do
+      resources :comments
+    end
     namespace :admin do
       resources :users,  only: [:new, :create]
       resources :tours, only: :index

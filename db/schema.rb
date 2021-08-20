@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 2021_08_18_042415) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer "review_id", null: false
+    t.integer "user_id", null: false
+    t.text "cmt_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "parent_id"
+    t.index ["review_id"], name: "index_comments_on_review_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "like_reviews", force: :cascade do |t|
     t.integer "review_id", null: false
     t.integer "user_id", null: false
@@ -128,6 +139,8 @@ ActiveRecord::Schema.define(version: 2021_08_18_042415) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "tours"
   add_foreign_key "bookings", "users"
+  add_foreign_key "comments", "reviews"
+  add_foreign_key "comments", "users"
   add_foreign_key "like_reviews", "reviews"
   add_foreign_key "like_reviews", "users"
   add_foreign_key "ratings", "tours"
