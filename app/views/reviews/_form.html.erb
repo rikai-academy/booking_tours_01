@@ -1,0 +1,19 @@
+<%= form_with(model: @review, local: true) do |f|%>
+    <%= render "shared/error_messages", object: f.object %>
+
+    <%= f.label :review_name %>
+    <%= f.text_field :review_name, class: "form-control" %>
+        
+    <%= f.label :review_content %>
+    <%= f.text_area :review_content, class: "form-control" %>
+
+    <%= f.label :category_name %>
+    <%= f.select :category_id, options_for_select(@categories, @review.category_id), {}, {class: "form-control"}%>
+
+    <%= f.label :image, class:"mt-2"%>
+    <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "pl-3"%>
+    
+    <div class="row d-flex justify-content-center">
+      <%= f.submit yield(:button_label), class: "btn btn-primary mt-4" %>
+    </div>
+  <% end %>

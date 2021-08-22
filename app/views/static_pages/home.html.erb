@@ -55,11 +55,11 @@
     </div>
   </div>
   <!--begin section new tour-->
-  <div class="section-content section-place mt-4">
+  <div class="section-content section-place">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6">
-          <div class="section-title text-center">
+          <div class="section-title text-center mt-4">
             <h3><%=t("staticpages.home.newtour")%></h3>
             <p><%=t("staticpages.home.newtourdescript")%></p>
           </div>
@@ -70,25 +70,28 @@
           <div class="col-lg-4">
             <div class="place">
               <div class="thumb">
-                <%= link_to image_tag("place1.png")%>
-                <%= link_to tour.price, "#", class:"price"%>          
+                <% if tour.images.attached? %>
+                  <%= link_to image_tag(tour.images[0], class:"img-fluid"), tour_path(tour.id) %>
+                <%else%>
+                  <%= link_to image_tag("place1.png", class:"img-fluid"), tour_path(tour.id)%>
+                <% end %>         
               </div>
               <div class="place-content">
-                <%= link_to "#" do %>
-                  <h3><%= link_to tour.tour_name, tour %></h3>
+                <%= link_to tour do %>
+                  <h4><%=tour.tour_name%></h4>
                 <% end %>
-                <p><%=tour.description%></p>
-                <div class="rating d-flex justify-content-between">
-                  <span>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                  </span>
-                  <div class="days">
-                    <i class="fa fa-clock-o"></i>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <span class="fas fa-umbrella-beach"></span>
+                    <span><%= tour.tour_amount %></span>
+                  </div>
+                  <div class="col-lg-4">
+                    <span class="fas fa-clock"></span>
                     <span><%= (tour.date_end - tour.date_begin).to_s + t("staticpages.home.day") %></span>
+                  </div>
+                  <div class="col-lg-4">
+                    <span class="fas fa-money-bill-alt"></span>
+                    <span><%= tour.price %>$</span>
                   </div>
                 </div>
               </div>
@@ -115,26 +118,29 @@
           <div class="col-lg-4">
             <div class="place">
               <div class="thumb">
-                <%= link_to image_tag("place1.png")%>
-                <%= link_to tour.price, "#", class:"price"%>
+                <% if tour.images.attached? %>
+                  <%= link_to image_tag(tour.images[0], class:"img-fluid"), tour_path(tour.id) %>
+                <%else%>
+                  <%= link_to image_tag("place1.png", class:"img-fluid"), tour_path(tour.id)%>
+                <% end %>
               </div>
               <div class="place-content">
-                <%= link_to "#" do %>
-                  <h3><%= link_to tour.tour_name, tour %></h3>
+                <%= link_to tour do %>
+                  <h4><%=tour.tour_name%></h4>
                 <% end %>
-                <p><%=tour.description%></p>
-                <div class="rating d-flex justify-content-between">
-                  <span>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                  </span>
-                  <div class="days">
-                    <i class="fa fa-clock-o"></i>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <span class="fas fa-umbrella-beach"></span>
+                    <span><%= tour.tour_amount %></span>
+                  </div>
+                  <div class="col-lg-4">
+                    <span class="fas fa-clock"></span>
                     <span><%= (tour.date_end - tour.date_begin).to_s + t("staticpages.home.day") %></span>
-                 </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <span class="fas fa-money-bill-alt"></span>
+                    <span><%= tour.price %>$</span>
+                  </div>
                 </div>
               </div>
             </div>	
@@ -142,7 +148,7 @@
         <% end %>
       </div>
       <div class="row">
-        <div class="col-lg-12 text-center">
+        <div class="col-lg-12 text-center mb-4">
           <%=link_to t("staticpages.home.more"), tours_path,class:"btn btn-danger"%>
         </div>
       </div>

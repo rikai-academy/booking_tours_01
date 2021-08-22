@@ -145,7 +145,7 @@ en:
       where: "Where you want to go?"
       place: "Location..."
       choose: "Choose a time to go..."
-      search: "search"
+      search: "Search"
       newtour: "New Tours"
       newtourdescript: "Brand new tours, giving you great experiences!"
       populartours: "Popular tours"
@@ -204,6 +204,8 @@ en:
       send: "Send"
       message: "Leave your message here!"
       average: "Average:"
+      time: "Time:"
+      desc: "Description:"
   review:
     review:
       title: "Review"
@@ -218,10 +220,13 @@ en:
       updated: "Updated success!"
       deleted: "Deleted success!"
       fail: "Done error out during deletion."
+      confirm: "You sure?"
       back: "Back"
     edit:
       title: "Update Review"
       update: "Update"
+    delete:
+      delete: "Delete"
     new:
       title: "Create Review"
       create: "Create"
@@ -232,6 +237,8 @@ en:
       reply: "Reply"
       cancle: "Cancle"
       comment: "Comment"
+      countlike: "Like"
+      author: "Author: "
   category:
     category:
       title: "Category"
