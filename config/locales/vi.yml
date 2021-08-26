@@ -204,6 +204,8 @@ vi:
       send: "Gửi"
       message: "Để lại tin nhắn ở đây!"
       average: "Trung bình:"
+      time: "Time:"
+      desc: "Mô tả:"
     destroy:
       inform: "Bạn đã hủy tour thành công, tiền sẽ được trả lại sớm"
   review:
@@ -220,10 +222,13 @@ vi:
       updated: "Cập nhật thành công!"
       deleted: "Đã xóa thành công!"
       fail: "Đã xảy ra lỗi!"
+      confirm: "Bạn muốn xóa review này?"
       back: "Quay lại"
     edit:
       title: "Cập nhật Review"
       update: "Cập nhật"
+    delete:
+      delete: "Xóa"
     new:
       title: "Thêm Review"
       create: "Thêm"
@@ -234,6 +239,8 @@ vi:
       reply: "Trả lời"
       cancle: "Hủy"
       comment: "Bình luận"
+      countlike: "Lượt thích"
+      author: "Tác giả: "
   category:
     category:
       title: "Category"

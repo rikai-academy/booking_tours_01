@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :logged_in_user
-  before_action :set_category, only:[:edit,:new]
+  before_action :logged_in_user, only:[:edit, :new, :create, :update, :index, :like]
+  before_action :set_category, only:[:edit, :new, :create, :update]
   before_action :load_review, only: [:edit, :update, :destroy]
 
   def index
@@ -15,14 +15,17 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
   def show
-    @review = Review.all.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      flash[:danger] = t("review.review.fail")
-      redirect_to reviews_path
+    begin
+      @review = Review.all.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        flash[:danger] = t("review.review.fail")
+        redirect_to reviews_path
+    end
+    @author= @review.user
   end
 
   def create
-    @review =current_user.reviews.create(review_params)
+    @review = current_user.reviews.create(review_params)    
     if @review.save
       flash[:success] = t("review.review.new")
       redirect_to reviews_path
@@ -39,7 +42,7 @@ class ReviewsController < ApplicationController
       flash[:success] = t("review.review.updated")
       redirect_to reviews_path
     else
-      redirect_to reviews_path
+      render :edit
     end
   end
 
@@ -69,14 +72,20 @@ class ReviewsController < ApplicationController
   
   private
     def review_params
-      params.require(:review).permit(:review_name, :review_content, :category_id)
+      params.require(:review).permit(:review_name, :review_content, :image, :category_id)
     end
 
     def load_review
-      @review = current_user.reviews.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-        flash[:danger] = t("review.review.fail")
-        redirect_to reviews_path
+      if (current_user.admin?)
+        @review = Review.all.find(params[:id])
+      else
+        begin
+          @review = current_user.reviews.find(params[:id])
+          rescue ActiveRecord::RecordNotFound
+            flash[:danger] = t("review.review.fail")
+            redirect_to reviews_path
+        end
+      end
     end
 
     def user_dislike
@@ -90,6 +99,6 @@ class ReviewsController < ApplicationController
     end
     
     def set_category
-      @categories = Category.all
+      @categories = Category.all.pluck(:category_name, :id)
     end
 end

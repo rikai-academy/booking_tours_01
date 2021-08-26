@@ -1,14 +1,14 @@
 <% provide(:title, @tour.tour_name) %>
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
-      <%= render @tour %>
-      <div>
-        <span><%=t("tour.show.average")%></span>
+    <div class="col-md-8 bg-white">
+      <%= render 'tours/tour_detail' %>
+      <div class="ml-4">
+        <span class="font-weight-bold"><%=t("tour.show.average")%></span>
         <span id="avg"><%= "%.1f" % @avg %></span>
         <span><i class="fa fa-star text-warning"></i></span> 
       </div>
-      <div class="mb-4">
+      <div class="ml-4">
         <span>
           <input type="hidden" id="tour_id" value="<%= @tour.id %>">
           <%(1..5).each do |i|%> 
@@ -17,13 +17,15 @@
         </span>
         <span id="error" class="text-danger"></span>
       </div>
-      <% if logged_in? %>
-        <%= form_with url: bookings_path do |f| %>
-          <%= f.hidden_field :tour_id, value: @tour.id %>
-          <%= f.hidden_field :price, value: @tour.price %>
-          <%= f.submit t("tour.show.booking"), class: "button mt1", disabled: !@tour.status %>
+      <div class="mt-4 mb-4 d-flex justify-content-center">
+        <% if logged_in? %>
+          <%= form_with url: bookings_path do |f| %>
+            <%= f.hidden_field :tour_id, value: @tour.id %>
+            <%= f.hidden_field :price, value: @tour.price %>
+            <%= f.submit t("tour.show.booking"), class: "button mt1 btn btn-danger", disabled: !@tour.status %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
     <div class="col-md-4">
       <div class="card gradient">
