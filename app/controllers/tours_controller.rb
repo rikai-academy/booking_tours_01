@@ -3,7 +3,7 @@ class ToursController < ApplicationController
   before_action :admin_user, only: [:destroy, :create, :edit, :update]
   
   def index
-    @tours = Tour.search(params[:term]).paginate(page: params[:page])
+    tours_index_helper
   end
 
   def new
@@ -62,6 +62,6 @@ class ToursController < ApplicationController
     end
 
     def tour_params
-      params.require(:tour).permit(:tour_name, :description, :status, :tour_amount, :date_begin, :date_end, :price, images: [])
+      params.require(:tour).permit(:tour_name, :description, :status, :tour_amount, :time, :price, images: [])
     end
 end

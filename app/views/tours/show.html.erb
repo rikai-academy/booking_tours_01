@@ -17,11 +17,46 @@
         </span>
         <span id="error" class="text-danger"></span>
       </div>
-      <div class="mt-4 mb-4 d-flex justify-content-center">
+      <div class="row bg-light mt-4 mb-4 d-flex justify-content-center">
         <% if logged_in? %>
           <%= form_with url: bookings_path do |f| %>
             <%= f.hidden_field :tour_id, value: @tour.id %>
-            <%= f.hidden_field :price, value: @tour.price %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :status, value: "pending" %>
+            <div class="table-responsive-md">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td><%= f.label t("bookings.new.adults") %></td>
+                    <td>
+                      <input class="minus is-form" onclick="decrease('adults', <%= @tour.price %>);" type="button" value="-">
+                      <%= f.number_field :adults, class: "input-qty", value: "1", max: "100", min: "0", id: "adults", readonly: true %>
+                      <input class="plus is-form" onclick="increase('adults', <%= @tour.price %>);" type="button" value="+">
+                    </td>
+                  </tr>
+
+                  <tr>  
+                    <td><%= f.label t("bookings.new.children") %></td>
+                    <td>
+                      <input class="minus is-form" onclick="decrease('child', <%= @tour.price %>);" type="button" value="-">
+                      <%= f.number_field :children, class: "input-qty", value: "0", max: "100", min: "0", id: "child", readonly: true %>
+                      <input class="plus is-form" onclick="increase('child', <%= @tour.price %>);" type="button" value="+">
+                    </td>
+                  </tr>
+
+                  <tr>  
+                    <td><%= f.label t("bookings.new.date_begin") %></td>
+                    <td><%= f.date_field :date_begin, class: "form-control" %></td>
+                  </tr>
+
+                  <tr>  
+                    <td><%= f.label t("bookings.new.total") %></td>
+                    <td><%= f.number_field :total, id: "total", value: @tour.price, class: "form-control", readonly: true %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
             <%= f.submit t("tour.show.booking"), class: "button mt1 btn btn-danger", disabled: !@tour.status %>
           <% end %>
         <% end %>

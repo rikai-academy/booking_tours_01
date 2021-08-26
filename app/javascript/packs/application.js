@@ -13,3 +13,7 @@ document.addEventListener("turbolinks:load", ()=>{
         $('[data-toggle="popover"]').popover()
     })
 })
+
+import {decrease, increase} from "./booking";
+window.decrease = decrease;
+window.increase = increase; 

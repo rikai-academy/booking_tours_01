@@ -3,6 +3,14 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   
   private
+
+    def tours_index_helper
+      if (params[:page].blank?)
+        @tours = Tour.search(params[:term]).page(Settings.Paginate.default_page).per(Settings.Paginate.tours_per_page)
+      else
+        @tours = Tour.search(params[:term]).page(params[:page]).per(Settings.Paginate.tours_per_page)
+      end
+    end
   
     # Confirms a logged-in user.
     def logged_in_user

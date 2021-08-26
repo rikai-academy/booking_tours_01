@@ -5,12 +5,10 @@
       <p class="lead"><%= t "chart.search" %> </p>
     </div>
     <div class="col-auto">
-      <%= f.label :month, class: "sr-only" %>
-      <%= f.number_field :month, class: "form-control mb-2", placeholder: t("chart.month"), min: 1, max: 12 %>
+      <%= f.select :month, (1..12).to_a, selected: params[:month] %>
     </div>
     <div class="col-auto">
-      <%= f.label :year, class: "sr-only" %>
-      <%= f.number_field :year, class: "form-control mb-2", placeholder: t("chart.year"), min: 2000, max: Time.zone.now.year %>
+      <%= f.select :year, years, selected: params[:year] %>
     </div>
     <div class="col-auto">
       <button class="btn btn-primary mb-2" type="submit">
@@ -19,7 +17,7 @@
     </div>
   </div>
 <% end %>
-<% if params[:month] && params[:year] %>
+<% if params[:month]&.present? && params[:year]&.present? %>
   <%= line_chart @revenues.where("cast(strftime('%m', updated_at) as int) = ?", params[:month])
                           .where("cast(strftime('%Y', updated_at) as int) = ?", params[:year])
                           .group_by_day_of_month(:updated_at, format: t("date.formats.by_day")).sum(:total),

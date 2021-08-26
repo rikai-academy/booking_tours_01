@@ -6,6 +6,9 @@ class CreateBookings < ActiveRecord::Migration[6.1]
       t.integer :total
       t.integer :status
       t.string :currency, default: "usd"
+      t.integer :adults
+      t.integer :children
+      t.date :date_begin
       
       t.timestamps
     end

@@ -5,9 +5,9 @@ class ReviewsController < ApplicationController
 
   def index
     if current_user.admin?
-      @reviews = Review.paginate(page: params[:page])
+      @reviews = Review.page(params[:page])
     else
-      @reviews = Review.filter(current_user.id).paginate(page: params[:page])
+      @reviews = Review.filter(current_user.id).page(params[:page])
     end
   end
 

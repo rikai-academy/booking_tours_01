@@ -31,6 +31,15 @@ class User < ApplicationRecord
   validates :address, presence: true,
                       length: { minimum: 10, maximum: 100 }, allow_nil: true
   validates :date_of_birth, presence: true, allow_nil: true
+  scope :name_like, ->(name){where "name LIKE ?", "%#{name}%"}
+  # search tour
+  def self.search(term)
+    if term
+      User.name_like term
+    else
+      all
+    end
+  end
   # Returns the hash digest of the given string.
   def User.digest(string)
     if ActiveModel::SecurePassword.min_cost

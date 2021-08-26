@@ -9,7 +9,11 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.paginate(page: params[:page])
+    if (params[:page].blank?)
+      @users =  User.search(params[:term]).page(Settings.Paginate.default_page)
+    else
+      @users = User.search(params[:term]).page(params[:page])
+    end
   end
 
   def show

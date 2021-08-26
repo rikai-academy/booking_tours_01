@@ -14,6 +14,13 @@ vi:
       by_day: "%d %b "
       by_month: "%b %Y"
       long: "%A, %d/%m/%Y"
+  views:
+    pagination:
+      first: "« ĐẦU"
+      last: "CUỐI »"
+      previous: "‹ TRƯỚC"
+      next: "SAU ›"
+      truncate: "…"
   global:
     name: "Travelify"
     error: "lỗi"
@@ -26,14 +33,13 @@ vi:
     settings: "Cài đặt"
     logout: "Đăng xuất"
     account: "Tài khoản"
-    previous: "Trước"
-    next: "Sau"
     bookings: "Tour Của Tôi"
     payment: "Phương thức thanh toán"
     validate: "Đang xác nhận..."
     revenues: "Doanh thu"
     lang: "VI"
     all: "Tất cả "
+    search: "Tìm kiếm theo tên: "
   users:
     shared:
       not_found: "Không tìm thấy người dùng"
@@ -52,7 +58,7 @@ vi:
       updated: "Cập nhật hồ sơ thành công"
       danger: "Vui lòng đăng nhập trước."
     index:
-      title: "Tất cả người dùng"
+      title: "Quản lí người dùng"
       delete: "Xóa"
       confirm: "Bạn chắc chắc chứ?"
       deleted: "Xóa người dùng thành công"
@@ -70,6 +76,10 @@ vi:
       cancel: "Huỷ bỏ"
       info: "Có lỗi phát sinh, vui lòng thử lại sau."
       pay_now: "Thanh toán ngay!"
+      days: " Ngày "
+      day: "N"
+      nights: " Đêm"
+      night: "D"
     index:
       cancel: "Xóa"
       inform: "Bạn đã xóa thành công"
@@ -77,13 +87,19 @@ vi:
       confirm: "Bạn chắc chứ?"
       pay: "Xác nhận và thanh toán"
       currency: "Tiền tệ"
-      price: "Đơn giá"
       total: "Tổng"
-      state: "Tình trạng"
+      departure: "Khởi hành lúc: "
+      adults: "Số lượng người lớn: "
+      children: "Số lượng trẻ em: "
     checkout:
       success: "Bạn đã đặt thành công."
       full: "Tour này đã hết chỗ"
       notice: "Có tour đầy trong các tour của bạn, vui lòng kiểm tra lại"
+    new:
+      adults: "Người lớn"
+      children: "Trẻ em"
+      total: "Tổng"
+      date_begin: "Ngày khởi hành"
   activerecord:
     attributes:
       user:
@@ -172,11 +188,11 @@ vi:
       name: "Tên"
       images: "Hình ảnh"
       description: "Giới thiệu"
-      start: "Ngày đi"
-      end: "Ngày về"
+      time: "Thời gian chuyến đi"
       price: "Đơn giá"
       status: "Trạng thái"
       amount: "Số lượng"
+      manage: "Quản lí Tours"
     index:
       tourlist: "Danh sách tour"
       searchalert: "Không có tour nào được tìm thấy"
@@ -184,8 +200,6 @@ vi:
       next: "Sau"
       new: "Đã thêm tour thành công!"
       create: "Thêm tour"
-      update: "Sửa"
-      delete: "Xóa"
       updated: "Cập nhật thành công!"
       deleted: "Đã xóa thành công!"
       fail: "Đã xảy ra lỗi!"
@@ -194,6 +208,7 @@ vi:
     new:
       new: "Thêm tour"
       compose: "Giới thiệu tour"
+      helper: "Số ngày/Số đêm"
     show:
       available: "Còn trống"
       full: "Đã hết chỗ"
@@ -204,10 +219,8 @@ vi:
       send: "Gửi"
       message: "Để lại tin nhắn ở đây!"
       average: "Trung bình:"
-      time: "Time:"
       desc: "Mô tả:"
-    destroy:
-      inform: "Bạn đã hủy tour thành công, tiền sẽ được trả lại sớm"
+      time: "Thời gian:"
   review:
     review:
       title: "Review"
@@ -232,6 +245,8 @@ vi:
     new:
       title: "Thêm Review"
       create: "Thêm"
+      countlike: "Lượt thích"
+      author: "Tác giả: "
     show: 
       like: "Thích"
       dislike: "Bỏ thích"

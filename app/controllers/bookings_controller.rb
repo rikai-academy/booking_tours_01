@@ -7,27 +7,24 @@ class BookingsController < ApplicationController
   end
 
   def create 
-    @booking = Booking.create(tour_id: booking_params[:tour_id],
-                              user_id: current_user.id,
-                              total: booking_params[:price],
-                              status: 0)
+    @booking = Booking.create(booking_params)
     if @booking.save
       redirect_to bookings_path
     else
-      flash[:alert] = t("bookings.shared.failed")
-      redirect_to tour_path(@tour)
+      flash[:danger] = t("bookings.shared.failed")
+      redirect_to tour_path(booking_params[:tour_id])
     end
   end
 
   def destroy    
     @booking.destroy
-    flash[:alert] = t("bookings.index.inform")
+    flash[:success] = t("bookings.index.inform")
     redirect_to bookings_path
   end
 
   private
 
     def booking_params
-      params.permit(:tour_id, :price)
+      params.permit(:tour_id, :total, :adults, :children, :date_begin, :user_id, :status)
     end
 end

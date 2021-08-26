@@ -31,6 +31,5 @@
         </tbody>
       </table>
     </div>
-    <%= will_paginate @collection, :previous_label =>  "<i class='fas fa-arrow-left'></i>" + t("global.previous"),
-                               :next_label => t("global.next") + "<i class='fas fa-arrow-right'></i>" %>
+    <%= paginate @categories, theme: "twitter-bootstrap-4"%>
 </div>

@@ -1,5 +1,5 @@
 class Tour < ApplicationRecord
-  self.per_page = Settings.WillPaginate.tours_per_page
+
   include CheckAvailable
   has_many :bookings
   has_many :users, through: :bookings

@@ -8,7 +8,14 @@ en:
         separator: ","
         significant: false
         strip_insignificant_zeros: false
-        unit: "$"     
+        unit: "$"
+  views:
+    pagination:
+      first: "« FIRST"
+      last: "LAST »"
+      previous: "‹ PREV"
+      next: "NEXT ›"
+      truncate: "…" 
   date: 
     formats:
       by_day: "%b %d"
@@ -26,14 +33,13 @@ en:
     settings: "Settings"
     logout: "Log out"
     account: "Account"
-    previous: "Previous"
-    next: "Next"
     bookings: "My Tours"
     payment: "Payment method"
     validate: "Validate..."
     revenues: "Revenues"
     lang: "EN"
     all: "All "
+    search: "Search by name: "
   users:
     shared:
       not_found: "User not found"
@@ -52,7 +58,7 @@ en:
       updated: "Profile updated"
       danger: "Please log in."
     index:
-      title: "All users"
+      title: "Manage Users"
       delete: "Delete"
       confirm: "Are you sure?"
       deleted: "User deleted"
@@ -70,6 +76,10 @@ en:
       cancel: "Cancel"
       info: "Something went wrong, please try again later"
       pay_now: "Pay now!"
+      days: " Days "
+      day: "D"
+      nights: " Nights"
+      night: "N"
     index:
       cancel: "Remove"
       inform: "Booking was removed successfully"
@@ -77,13 +87,19 @@ en:
       confirm: "Are you sure?"
       pay: "Confirm and Pay"
       currency: "Currency"
-      price: "Price"
       total: "Total"
-      state: "State"
+      departure: "Departure at: "
+      adults: "Number of adults: "
+      children: "Number of children: "
     checkout:
       full: "This tour was full"
       success: "Your space was booked successfully."
       notice: "There is full tour in your tours, please check again!"
+    new:
+      adults: "Adults"
+      children: "Children"
+      total: "Total"
+      date_begin: "Date of departure"
   activerecord:
     attributes:
       user:
@@ -172,11 +188,11 @@ en:
       name: "Name"
       images: "Images"
       description: "Description"
-      start: "Date of department"
-      end: "Return date"
+      time: "Time of trip"
       price: "Price"
       status: "Status"
       amount: "Amount"
+      manage: "Manage Tours"
     index:
       tourlist: "All tour"
       searchalert: "Tour not found!"
@@ -184,8 +200,6 @@ en:
       next: "Next"
       new: "Created success!"
       create: "Create tour"
-      update: "Update"
-      delete: "Delete"
       updated: "Updated success!"
       deleted: "Deleted success!"
       fail: "Done error out during deletion."
@@ -194,6 +208,7 @@ en:
     new:
       new: "Create tour"
       compose: "Compose new tour..."
+      helper: "Number of days/Number of nights"
     show:
       available: "Available"
       full: "Full"
