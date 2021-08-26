@@ -1,5 +1,6 @@
 <div class="row mt-4">
-    <% for review in @reviews %>
+  <% for review in @reviews %>
+    <%if review.status%>
       <div class="col-md-12 col-lg-12">
         <article class="post vt-post">
           <div class="row">
@@ -34,4 +35,5 @@
         </div>
       </div>
     <%end%>
-  </div>
+  <%end%>
+</div>

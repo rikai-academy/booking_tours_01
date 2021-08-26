@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :logged_in_user, only:[:edit, :new, :create, :update, :index, :like]
   before_action :set_category, only:[:edit, :new, :create, :update]
-  before_action :load_review, only: [:edit, :update, :destroy]
+  before_action :load_review, only: [:edit, :update, :destroy, :hidden]
 
   def index
     if current_user.admin?
@@ -53,6 +53,12 @@ class ReviewsController < ApplicationController
       flash[:danger] = t("review.review.fail")
     end
     redirect_to reviews_url
+  end
+
+  def hidden
+    @review.status=!@review.status;
+    @review.save;
+    redirect_to reviews_path
   end
 
   def like

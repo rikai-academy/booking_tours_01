@@ -140,6 +140,7 @@ vi:
       revenues: "Doanh thu"
       reviews: "Review"
       categories: "Danh mục"
+      comments : "Bình luận"
   staticpages:
     home:
       home: "Trang chủ"
@@ -256,6 +257,17 @@ vi:
       comment: "Bình luận"
       countlike: "Lượt thích"
       author: "Tác giả: "
+    index:
+      title: "Quản Lí Review"
+      review: "Tên Review"
+      content: "Nội Dung Review"
+      user : "Tên người dùng"
+      action: "Hành Động"
+      category: "Danh mục"
+      status: "Trạng thái"
+      hidden: "Ẩn"
+      active: "Hiện"
+      notreview: "Hiện tại không có review nào."
   category:
     category:
       title: "Category"
@@ -278,3 +290,13 @@ vi:
     month: "Tháng"
     year: "Năm"
     search: "Bạn muốn xem biểu đồ lúc nào?"
+  comment:
+    index:
+      title: "Quản Lí Comment"
+      review: "Tên Review"
+      content: "Nội Dung Comment"
+      user : "Tên người dùng"
+      action: "Hành Động"
+      hidden: "Ẩn"
+      active: "Hiện"
+      notcomment: "Hiện tại không có comment nào."

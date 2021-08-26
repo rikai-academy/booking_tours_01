@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     get "/cancel",    to: "checkout#cancel"
     post "/login",    to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
-    put "/reviews/:id/like",    to: "reviews#like", as:"like"
     resources :ratings
     resources :bookings
     resources :checkout, only: :create
@@ -22,6 +21,17 @@ Rails.application.routes.draw do
     resources :tours
     resources :users
     resources :categories
+    resources :comments do
+      member do
+        put :hidden
+      end
+    end
+    resources :reviews do
+      member do
+        put :hidden
+        put :like
+      end
+    end
     resources :reviews do
       resources :comments
     end

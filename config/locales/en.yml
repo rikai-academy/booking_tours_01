@@ -139,7 +139,8 @@ en:
       users: "Users"
       revenues: "Revenues"
       reviews: "Reviews"
-      categoríe: "Categories"
+      categories: "Categories"
+      comments : "Comments"
   staticpages:
     home:
       home: "Home"
@@ -254,6 +255,17 @@ en:
       comment: "Comment"
       countlike: "Like"
       author: "Author: "
+    index:
+      title: "Manage Review"
+      review: "Review Name"
+      content: "Review Content"
+      user : "User Name"
+      action: "Action"
+      category: "Category"
+      status: "Status"
+      hidden: "Hidden"
+      active: "Active"
+      notreview: "Currently, there are no reviews yet."
   category:
     category:
       title: "Category"
@@ -276,3 +288,13 @@ en:
     month: "Month"
     year: "Year"
     search: "Which time would you like to see the chart?"
+  comment:
+    index:
+      title: "Manage Comment"
+      review: "Review Name"
+      content: "Comment Content"
+      user : "User Name"
+      action: "Action"
+      hidden: "Hidden"
+      active: "Active"
+      notcomment: "Currently, there are no comments yet."

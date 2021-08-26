@@ -1,13 +1,49 @@
 <% provide(:title, t("review.review.title")) %>
-<div class="container">
-  <div class="row">
-    <h3><%=t("review.review.allreview")%></h3>
+<div class="container bg-white">
+  <div class="row d-flex justify-content-center">
+    <h3 class="mt-4"><%=t("review.review.allreview")%></h3>
   </div>
-  <div class=row>
-    <%= link_to t('review.new.create'), new_review_path, {class:"btn btn-info mr-auto"} %>
+  <div class="row d-flex justify-content-center">
     <%= paginate @reviews, theme: "twitter-bootstrap-4" %>
   </div>
-  <div class="row mt-4">
-    <%= render @reviews%>
+  <div class="row ml-auto">
+    <%= link_to t('review.new.create'), new_review_path, {class:"btn btn-primary"} %>
+  </div>
+  <div class="row d-flex justify-content-center mt-4">
+    <%if @reviews.blank?%>
+      <h3><%=t("review.index.notreview")%><h3>
+    <%else%>
+      <table class="table text-center bg-white table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col"><%=t("review.index.review")%></th>
+            <th scope="col"><%=t("review.index.content")%></th>
+            <th scope="col"><%=t("review.index.user")%></th>
+            <th scope="col"><%=t("review.index.category")%></th>
+            <th scope="col"><%=t("review.index.status")%></th>
+            <th scope="col"><%=t("review.index.action")%></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reviews.each do |review| %>
+            <tr>
+              <th scope="row"><%=review.id%></th>
+              <td><%=link_to review.review_name, review%></td>
+              <td><%=truncate review.review_content%></td>
+              <td><%=review.user.name%></td>
+              <td><%=review.category.category_name%></td>
+              <td>
+                <%=status(review)%>
+              </td>
+              <td>
+                <%= link_to t('review.edit.update'), edit_review_path(review.id), {class:"btn btn-info"} %>
+                <%= link_to t('review.delete.delete'), review, method: :delete, data: { confirm: t("review.review.confirm") } ,class:"btn btn-danger"%>
+              </td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    <%end%>
   </div>
 </div>
