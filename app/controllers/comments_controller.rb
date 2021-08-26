@@ -48,7 +48,6 @@ class CommentsController < ApplicationController
     @comment.save;
     redirect_to comments_path
   end
-  
   private
     def comment_params
       params.require(:comment).permit(:parent_id,:cmt_content,:parent_id)

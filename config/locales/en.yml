@@ -297,4 +297,7 @@ en:
       action: "Action"
       hidden: "Hidden"
       active: "Active"
+<<<<<<< HEAD
       notcomment: "Currently, there are no comments yet."
+=======
+>>>>>>> 7028892 (Manage comments)

@@ -289,6 +289,12 @@ vi:
     empty: "Không có dữ liệu để hiển thị"
     month: "Tháng"
     year: "Năm"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    search: "Bạn muốn xem biểu đồ lúc nào?"
+=======
+>>>>>>> 7028892 (Manage comments)
     search: "Bạn muốn xem biểu đồ lúc nào?"
   comment:
     index:
@@ -299,4 +305,8 @@ vi:
       action: "Hành Động"
       hidden: "Ẩn"
       active: "Hiện"
+<<<<<<< HEAD
       notcomment: "Hiện tại không có comment nào."
+=======
+>>>>>>> 62617b3 (Manage comments)
+>>>>>>> 7028892 (Manage comments)
