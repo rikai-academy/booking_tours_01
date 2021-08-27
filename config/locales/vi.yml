@@ -278,3 +278,18 @@ vi:
     month: "Tháng"
     year: "Năm"
     search: "Bạn muốn xem biểu đồ lúc nào?"
+  mailer:
+    booking:
+      book: "Người dùng đặt tour"
+      pay: "Người dùng thanh toán thành công"
+      title: "Thông báo"
+      total: "Tổng: "
+      success: " đã thanh toán "
+      for: " cho "
+    tour:
+      title: "Tour mới ra mắt"
+      header: "Tour mới ra mắt trên Travelify"
+      greeting: "Khách hàng đáng quý thân mến, "
+      content: "Chúng tôi vừa ra mắt một tour thú vị mà bạn có thể muốn đi."
+      please: "Nếu bạn có thời gian hãy nhìn qua nó:"
+      regards: "Trân trọng, "
