@@ -4,10 +4,27 @@
     <h1><%= t "users.index.title" %></h1>
   </div>
 
-  <div class="row d-flex justify-content-center">
-    <%= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer,
-                                            previous_label: "<i class='fas fa-arrow-left'></i>" + t("global.previous"),
-                                            next_label: t("global.next") + "<i class='fas fa-arrow-right'></i>" %>
+  <div class="row d-flex justify-content-between">
+    <div>
+      <%= form_with url: users_path, method: :get do |f| %>
+        <div class="form-row d-flex justify-content-center align-items-center pt-3">
+          <div class="col-auto">
+            <p class="lead"><%= t "global.search" %> </p>
+          </div>
+          <div class="col-auto">
+            <%= f.text_field :term, class: "form-control mb-2", placeholder: "John..." %>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-primary mb-2" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="mt-2">
+      <%= paginate @users, theme: "twitter-bootstrap-4" %>
+    </div>
   </div>
 
   <div class="d-flex justify-content-end">
@@ -19,8 +36,6 @@
   </ul>
 
   <div class="row d-flex justify-content-center">
-  <%= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer,
-                                          previous_label: "<i class='fas fa-arrow-left'></i>" + t("global.previous"),
-                                          next_label: t("global.next") + "<i class='fas fa-arrow-right'></i>" %>
+    <%= paginate @users, theme: "twitter-bootstrap-4" %>
   </div>
 </div>

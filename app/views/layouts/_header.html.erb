@@ -1,7 +1,10 @@
 <header class="fixed-top">
   <div class="container-fluid bg-dark">
     <nav class="container navbar navbar-expand-lg navbar-dark ">
-      <%= link_to t("global.name"), root_path, class:"navbar-brand"%>
+      <%= link_to root_path, class:"navbar-brand" do %>
+        <i class="fab fa-pied-piper-alt"></i>
+        <%= t("global.name") %>
+      <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

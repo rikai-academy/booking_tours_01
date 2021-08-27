@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :logged_in_user, only: :create
+
   def new
     @review = Review.all.find(params[:review_id])
     @comment = @review.comments.new(parent_id: params[:parent_id])

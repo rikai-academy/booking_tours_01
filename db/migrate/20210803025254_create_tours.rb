@@ -6,8 +6,7 @@ class CreateTours < ActiveRecord::Migration[6.1]
       t.boolean :status, default: true
       t.integer :tour_amount
       t.integer :cur_amount, default: 0, null: false
-      t.date :date_begin
-      t.date :date_end
+      t.string :time
       t.integer :price
 
       t.timestamps

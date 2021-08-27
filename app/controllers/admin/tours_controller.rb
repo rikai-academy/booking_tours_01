@@ -1,6 +1,6 @@
 class Admin::ToursController < AdminController
 
   def index
-    @tours = Tour.paginate(page: params[:page])
+    tours_index_helper
   end
 end

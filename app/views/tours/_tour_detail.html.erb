@@ -22,7 +22,7 @@
             <span class="text-danger"><%= @tour.price %>$</span>
           </h5>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-2">
           <h5>
             <i class="fas fa-umbrella-beach"></i>
             <span><%= @tour.tour_amount %></span>
@@ -40,16 +40,14 @@
             </span>
           </h5>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <h5>
             <i class="fas fa-clock"></i>
-            <span><%= (@tour.date_end - @tour.date_begin).to_s + t("staticpages.home.day") %></span>
+            <span><%= time_helper(@tour.time) %></span>
           </h5>
         </div>
       </div>
       <div>
-        <label class="font-weight-bold"><%= t "tour.show.time" %></label>
-        <p><%= l(@tour.date_begin, format: :long) %> - <%= l(@tour.date_end, format: :long) %></p>
         <label class="font-weight-bold"><%=t("tour.show.desc")%></label>
         <p><%= @tour.description %></p>
       </div>

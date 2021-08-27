@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_18_042415) do
+ActiveRecord::Schema.define(version: 2021_08_20_020625) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(version: 2021_08_18_042415) do
     t.integer "total"
     t.integer "status"
     t.string "currency", default: "usd"
+    t.integer "adults"
+    t.integer "children"
+    t.date "date_begin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "stripe_price_id"
@@ -108,8 +111,7 @@ ActiveRecord::Schema.define(version: 2021_08_18_042415) do
     t.boolean "status", default: true
     t.integer "tour_amount"
     t.integer "cur_amount", default: 0, null: false
-    t.date "date_begin"
-    t.date "date_end"
+    t.string "time"
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

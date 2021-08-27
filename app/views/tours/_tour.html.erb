@@ -18,7 +18,7 @@
         </div>
         <div class="col-lg-4">
           <span class="fas fa-clock"></span>
-          <span><%= (tour.date_end - tour.date_begin).to_s + t("staticpages.home.day") %></span>
+          <span><%= time_short(tour.time) %></span>
         </div>
         <div class="col-lg-4">
           <span class="fas fa-money-bill-alt"></span>

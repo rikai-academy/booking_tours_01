@@ -1,7 +1,13 @@
 class Booking < ApplicationRecord
   enum status: { pending: 0, failed: 1, paid: 2}
-  validates :total, numericality: {greater_than: 0, less_than: 10000000}
-  
+
+  validates :total, presence: true, numericality: {greater_than: 0, less_than: 10000000}
+  validates :date_begin, presence: true
+  validates :children, presence: true, numericality: {greater_than: 0, less_than: 100}
+  validates :adults, presence: true, numericality: {greater_than: 0, less_than: 100}
+  scope :by_year,  -> (year){ where "extract(year FROM updated_at) = ?", "%#{year}%" }
+  scope :by_month, -> (month){ where "extract(month FROM updated_at) = ?", "%#{month}%" }
+
   belongs_to :user
   belongs_to :tour
 

@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.paginate(page: params[:page])
+    @categories = Category.page(params[:page])
   end
 
   def show
