@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   def create 
     @booking = Booking.create(booking_params)
     if @booking.save
+      SendEmailBookingJob.set(wait: 1.minutes).perform_later({:current_user => current_user, :booking => @booking})
       redirect_to bookings_path
     else
       flash[:danger] = t("bookings.shared.failed")

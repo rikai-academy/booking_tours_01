@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = t("users.new.welcome")
+      UserMailer.welcome_email(@user).deliver_now 
       redirect_to @user
     else 
       render :new

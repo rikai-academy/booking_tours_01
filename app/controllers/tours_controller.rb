@@ -13,6 +13,7 @@ class ToursController < ApplicationController
   def create
     @tour = Tour.new(tour_params) 
     if @tour.save
+      SendEmailNewTourJob.set(wait: 2.minutes).perform_later @tour
       flash[:success] = t("tour.index.new")
       redirect_to @tour
     else 

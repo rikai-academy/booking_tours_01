@@ -1,0 +1,9 @@
+hard_worker:
+  cron: "*/30 * * * *"
+  class: "HardWorker"
+  queue: "default"
+calculate_rating:
+  cron: "*/30 * * * *"
+  class: "CalculateRating"
+  queue: "default"
+

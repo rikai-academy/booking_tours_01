@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p><%=@user.name%> <%=t("usermailer.paysuccess.pay")%> <%=@booking.tour.tour_name%></p>
+    <p><%=t("usermailer.paysuccess.total")%> <%= @booking.total%></p>
+  </body>
+</html>
