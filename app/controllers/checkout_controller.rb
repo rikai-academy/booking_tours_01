@@ -19,7 +19,7 @@ include CheckoutHelper
       line_items: line_items,
       allow_promotion_codes: true,
       mode: "payment",
-      success_url: success_url + "?session_id={CHECKOUT_SESSION_ID}",
+      success_url: success_url + "?session_id={CHECKOUT_SESSION_ID}&id=#{params[:id]}",
       cancel_url: cancel_url,
     })
     
@@ -30,6 +30,9 @@ include CheckoutHelper
 
   def success
     if params[:session_id].present?
+      booking = Booking.find(params[:id])
+      BookingSuccess.call(booking)
+      PaySuccessJob.set(wait: 1.minutes).perform_later({:current_user => current_user, :booking => booking})
       checkout_success(params[:session_id])
     else
       redirect_to cancel_url

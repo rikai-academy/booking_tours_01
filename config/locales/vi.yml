@@ -300,3 +300,14 @@ vi:
       hidden: "Ẩn"
       active: "Hiện"
       notcomment: "Hiện tại không có comment nào."
+  usermailer:
+    bookingemail:
+      book: "đã book thành công"
+    newtour:
+      new: "đã được cập nhật"
+      info: "Xin mời bạn xem thêm thông tin của tour tại"
+    paysuccess:
+      pay: "đã thanh toán thành công cho"
+      total: "Tổng số tiền đã thanh toán"
+    totalbyday:
+      total: "Tổng doanh thu trong ngày là:"

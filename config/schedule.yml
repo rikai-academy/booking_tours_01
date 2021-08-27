@@ -1,0 +1,9 @@
+total_money:
+  cron: "*/10 * * * *"
+  class: "TotalMoney"
+  queue: "default"
+calculate_rating:
+  cron: "* */6 * * *"
+  class: "CalculateRating"
+  queue: "default"
+

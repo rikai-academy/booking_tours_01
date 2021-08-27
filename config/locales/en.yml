@@ -298,3 +298,14 @@ en:
       hidden: "Hidden"
       active: "Active"
       notcomment: "Currently, there are no comments yet."
+  usermailer:
+    bookingemail:
+      book: "booked successfully"
+    newtour:
+      new: "has been updated"
+      info: "Please see more information about the tour at"
+    paysuccess:
+      pay: "successfully paid for"
+      total: "Total amount:"
+    totalbyday:
+      total: "Total money by day:"
