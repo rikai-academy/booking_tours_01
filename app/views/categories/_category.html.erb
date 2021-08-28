@@ -1,0 +1,15 @@
+<% if category.children.any? %>
+  <li>
+    <%= link_to topic_path(category.id), class: "dropdown-item" do %>
+      <%= category.category_name %>
+      <p class="float-right">&raquo;</p>
+    <% end %>
+    <ul class="dropdown-menu dropdown-submenu">
+      <%= render partial: "categories/category", collection: category.children %>
+    </ul>
+  </li>
+<% else %>
+  <li>
+    <%= link_to category.category_name, topic_path(category.id), class: "dropdown-item" %>
+  </li>
+<% end %>

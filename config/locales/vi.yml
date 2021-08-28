@@ -117,6 +117,9 @@ vi:
         date_begin: "Ngày đi"
         date_end: "Ngày về"
         price: "Đơn giá"
+      category:
+        category_name: "Tên Thể loại"
+        parent_id: "Thuộc về"
   sessions:
     new:
       login: "Đăng Nhập"
@@ -221,16 +224,23 @@ vi:
       average: "Trung bình:"
       desc: "Mô tả:"
       time: "Thời gian:"
-  review:
+  reviews:
+    show:
+      posted: "Đã đăng"
+      ago: "trước"
+      like: "Thích"
+      dislike: "Bỏ thích"
+      fail: "Đã xảy ra lỗi"
+      reply: "Trả lời"
+      cancle: "Hủy"
+      comment: "Bình luận"
+      countlike: "Lượt thích"
+      author: "Tác giả: "
+    shared:
+      more: "Xem thêm"
     review:
       title: "Review"
       allreview: "Tất cả review"
-      posted: "Đã đăng lúc:"
-      name: "Review 1"
-      content: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla."
-      readmore: "Xem thêm"
-      foodreview: "Review đồ ăn"
-      placereview: "Review địa điểm"
       new: "Đã thêm tour thành công!"
       updated: "Cập nhật thành công!"
       deleted: "Đã xóa thành công!"
@@ -245,6 +255,7 @@ vi:
     new:
       title: "Thêm Review"
       create: "Thêm"
+<<<<<<< HEAD
       countlike: "Lượt thích"
       author: "Tác giả: "
     show: 
@@ -259,15 +270,24 @@ vi:
   category:
     category:
       title: "Category"
+=======
+  categories:
+    new:
+      title: "Thêm Thể loại"
+      button: "Thêm"
+      success: "Đã tạo thành công!"
+    edit:
+      title: "Sửa Thể loại"
+      button: "Lưu"
+      success: "Đã sửa thành công!"
+    index:
+>>>>>>> e352da8 (Multi-level menu)
       name: "Tên"
-      action: "Hành động"
-      manage: "Quản lí Category"
-      createbtn: "Thêm"
-      updatebtn: "Sửa"
-      deletebtn: "Xóa"
-      new: "Đã tạo thành công!"
+      manage: "Quản lí Thể loại"
+      parent: "Thuộc về"
+    destroy:
       delete: "Đã xóa thành công!"
-      update: "Đã sửa thành công!"
+    shared: 
       fail: "Đã xảy ra lỗi!"
   chart:
     title1: "Doanh thu theo tháng"

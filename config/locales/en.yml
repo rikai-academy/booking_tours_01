@@ -117,6 +117,9 @@ en:
         date_begin: "Date of department"
         date_end: "Return date"
         price: "Price"
+      category:
+        category_name: "Category Name"
+        parent_id: "Belongs to"
   sessions:
     new:
       login: "Log in"
@@ -220,17 +223,28 @@ en:
       message: "Leave your message here!"
       average: "Average:"
       time: "Time:"
+<<<<<<< HEAD
       desc: "Description:"
   review:
+=======
+  reviews:
+    show:
+      posted: "Posted"
+      ago: "ago"
+      like: "Like"
+      dislike: "Dislike"
+      fail: "Error! An error occurred. Please try again later."
+      reply: "Reply"
+      cancle: "Cancle"
+      comment: "Comment"
+      countlike: "Like"
+      author: "Author: "
+    shared:
+      more: "Read more"
+>>>>>>> e352da8 (Multi-level menu)
     review:
       title: "Review"
       allreview: "All review"
-      posted: "Posted on:"
-      name: "Review 1"
-      content: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla."
-      readmore: "Read more"
-      foodreview: "Food Review"
-      placereview: "Place Review"
       new: "Created success!"
       updated: "Updated success!"
       deleted: "Deleted success!"
@@ -245,27 +259,22 @@ en:
     new:
       title: "Create Review"
       create: "Create"
-    show: 
-      like: "Like"
-      dislike: "Dislike"
-      fail: "Error! An error occurred. Please try again later."
-      reply: "Reply"
-      cancle: "Cancle"
-      comment: "Comment"
-      countlike: "Like"
-      author: "Author: "
-  category:
-    category:
-      title: "Category"
-      name: "Name"
-      action: "Action"
+  categories:
+    new:
+      title: "Add Category"
+      button: "Create"
+      success: "Created successfully"
+    edit:
+      title: "Edit Category"
+      button: "Save"
+      success: "Updated successfully"
+    index:
       manage: "Manage Category"
-      createbtn: "Create"
-      updatebtn: "Update"
-      deletebtn: "Delete"
-      new: "Created successfully"
-      delete: "Deleted successfully"
-      update: "Updated successfully"
+      name: "Name"
+      parent: "Belongs to"
+    destroy:
+      success: "Deleted successfully"
+    shared:  
       fail: "Error! An error occurred. Please try again later"
   chart:
     title1: "Revenues by Month"

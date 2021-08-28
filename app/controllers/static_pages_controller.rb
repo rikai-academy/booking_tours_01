@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action :load_review_category, only: [:reviewfood, :reviewplace]
+  before_action :load_review_category, only: [:reviews_about]
 
   def home
     @newtours = Tour.last(3)
@@ -9,15 +9,12 @@ class StaticPagesController < ApplicationController
   def thanks
   end
   
-  def reviewfood()
-  end
-
-  def reviewplace()
+  def reviews_about
   end
 
   private
     def load_review_category
-      @reviews  = Category.find(params[:id]).reviews
+      @category  = Category.find(params[:id])
       rescue ActiveRecord::RecordNotFound
         flash[:danger] = t("review.review.fail")
         redirect_to reviews_path   
