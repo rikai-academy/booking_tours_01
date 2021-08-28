@@ -12,7 +12,19 @@ class StaticPagesController < ApplicationController
   def reviews_about
   end
 
+  def statistic
+    @res = StatisticsData.call({})
+    @revenues = Booking.paid
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachment; filename="statistics.xlsx"'
+      }
+    end
+  end
+
   private
+
     def load_review_category
       @category  = Category.find(params[:id])
       rescue ActiveRecord::RecordNotFound

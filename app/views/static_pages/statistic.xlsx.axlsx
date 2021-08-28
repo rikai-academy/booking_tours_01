@@ -1,0 +1,10 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Statistics") do |sheet|
+  sheet.add_row ["Statistics at #{Date.today}"]
+  @res.each do |key, value|
+    sheet.add_row [format_string(key), value]
+  end
+
+  sheet.add_row ["Revenues in this month", @revenues.statistic_at(Date.today).sum(:total)]
+  sheet.add_row ["Revenues in last month", @revenues.statistic_at(1.month.ago).sum(:total)]
+end

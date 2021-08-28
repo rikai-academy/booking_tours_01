@@ -1,0 +1,122 @@
+<% provide(:title, t("statistics.title")) %>
+<div class="container">
+  <div class="d-flex justify-content-end">
+    <%= link_to t("statistics.download"), statistics_path(format: :xlsx), class: "btn btn-lg btn-primary" %>
+  </div>
+  <div class="row mt-3 pt-3 bg-light">
+    <div class="col-md-6">
+      <!-- Card group -->
+      <div class="card-group">
+        <!-- Card -->
+        <div class="card mb-4 bg-info">
+          <!-- Card content -->
+          <div class="card-body">
+            <!-- Title -->
+            <h6 class="card-title"><%= t "statistics.reviews" %>:</h6>
+            <!-- Text -->              
+            <p class="card-text blue-text">
+              <i class="fas fa-newspaper fa-2x"></i>
+              <span class="ml-2" style="font-size: 30px;">
+                <%= @res[:reviews_in_this_month] %>
+              </span>
+              ,<%= @res[:reviews_in_previous_month] %>
+            </p>
+          </div>
+          <!-- Card content -->
+        </div>
+        <!-- Card -->
+
+        <!-- Card -->
+        <div class="card mb-4 bg-primary">
+          <!-- Card content -->
+          <div class="card-body">
+            <!-- Title -->
+            <h6 class="card-title"><%= t "statistics.ratings" %></h6>
+            <!-- Text -->
+            <p class="card-text red-text">
+              <i class="fas fa-star fa-2x"></i>
+              <span class="ml-2" style="font-size: 30px;">
+                <%= @res[:ratings_in_this_month] %>
+              </span>
+              ,<%= @res[:ratings_in_previous_month] %>
+            </p>
+          </div>
+          <!-- Card content -->
+        </div>
+        <!-- Card -->
+      </div>
+      <!-- Card group -->
+    </div>  
+
+    <div class="col-md-6">
+      <!-- Card group -->
+      <div class="card-group">
+        <!-- Card -->
+        <div class="card mb-4 bg-white">
+          <!-- Card content -->
+          <div class="card-body">
+            <!-- Title -->
+            <h6 class="card-title"><%= t "statistics.likes" %></h6>
+            <!-- Text -->              
+            <p class="card-text blue-text">
+              <i class="fas fa-thumbs-up fa-2x"></i>
+              <span class="ml-2" style="font-size: 30px;">
+                <%= @res[:likes_in_this_month] %>
+              </span>
+              ,<%= @res[:likes_in_previous_month] %>
+            </p>
+          </div>
+          <!-- Card content -->
+        </div>
+        <!-- Card -->
+
+        <!-- Card -->
+        <div class="card mb-4 bg-secondary">
+          <!-- Card content -->
+          <div class="card-body">
+            <!-- Title -->
+            <h6 class="card-title"><%= t "statistics.comments" %></h6>
+            <!-- Text -->
+            <p class="card-text red-text">
+              <i class="fas fas fa-comments fa-2x"></i>
+              <span class="ml-2" style="font-size: 30px;">
+                <%= @res[:comments_in_this_month] %>
+              </span>
+              ,<%= @res[:comments_in_previous_month] %>
+            </p>
+          </div>
+          <!-- Card content -->
+        </div>
+        <!-- Card -->
+      </div>
+      <!-- Card group -->
+    </div>  
+  </div>
+
+  <div class="row mt-3 pt-3">
+    <div class="col-md-6 card">
+      <%= pie_chart [ [ t("statistics.new"), @res[:new_users_in_this_month] ],
+                    [ t("statistics.old"), @res[:all_old_users] ] ],
+          title: t("statistics.users"), messages: { empty: t("chart.empty") } %>  
+    </div>
+
+    <div class="col-md-6 card">
+      <%= pie_chart [ [ t("statistics.new"), @res[:new_tours_in_this_month] ],
+                    [ t("statistics.old"), @res[:all_old_tours] ] ],
+          title: t("statistics.tours"), messages: { empty: t("chart.empty") } %>  
+    </div>
+  </div>
+
+  <hr class="mt-5 mb-5">
+
+  <div class="row mt-3 pt-3">
+    <%= line_chart [{name: t("statistics.this"), data: @revenues.statistic_at(Date.today).group_by_week(:updated_at,
+                                         format: t("date.formats.by_day")).sum(:total)},
+                    {name: t("statistics.last"), data: @revenues.statistic_at(1.month.ago).group_by_week(:updated_at,
+                                         format: t("date.formats.by_day")).sum(:total)}],
+                    height: "20rem", suffix: "$",
+                    ytitle: t("chart.y_title"),  title: t("statistics.revenues"),
+                    messages: { empty: t("chart.empty") } %>  
+  </div>
+ 
+</div>
