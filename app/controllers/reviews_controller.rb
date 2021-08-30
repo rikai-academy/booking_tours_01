@@ -98,11 +98,4 @@ class ReviewsController < ApplicationController
     def user_like
       LikeReview.create(review_id:@review.id, user_id:current_user.id)
     end
-<<<<<<< HEAD
-    
-    def set_category
-      @categories = Category.all.pluck(:category_name, :id)
-    end
-=======
->>>>>>> e352da8 (Multi-level menu)
 end

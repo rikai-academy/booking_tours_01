@@ -222,7 +222,6 @@ vi:
       send: "Gửi"
       message: "Để lại tin nhắn ở đây!"
       average: "Trung bình:"
-      desc: "Mô tả:"
       time: "Thời gian:"
   reviews:
     show:
@@ -255,22 +254,6 @@ vi:
     new:
       title: "Thêm Review"
       create: "Thêm"
-<<<<<<< HEAD
-      countlike: "Lượt thích"
-      author: "Tác giả: "
-    show: 
-      like: "Thích"
-      dislike: "Bỏ thích"
-      fail: "Đã xảy ra lỗi"
-      reply: "Trả lời"
-      cancle: "Hủy"
-      comment: "Bình luận"
-      countlike: "Lượt thích"
-      author: "Tác giả: "
-  category:
-    category:
-      title: "Category"
-=======
   categories:
     new:
       title: "Thêm Thể loại"
@@ -281,7 +264,6 @@ vi:
       button: "Lưu"
       success: "Đã sửa thành công!"
     index:
->>>>>>> e352da8 (Multi-level menu)
       name: "Tên"
       manage: "Quản lí Thể loại"
       parent: "Thuộc về"

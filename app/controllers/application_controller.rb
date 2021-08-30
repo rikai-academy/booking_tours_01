@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
       else
         @tours = Tour.search(params[:term]).page(params[:page]).per(Settings.Paginate.tours_per_page)
       end
+    end
+    
     def populate_nav_vars
       @nav_items = Category.top_level
     end

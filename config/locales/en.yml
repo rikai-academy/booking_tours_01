@@ -223,10 +223,6 @@ en:
       message: "Leave your message here!"
       average: "Average:"
       time: "Time:"
-<<<<<<< HEAD
-      desc: "Description:"
-  review:
-=======
   reviews:
     show:
       posted: "Posted"
@@ -241,7 +237,6 @@ en:
       author: "Author: "
     shared:
       more: "Read more"
->>>>>>> e352da8 (Multi-level menu)
     review:
       title: "Review"
       allreview: "All review"
