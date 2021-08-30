@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
+  before_action :populate_nav_vars
   include SessionsHelper
   
   private
@@ -10,6 +11,10 @@ class ApplicationController < ActionController::Base
       else
         @tours = Tour.search(params[:term]).page(params[:page]).per(Settings.Paginate.tours_per_page)
       end
+    end
+    
+    def populate_nav_vars
+      @nav_items = Category.top_level
     end
   
     # Confirms a logged-in user.
@@ -65,5 +70,9 @@ class ApplicationController < ActionController::Base
       if I18n.available_locales.map(&:to_s).include?(parsed_locale)
         parsed_locale.to_sym
       end
-    end   
+    end
+
+    def set_category
+      @categories = Category.all.pluck(:category_name, :id)
+    end
 end

@@ -1,11 +1,11 @@
 class ReviewsController < ApplicationController
-  before_action :logged_in_user, only:[:edit, :new, :create, :update, :index, :like]
+  before_action :logged_in_user, only: [:edit, :new, :create, :update, :like]
   before_action :set_category, only:[:edit, :new, :create, :update]
   before_action :load_review, only: [:edit, :update, :destroy]
 
   def index
-    if current_user.admin?
-      @reviews = Review.page(params[:page])
+    if current_user&.admin?
+      @reviews = Review.paginate(page: params[:page])
     else
       @reviews = Review.filter(current_user.id).page(params[:page])
     end
@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
   end
+
   def show
     begin
       @review = Review.all.find(params[:id])
@@ -96,9 +97,5 @@ class ReviewsController < ApplicationController
 
     def user_like
       LikeReview.create(review_id:@review.id, user_id:current_user.id)
-    end
-    
-    def set_category
-      @categories = Category.all.pluck(:category_name, :id)
     end
 end

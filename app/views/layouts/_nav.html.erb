@@ -1,0 +1,5 @@
+<% if @nav_items.any? %>
+<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+  <%= render partial: "categories/category", collection: @nav_items %>
+</ul>
+<% end %>

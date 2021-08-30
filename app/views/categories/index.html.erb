@@ -1,33 +1,42 @@
-<% provide(:title, t("category.category.title")) %>
+<% provide(:title, t("categories.index.manage")) %>
 <div class="container ">
     <div class="row d-flex justify-content-center">
-      <h3><%=t("category.category.manage")%></h3>
+      <h3><%= t("categories.index.manage") %></h3>
     </div>
+
     <div class="row d-flex justify-content-center">
       <div class="col-lg-4 ml-auto">
-        <%= link_to t("category.category.createbtn"), new_category_path, {class:"btn btn-info "} %>
+        <%= link_to t("categories.new.button"), new_category_path, class: "btn btn-info" %>
       </div>
     </div>
+
     <div class="row d-flex justify-content-center mt-4">
       <table class="table col-lg-4 text-center">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col"><%=t("category.category.name")%></th>
-            <th scope="col"><%=t("category.category.action")%></th>
+            <th scope="col"><%=t("categories.index.name")%></th>
+            <th scope="col"><%=t("categories.index.parent")%></th>
+            <th scope="col"></th>
           </tr>
         </thead>
+
         <tbody>
           <% @categories.each do |category| %>
           <tr>
-            <th scope="row"><%=category.id%></th>
-            <td><%=category.category_name%></td>
+            <th scope="row"><%= category.id %></th>
+            <td><%= category.category_name %></td>
+            <td><%= category.parent.category_name if category.parent.present? %></td>
             <td>
-              <%= link_to t("category.category.updatebtn"), edit_category_path(category.id), {class:"btn btn-danger"} %>
-              <%= link_to t("category.category.deletebtn"), category, method: :delete, data: { confirm: "You sure?" } ,class:"btn btn-danger"%>
+              <%= link_to edit_category_path(category.id), target: "_blank", class: "btn btn-success" do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+              <%= link_to category, method: :delete, data: { confirm: t("users.index.confirm") }, class: "btn btn-danger" do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
             </td>
           </tr>
-          <%end%>
+          <% end %>
         </tbody>
       </table>
     </div>

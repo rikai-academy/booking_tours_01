@@ -1,0 +1,11 @@
+<%= form_with(model: @category, local: true) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :category_name %>
+  <%= f.text_field :category_name, class: "form-control" %>
+
+  <%= f.label :parent_id %>
+  <%= f.select :parent_id, options_for_select(@categories, @category.parent_id), { include_blank: true }, { class: "form-control"} %>
+
+  <%= f.submit yield(:button_label), class: "btn btn-primary mt-4" %>
+<% end %>

@@ -3,16 +3,20 @@ Rails.application.routes.draw do
               controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root "static_pages#home"
-    get "/thanks",    to: "static_pages#thanks"
-    get "/reviews/food",      to: "static_pages#reviewfood", as: "food"
-    get "/reviews/place",      to: "static_pages#reviewplace", as: "place"
-    get "/signup",    to: "users#new"
-    get "/login",     to: "sessions#new"
-    get "/success",   to: "checkout#success"
-    get "/cancel",    to: "checkout#cancel"
-    post "/login",    to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
-    put "/reviews/:id/like",    to: "reviews#like", as:"like"
+    get "/thanks",              to: "static_pages#thanks"
+    get "/topics/:id",          to: "static_pages#reviews_about", as: "topic"
+    get "/signup",              to: "users#new"
+    get "/login",               to: "sessions#new"
+    get "/success",             to: "checkout#success"
+    get "/cancel",              to: "checkout#cancel"
+    post "/login",              to: "sessions#create"
+    delete "/logout",           to: "sessions#destroy"
+    resources :reviews do
+      member do
+        get :hidden
+        put :like
+      end
+    end
     resources :ratings
     resources :bookings
     resources :checkout, only: :create
