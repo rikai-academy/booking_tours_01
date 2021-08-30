@@ -13,6 +13,7 @@ class ToursController < ApplicationController
   def create
     @tour = Tour.new(tour_params) 
     if @tour.save
+      TourMailer.with(tour: @tour).new_tour.deliver_later
       flash[:success] = t("tour.index.new")
       redirect_to @tour
     else 

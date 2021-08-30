@@ -1,0 +1,17 @@
+<h1><%= t "mailer.tour.header" %></h1>
+
+<p>
+  <%= t "mailer.tour.greeting" %>
+  <br>
+  <br>
+  <%= t "mailer.tour.content" %>
+  <br>
+  <%= t "mailer.tour.please" %>
+  <br>
+  <%= link_to @tour.tour_name, tour_url(:en, @tour.id), target: "_blank" %>
+  <br>
+  <br>
+  <%= t "mailer.tour.regards" %>
+  <br>
+  <%= t "global.name" %>
+</p>
