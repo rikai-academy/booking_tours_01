@@ -5,12 +5,12 @@
 <div class="row d-flex justify-content-center">
   <% if logged_in? %>
     <%if @review.liked?(current_user)%>
-      <%=link_to t("review.show.dislike"), like_path(@review), method:"put", class: 'btn btn-secondary' %>
+      <%=link_to t("review.show.dislike"), like_review_path(@review), method:"put", class: 'btn btn-secondary' %>
     <%else%>
-      <%=link_to t("review.show.like"), like_path(@review), method:"put", class: 'btn btn-primary' %>
+      <%=link_to t("review.show.like"), like_review_path(@review), method:"put", class: 'btn btn-primary' %>
     <%end%>
   <%else%>
-    <%=link_to t("review.show.like"), like_path(@review), method:"put", class: 'btn btn-primary' %>
+    <%=link_to t("review.show.like"), like_review_path(@review), method:"put", class: 'btn btn-primary' %>
   <%end%>
 </div>
 <div class="container">

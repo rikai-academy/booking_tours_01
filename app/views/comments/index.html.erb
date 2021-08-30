@@ -1,0 +1,37 @@
+<% provide(:title, t("comment.index.title")) %>
+<div class="container bg-white">
+  <div class="row d-flex justify-content-center">
+    <h3 class="mt-4"><%=t("comment.index.title")%></h3>
+  </div>
+  <div class="row d-flex justify-content-center mt-4">
+    <%if @comments.blank?%>
+      <h3><%=t("comment.index.notcomment")%><h3>
+    <%else%>
+      <table class="table col-lg-10 text-center bg-white">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col"><%=t("comment.index.review")%></th>
+            <th scope="col"><%=t("comment.index.content")%></th>
+            <th scope="col"><%=t("comment.index.user")%></th>
+            <th scope="col"><%=t("comment.index.action")%></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @comments.each do |comment| %>
+            <tr>
+              <th scope="row"><%=comment.id%></th>
+              <td><%=comment.review.review_name%></td>
+              <td><%=comment.cmt_content%></td>
+              <td><%=comment.user.name%></td>
+              <td>
+                <%=statuscomment(comment)%>
+                <%= link_to t("tour.index.delete"), comment, class: "btn btn-danger", method: :delete, data: { confirm: t("users.index.confirm") } %>
+              </td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    <%end%>
+  </div>
+</div>

@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_20_020625) do
+
+ActiveRecord::Schema.define(version: 2021_08_26_135258) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -70,6 +71,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_020625) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "parent_id"
+    t.boolean "status", default: true
     t.index ["review_id"], name: "index_comments_on_review_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -101,6 +103,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_020625) do
     t.text "review_content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "status", default: true
     t.index ["category_id"], name: "index_reviews_on_category_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
@@ -108,7 +111,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_020625) do
   create_table "tours", force: :cascade do |t|
     t.string "tour_name"
     t.text "description"
-    t.boolean "status", default: true
+    t.boolean "status"
     t.integer "tour_amount"
     t.integer "cur_amount", default: 0, null: false
     t.string "time"
