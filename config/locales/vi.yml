@@ -311,3 +311,18 @@ vi:
       total: "Tổng số tiền đã thanh toán"
     totalbyday:
       total: "Tổng doanh thu trong ngày là:"
+  statistic:
+    index:
+      title: "Báo cáo thống kê"
+      download: "Tải báo cáo"
+      user: "Người dùng"
+      titlebooking: "Book tour"
+      quantity: "Số lượng"
+      titlereview: "Review"
+    excel:
+      title: "Báo cáo thống kê tháng "
+      user: "Tổng số user hiện tại"
+      revenues: "Tổng doanh thu trong tháng"
+      booking: "Tổng số book tour trong tháng"
+      review: "Tổng số review trong tháng"
+      revenuesbymonth: "Thống kê doanh thu theo tháng"

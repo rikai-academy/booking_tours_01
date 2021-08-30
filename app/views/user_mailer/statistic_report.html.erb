@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p><%=t("statistic.index.title")%></p>
+    <p><%=t("statistic.index.download")%> <%= link_to t("statistic.index.title"), statistics_url(format: :xlsx)%></p>
+  </body>
+</html>

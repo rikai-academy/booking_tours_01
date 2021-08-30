@@ -6,4 +6,9 @@ calculate_rating:
   cron: "* */6 * * *"
   class: "CalculateRating"
   queue: "default"
+statistic_report:
+  cron: "* * * * *"
+  class: "StatisticReport"
+  queue: "default"
+
 
