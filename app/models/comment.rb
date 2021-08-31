@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
+  enum status: { appear: true, hide: false }
   belongs_to :user
   belongs_to :review
   belongs_to  :parent, class_name: 'Comment', optional: true

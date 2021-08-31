@@ -2,12 +2,13 @@
   <div class="card-body">
     <%= form_with(model: [@review, @comment]) do |f| %>
       <%= f.hidden_field :parent_id %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
       <div class="form-group">
-        <%= f.label t("review.show.reply")%>
-        <%= f.text_area :cmt_content, class: 'form-control' %>
+        <%= f.label t("reviews.show.reply")%>
+        <%= f.text_area :cmt_content, class: "form-control" %>
       </div>
-      <%= f.submit t("review.show.reply"), class: 'btn btn-primary' %>
-      <%= link_to t("review.show.cancle"), review_path(@review), class: 'btn btn-secondary' %>
+      <%= f.submit t("reviews.show.reply"), class: "btn btn-primary" %>
+      <%= link_to t("reviews.show.cancel"), review_path(@review), class: "btn btn-secondary" %>
     <% end %>
   </div>
 </div>

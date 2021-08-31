@@ -1,13 +1,21 @@
 class ReviewsController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :new, :create, :update, :like]
-  before_action :set_category, only:[:edit, :new, :create, :update]
+  before_action :logged_in_user, except: :show
+  before_action :set_category, only: [:edit, :new, :create, :update]
   before_action :load_review, only: [:edit, :update, :destroy]
+  before_action :pull_review, only: [:show, :like, :check]
+  before_action :admin_user, only: [:check]
 
   def index
-    if current_user&.admin?
-      @reviews = Review.paginate(page: params[:page])
+    if current_user.admin?
+      reviews = Review.search(params[:term])
     else
-      @reviews = Review.filter(current_user.id).page(params[:page])
+      reviews = Review.search(params[:term]).where(user_id: current_user.id)
+    end
+
+    if (params[:page].blank?)
+      @reviews = reviews.page(Settings.Paginate.default_page)
+    else
+      @reviews = reviews.page(params[:page])
     end
   end
 
@@ -16,19 +24,13 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    begin
-      @review = Review.all.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-        flash[:danger] = t("review.review.fail")
-        redirect_to reviews_path
-    end
     @author= @review.user
   end
 
   def create
     @review = current_user.reviews.create(review_params)    
     if @review.save
-      flash[:success] = t("review.review.new")
+      flash[:success] = t("reviews.new.success")
       redirect_to reviews_path
     else 
       render :new
@@ -40,7 +42,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      flash[:success] = t("review.review.updated")
+      flash[:success] = t("reviews.edit.updated")
       redirect_to reviews_path
     else
       render :edit
@@ -49,20 +51,14 @@ class ReviewsController < ApplicationController
 
   def destroy
     if @review.destroy
-      flash[:success] = t("review.review.deleted")
+      flash[:success] = t("reviews.destroy.deleted")
     else
-      flash[:danger] = t("review.review.fail")
+      flash[:danger] = t("reviews.shared.fail")
     end
     redirect_to reviews_url
   end
 
   def like
-    begin
-      @review=Review.all.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-        flash[:danger] = t("review.review.fail")
-        redirect_to review_path(@review)
-    end
     if @review.liked? current_user
       user_dislike
     else
@@ -70,8 +66,18 @@ class ReviewsController < ApplicationController
     end
     redirect_to review_path(@review)
   end
+
+  def check
+    if @review.appear?
+      @review.update_attribute(:status, "hide")
+    else
+      @review.update_attribute(:status, "appear")
+    end
+    redirect_to reviews_path
+  end
   
   private
+  
     def review_params
       params.require(:review).permit(:review_name, :review_content, :image, :category_id)
     end
@@ -83,19 +89,26 @@ class ReviewsController < ApplicationController
         begin
           @review = current_user.reviews.find(params[:id])
           rescue ActiveRecord::RecordNotFound
-            flash[:danger] = t("review.review.fail")
+            flash[:danger] = t("reviews.shared.fail")
             redirect_to reviews_path
         end
       end
     end
 
+    def pull_review
+      @review=Review.all.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:danger] = t("reviews.shared.fail")
+      redirect_to review_path(@review)
+    end
+
     def user_dislike
       LikeReview.find_by(review_id: params[:id], user_id: current_user.id).destroy!
       rescue ActiveRecord::RecordNotFound
-        flash[:danger] = t("review.review.fail")
+        flash[:danger] = t("reviews.shared.fail")
     end
 
     def user_like
-      LikeReview.create(review_id:@review.id, user_id:current_user.id)
+      LikeReview.create(review_id: @review.id, user_id: current_user.id)
     end
 end

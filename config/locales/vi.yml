@@ -143,6 +143,7 @@ vi:
       revenues: "Doanh thu"
       reviews: "Review"
       categories: "Danh mục"
+      comments: "Bình luận"
   staticpages:
     home:
       home: "Trang chủ"
@@ -225,35 +226,41 @@ vi:
       time: "Thời gian:"
   reviews:
     show:
-      posted: "Đã đăng"
-      ago: "trước"
+      posted: "Đã đăng "
+      ago: " trước"
       like: "Thích"
       dislike: "Bỏ thích"
-      fail: "Đã xảy ra lỗi"
       reply: "Trả lời"
-      cancle: "Hủy"
+      cancel: "Hủy"
       comment: "Bình luận"
-      countlike: "Lượt thích"
+      count: "Lượt thích"
       author: "Tác giả: "
+      back: "Quay lại"
+      edit: "sửa"
+      delete: "xóa"
+      hide: "ẩn"
+      appear: "hiện"
     shared:
       more: "Xem thêm"
-    review:
-      title: "Review"
-      allreview: "Tất cả review"
-      new: "Đã thêm tour thành công!"
-      updated: "Cập nhật thành công!"
-      deleted: "Đã xóa thành công!"
-      fail: "Đã xảy ra lỗi!"
+      fail: "Đã xảy ra lỗi! Vui lòng thử lại sau"
+      name: "Tên"
+      image: "Hình ảnh"
+      content: "Nội dung"
+      category: "Thể loại"
+    index:
+      empty: "Hiện không có bài đánh giá nào về chủ đề này"     
+      manage: "Quản lí đánh giá"
       confirm: "Bạn muốn xóa review này?"
-      back: "Quay lại"
     edit:
       title: "Cập nhật Review"
-      update: "Cập nhật"
-    delete:
-      delete: "Xóa"
+      updated: "Cập nhật thành công!"
+      button: "Sửa"
+    destroy:
+      deleted: "Đã xóa thành công!"
     new:
       title: "Thêm Review"
       create: "Thêm"
+      success: "Đã thêm tour thành công!"
   categories:
     new:
       title: "Thêm Thể loại"
@@ -268,7 +275,7 @@ vi:
       manage: "Quản lí Thể loại"
       parent: "Thuộc về"
     destroy:
-      delete: "Đã xóa thành công!"
+      success: "Đã xóa thành công!"
     shared: 
       fail: "Đã xảy ra lỗi!"
   chart:

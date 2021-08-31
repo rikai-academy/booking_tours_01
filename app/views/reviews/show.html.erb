@@ -1,29 +1,36 @@
 <div class="container">
-  <a href="/reviews" class="<%=addbackclass(@review)%>"><%=t("review.review.back")%></a>
-</div>
-<%=render 'reviews/review_detail'%>
-<div class="row d-flex justify-content-center">
-  <% if logged_in? %>
-    <%if @review.liked?(current_user)%>
-      <%=link_to t("review.show.dislike"), like_review_path(@review), method:"put", class: 'btn btn-secondary' %>
-    <%else%>
-      <%=link_to t("review.show.like"), like_review_path(@review), method:"put", class: 'btn btn-primary' %>
-    <%end%>
-  <%else%>
-    <%=link_to t("review.show.like"), like_review_path(@review), method:"put", class: 'btn btn-primary' %>
-  <%end%>
-</div>
-<div class="container">
-  <div class="card my-1">
-    <div class="card-body">
-      <p class="font-weight-bold"><%=t("review.show.comment")%></p>
-      <%= form_with(model: [@review, @review.comments.build]) do |f| %>
-        <div class="form-group">
-          <%= f.text_area :cmt_content, class: 'form-control' %>
-        </div>
-        <%= f.submit t("review.show.comment"), class: 'btn btn-primary' %>
-      <% end %>
-    </div>
+  <div class="container">
+    <%= link_to t("reviews.show.back"), topic_path(@review.category_id), class: "btn btn-secondary" %>
   </div>
-  <%= render @review.comments %>
+
+  <%= render "reviews/review_detail" %>
+  <div class="row d-flex justify-content-center">
+    <% if logged_in? %>
+      <% if @review.liked?(current_user) %>
+        <%= link_to t("reviews.show.dislike"), like_review_path(@review), method: "put", class: "btn btn-secondary" %>
+      <% else %>
+        <%= link_to t("reviews.show.like"), like_review_path(@review), method: "put", class: "btn btn-primary" %>
+      <% end %>
+    <% else %>
+      <%= link_to t("reviews.show.like"), like_review_path(@review), method: "put", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <div class="container">
+    <div class="card my-1">
+      <div class="card-body">
+        <p class="font-weight-bold"><%= t("reviews.show.comment") %></p>
+        <%= form_with(model: [@review, @review.comments.build]) do |f| %>
+          <% if logged_in? %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+          <% end %>
+          <div class="form-group">
+            <%= f.text_area :cmt_content, class: "form-control" %>
+          </div>
+          <%= f.submit t("reviews.show.comment"), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <%= render @review.comments %>
+  </div>
 </div>

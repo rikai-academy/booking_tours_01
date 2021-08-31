@@ -142,7 +142,8 @@ en:
       users: "Users"
       revenues: "Revenues"
       reviews: "Reviews"
-      categoríe: "Categories"
+      categories: "Categories"
+      comments: "Comments"
   staticpages:
     home:
       home: "Home"
@@ -225,35 +226,41 @@ en:
       time: "Time:"
   reviews:
     show:
-      posted: "Posted"
-      ago: "ago"
+      posted: "Posted "
+      ago: " ago"
       like: "Like"
       dislike: "Dislike"
-      fail: "Error! An error occurred. Please try again later."
       reply: "Reply"
-      cancle: "Cancle"
+      cancel: "Cancel"
       comment: "Comment"
-      countlike: "Like"
+      count: "Like"
       author: "Author: "
+      back: "Back"
+      edit: "edit"
+      delete: "delete"
+      hide: "hide"
+      appear: "appear"
     shared:
       more: "Read more"
-    review:
-      title: "Review"
-      allreview: "All review"
-      new: "Created success!"
-      updated: "Updated success!"
-      deleted: "Deleted success!"
-      fail: "Done error out during deletion."
+      fail: "Error! An error occurred. Please try again later."
+      name: "Name"
+      image: "Image"
+      content: "Content"
+      category: "Category"
+    index:
+      empty: "There is no review belongs to this category"
+      manage: "Manage reviews"
       confirm: "You sure?"
-      back: "Back"
     edit:
       title: "Update Review"
-      update: "Update"
-    delete:
-      delete: "Delete"
+      updated: "Updated success!"
+      button: "Update"
+    destroy:
+      deleted: "Deleted success!"
     new:
       title: "Create Review"
       create: "Create"
+      success: "Created success!"
   categories:
     new:
       title: "Add Category"

@@ -59,9 +59,13 @@
                     <i class="far fa-sticky-note"></i>
                     <%= t("admin.shared.review") %>
                   <% end %>
+                  <%= link_to comments_path, class:"dropdown-item" do %>
+                    <i class="fas fa-comments"></i>
+                    <%= t("admin.shared.comments") %>
+                  <% end %>
                   <%= link_to categories_path, class:"dropdown-item" do %>
                     <i class="fas fa-poll-h"></i>
-                    <%= t("admin.shared.categoríe") %>
+                    <%= t("admin.shared.categories") %>
                   <% end %>
                 </div>
               </li>

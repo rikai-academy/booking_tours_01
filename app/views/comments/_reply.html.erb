@@ -1,6 +1,24 @@
 <div class="card ml-5">
   <div class="card-body">
-    <h6><%=reply.user.name%>:</h6>
+    <h6><%= reply.user.name %>:</h6>
     <%= reply.cmt_content %>
+    <div>
+      <span>
+      <% if logged_in? %>
+        <%= link_to t("reviews.show.reply"), new_review_comment_path(@review, parent_id: reply.parent_id),
+                                             remote: true %>
+      <% end %>
+      </span>
+      <% if logged_in? %>
+        <% if (current_user.admin? || reply.user_id == current_user.id) %>
+          <span class="float-right">
+            <small><%= link_to t("reviews.show.delete"), reply, method: :delete, data: { confirm: t("users.index.confirm") } %></small>
+        <% end %>
+        <% if current_user.admin? %>
+          <small><%= state_cmt(reply) %></small>
+        <% end %>
+        </span>
+      <% end %>
+    </div>
   </div>
 </div>
