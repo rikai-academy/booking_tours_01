@@ -10,7 +10,7 @@
           <%= form_with url: tours_path, method: :get do |f| %>
             <div class="form-row">
               <div class="col">
-                <%= f.text_field :term, class: "form-control", placeholder: "Tour Đà Nẵng..." %>
+                <%= f.text_field :term, value: params[:term], class: "form-control", placeholder: t("tour.index.placeholder") %>
               </div>
               <%= f.submit t("staticpages.home.search"), name: nil, class: "btn btn-danger" %>
             </div>

@@ -5,10 +5,14 @@ class ApplicationController < ActionController::Base
   private
 
     def tours_index_helper
-      if (params[:page].blank?)
-        @tours = Tour.search(params[:term]).page(Settings.Paginate.default_page).per(Settings.Paginate.tours_per_page)
+      if params[:term]
+        if (params[:page].blank?)
+          @tours = Tour.search params[:term], page: Settings.Paginate.default_page, per_page: Settings.Paginate.tours_per_page
+        else
+          @tours = Tour.search params[:term], page: params[:page], per_page: Settings.Paginate.tours_per_page
+        end
       else
-        @tours = Tour.search(params[:term]).page(params[:page]).per(Settings.Paginate.tours_per_page)
+        @tours = Tour.page(params[:page])
       end
     end
   

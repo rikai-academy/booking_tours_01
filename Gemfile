@@ -28,6 +28,7 @@ gem "sidekiq",                    "~>5.2.7"
 gem "sidekiq-cron"
 gem "figaro"
 gem "axlsx_rails", "~> 0.6.1"
+gem "searchkick"
 group :development, :test do
   gem "sqlite3", "~> 1.4.2"
   gem "byebug",  "~> 11.1.3", platforms: [:mri, :mingw, :x64_mingw]
