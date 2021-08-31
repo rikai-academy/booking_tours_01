@@ -22,7 +22,7 @@
   <div class="section-content section-place mt-4">
     <div class="container">
       <div class="row d-flex justify-content-center">
-        <% if @tours.size==0%>
+        <% if @tours.size == 0 %>
           <div class="col-lg-12 text-center">
             <h3><%=t("tour.index.searchalert")%></h3>
           </div>
@@ -37,7 +37,7 @@
         <%= paginate @tours, theme: "twitter-bootstrap-4" %>
       </div>
       <div class="row">
-        <%= render @tours%>
+        <%= render partial: "tours/tour", collection: @tours %>
       </div>
       <div class="row d-flex justify-content-center">
         <%= paginate @tours, theme: "twitter-bootstrap-4" %>

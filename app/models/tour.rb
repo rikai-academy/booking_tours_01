@@ -1,6 +1,10 @@
-class Tour < ApplicationRecord
+require 'elasticsearch/model'
 
+class Tour < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   include CheckAvailable
+
   has_many :bookings
   has_many :users, through: :bookings
   has_many :ratings, dependent: :destroy
@@ -14,13 +18,15 @@ class Tour < ApplicationRecord
   validates :description, presence: true, length: { maximum: 1000}
   validates :tour_amount, presence: true, length: { maximum: 3}
   validates :price, presence: true, length: { maximum: 12}
-  scope :name_like, ->(name){where "tour_name ILIKE ?", "%#{name}%"}
-  # search tour
-  def self.search(term)
-    if term
-      Tour.name_like term
-    else
+
+  # search tour 
+  def self.load(term)
+    if term.nil?
       all
+    else
+      __elasticsearch__.search(term).records
     end
   end
 end
+# for auto sync model with elastic search
+Tour.import 
