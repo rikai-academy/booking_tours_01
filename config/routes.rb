@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :webhooks, only: :create
     resources :revenues, only: :index
     resources :tours
+    resources :tags
     resources :users
     resources :categories
     resources :reviews do
@@ -39,5 +40,6 @@ Rails.application.routes.draw do
       resources :users,  only: [:new, :create]
       resources :tours, only: :index
     end
+    resources :popular, only: :create
   end
 end

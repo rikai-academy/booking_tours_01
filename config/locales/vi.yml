@@ -40,6 +40,9 @@ vi:
     lang: "VI"
     all: "Tất cả "
     search: "Tìm kiếm theo tên: "
+    tags: "Từ khóa đính kèm"
+    week_tags: "Hot nhất trong tuần"
+    month_tags: "Hot nhất trong tháng"
   users:
     shared:
       not_found: "Không tìm thấy người dùng"

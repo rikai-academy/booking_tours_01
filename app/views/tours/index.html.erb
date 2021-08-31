@@ -1,47 +1,54 @@
 <% provide(:title, "Tour") %>
-<div class="container">
-  <div class="search mt-2">
-    <div class="container">
-      <div class="row p-3 d-flex justify-content-center">
-        <div class="col-lg-3">
-          <h3 style="font-size: 22px; font-weight: 400"><%=t("staticpages.home.where")%></h3>
-        </div>
-        <div class="col-lg-9">
-          <%= form_with url: tours_path, method: :get do |f| %>
-            <div class="form-row">
-              <div class="col">
-                <%= f.text_field :term, class: "form-control", placeholder: "Tour Đà Nẵng..." %>
-              </div>
-              <%= f.submit t("staticpages.home.search"), name: nil, class: "btn btn-danger" %>
-            </div>
-          <% end %>
-        </div>		
-      </div>
+<div class="container-fluid">
+  <div class="row">
+		<div class="col-md-3">
+      <%= render "layouts/sidebar" %>
     </div>
-  </div>
-  <div class="section-content section-place mt-4">
-    <div class="container">
-      <div class="row d-flex justify-content-center">
-        <% if @tours.size == 0 %>
-          <div class="col-lg-12 text-center">
-            <h3><%=t("tour.index.searchalert")%></h3>
-          </div>
-        <% else %>      
-        <div class="row justify-content-center">
-          <div class="section-title text-center">
-            <h3><%=t("tour.index.tourlist")%></h3>  
+    <div class="col-md-9">
+      <div class="search mt-2">
+        <div class="container">
+          <div class="row p-3 d-flex justify-content-center">
+            <div class="col-lg-3">
+              <h3 style="font-size: 22px; font-weight: 400"><%= t("staticpages.home.where") %></h3>
+            </div>
+            <div class="col-lg-9">
+              <%= form_with url: tours_path, method: :get do |f| %>
+                <div class="form-row">
+                  <div class="col">
+                    <%= f.text_field :term, class: "form-control", placeholder: "Tour Đà Nẵng..." %>
+                  </div>
+                  <%= f.submit t("staticpages.home.search"), name: nil, class: "btn btn-danger" %>
+                </div>
+              <% end %>
+            </div>		
           </div>
         </div>
       </div>
-      <div class="row d-flex justify-content-center">
-        <%= paginate @tours, theme: "twitter-bootstrap-4" %>
+      <div class="section-content section-place mt-4">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <% if @tours.size == 0 %>
+              <div class="col-lg-12 text-center">
+                <h3><%= t("tour.index.searchalert") %></h3>
+              </div>
+            <% else %>      
+            <div class="row justify-content-center">
+              <div class="section-title text-center">
+                <h3><%= t("tour.index.tourlist") %></h3>  
+              </div>
+            </div>
+          </div>
+          <div class="row d-flex justify-content-center">
+            <%= paginate @tours, theme: "twitter-bootstrap-4" %>
+          </div>
+          <div class="row">
+            <%= render partial: "tours/tour", collection: @tours %>
+          </div>
+          <div class="row d-flex justify-content-center">
+            <%= paginate @tours, theme: "twitter-bootstrap-4" %>
+          </div>
+        <% end %>
       </div>
-      <div class="row">
-        <%= render partial: "tours/tour", collection: @tours %>
-      </div>
-      <div class="row d-flex justify-content-center">
-        <%= paginate @tours, theme: "twitter-bootstrap-4" %>
-      </div>
-    <%end%>
+    </div>  
   </div>
 </div>
