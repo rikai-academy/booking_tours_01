@@ -281,13 +281,16 @@ en:
     year: "Year"
     search: "Which time would you like to see the chart?"
   mailer:
-    booking:
+    admin:
       book: "User booking tour"
       pay: "User pay successfully"
       title: "Notify"
       total: "Total: "
       success: " pay successfully "
       for: " for "
+      monthly: "Statistics at the end of the month"
+      daily: "Daily revenues"
+      link: "Download statistics: "
     tour:
       title: "New tour release"
       header: "New tour release on Travelify"

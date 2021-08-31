@@ -6,7 +6,7 @@ class BookingSuccess < ApplicationService
   end
 
   def call
-    BookingMailer.with(booking: @booking).pay_success.deliver_later
+    AdminMailer.with(booking: @booking).pay_success.deliver_later
     @booking.update_attribute(:status, 2)
     tour = Tour.find(@booking.tour_id)
     tour.increment!(:cur_amount)

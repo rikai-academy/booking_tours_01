@@ -25,8 +25,6 @@ class ToursController < ApplicationController
     if logged_in?
       @rating = Rating.find_by(user_id: current_user.id, tour_id: params[:id])
     end
-    count = @tour.ratings.count
-    @avg = count > 0 ? (@tour.ratings.sum(:stars) / count.to_f) : 0
   end
 
   def edit

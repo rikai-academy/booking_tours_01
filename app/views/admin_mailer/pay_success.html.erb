@@ -1,0 +1,5 @@
+<h1><%= t "mailer.admin.title" %></h1>
+
+<p>
+  <%= @booking.user.email %><%= t "mailer.admin.success" %><%= @booking.total %>$<%= t "mailer.admin.for" %><%= @booking.tour.tour_name %>
+</p>
