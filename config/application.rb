@@ -21,6 +21,18 @@ module BookingTours01
     
     config.i18n.available_locales = [:en, :vi]
     config.i18n.default_locale = :en
-    config.action_mailer.default_url_options = { host: "bkt.com" }
+    #config.action_mailer.default_url_options = { host: "bkt.com" }
+    config.active_job.queue_adapter = :sidekiq
+    config.action_mailer.default_url_options = {host: Figaro.env.HOST}
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      user_name: Figaro.env.GMAIL_USERNAME,
+      password: Figaro.env.GMAIL_PASSWORD,
+      authentication: :plain,
+      enable_starttls_auto: true
+  }
   end
 end

@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema.define(version: 2021_08_26_135258) do
+ActiveRecord::Schema.define(version: 2021_08_28_151024) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -111,13 +111,14 @@ ActiveRecord::Schema.define(version: 2021_08_26_135258) do
   create_table "tours", force: :cascade do |t|
     t.string "tour_name"
     t.text "description"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.integer "tour_amount"
     t.integer "cur_amount", default: 0, null: false
     t.string "time"
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "start", default: 0
   end
 
   create_table "users", force: :cascade do |t|
