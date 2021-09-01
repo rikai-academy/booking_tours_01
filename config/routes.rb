@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     root "static_pages#home"
     get "/thanks",              to: "static_pages#thanks"
     get "/topics/:id",          to: "static_pages#reviews_about", as: "topic"
+    get "/statistics",          to: "static_pages#statistic"
     get "/signup",              to: "users#new"
     get "/login",               to: "sessions#new"
     get "/success",             to: "checkout#success"

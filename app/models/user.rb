@@ -31,7 +31,7 @@ class User < ApplicationRecord
   validates :address, presence: true,
                       length: { minimum: 10, maximum: 100 }, allow_nil: true
   validates :date_of_birth, presence: true, allow_nil: true
-  scope :name_like, ->(name){where "name LIKE ?", "%#{name}%"}
+  scope :name_like, ->(name){where "name ILIKE ?", "%#{name}%"}
   # search tour
   def self.search(term)
     if term

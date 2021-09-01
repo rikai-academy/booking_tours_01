@@ -7,7 +7,7 @@ class Booking < ApplicationRecord
   validates :adults, presence: true, numericality: {greater_than: 0, less_than: 100}
   scope :by_year,  -> (year){ where "extract(year FROM updated_at) = ?", "%#{year}%" }
   scope :by_month, -> (month){ where "extract(month FROM updated_at) = ?", "%#{month}%" }
-
+  
   belongs_to :user
   belongs_to :tour
 
