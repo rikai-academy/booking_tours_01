@@ -1,0 +1,42 @@
+<% provide(:title, t("tags.index.manage")) %>
+<div class="container ">
+    <div class="row d-flex justify-content-center">
+      <h3><%= t("tags.index.manage") %></h3>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-4 ml-auto">
+        <%= link_to t("tags.new.button"), new_tag_path, class: "btn btn-info" %>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center mt-4">
+      <table class="table col-lg-4 text-center">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col"><%=t("tags.index.name")%></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @tags.each do |tag| %>
+          <tr>
+            <th scope="row"><%= tag.id %></th>
+            <td><%= tag.tag_name %></td>
+            <td>
+              <%= link_to edit_tag_path(tag.id), target: "_blank", class: "btn btn-success" do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+              <%= link_to tag, method: :delete, data: { confirm: t("users.index.confirm") }, class: "btn btn-danger" do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= paginate @tags, theme: "twitter-bootstrap-4"%>
+</div>

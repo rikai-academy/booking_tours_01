@@ -18,6 +18,11 @@ class ApplicationController < ActionController::Base
     def populate_nav_vars
       @nav_items = Category.top_level
     end
+
+    # Tags
+    def populate_tags
+      @tags = Tag.all.limit(20).shuffle
+    end
   
     # Confirms a logged-in user.
     def logged_in_user
@@ -61,6 +66,14 @@ class ApplicationController < ActionController::Base
     def set_category
       @categories = Category.all.pluck(:category_name, :id)
     end
+
+    # Load a tag
+    def load_tag
+      @tag = Tag.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:danger] = t("tags.shared.fail")
+      redirect_to tags_path
+    end 
 
     # i18n method
   

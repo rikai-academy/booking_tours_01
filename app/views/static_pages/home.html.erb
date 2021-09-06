@@ -39,133 +39,140 @@
   </div>
   
 </div>
-<div class="container">
-  <div class="search mt-2">
-    <div class="container">
-      <div class="row p-3 d-flex justify-content-center">
-        <div class="col-lg-3">
-          <h3><%= t("staticpages.home.where") %></h3>
-        </div>
 
-        <div class="col-lg-9">
-          <%= form_with url: tours_path, method: :get do |f| %>
-            <div class="form-row">
-              <div class="col">
-                <%= f.text_field :term, class: "form-control" %>
-              </div>
-              <%= f.submit t("staticpages.home.search"), name: nil, class: "btn btn-danger" %>
+<div class="row">
+  <div class="col-md-3">
+    <%= render "layouts/sidebar" %>
+  </div>
+    <div class="container">
+      <div class="search mt-2">
+        <div class="container">
+          <div class="row p-3 d-flex justify-content-center">
+            <div class="col-lg-3">
+              <h3><%= t("staticpages.home.where") %></h3>
             </div>
-          <% end %>
-        </div>		
 
-      </div>
-    </div>
-  </div>
-  <!--begin section new tour-->
-  <div class="section-content section-place">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6">
-          <div class="section-title text-center mt-4">
-            <h3><%= t("staticpages.home.newtour") %></h3>
-            <p><%= t("staticpages.home.newtourdescript") %></p>
+            <div class="col-lg-9">
+              <%= form_with url: tours_path, method: :get do |f| %>
+                <div class="form-row">
+                  <div class="col">
+                    <%= f.text_field :term, class: "form-control" %>
+                  </div>
+                  <%= f.submit t("staticpages.home.search"), name: nil, class: "btn btn-danger" %>
+                </div>
+              <% end %>
+            </div>		
+
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <% for tour in @newtours do %>
-          <div class="col-lg-4">
-            <div class="place">
-              <div class="thumb">
-                <% if tour.images.attached? %>
-                  <%= link_to image_tag(tour.images[0], class:"img-fluid"), tour_path(tour.id) %>
-                <%else%>
-                  <%= link_to image_tag("place1.png", class:"img-fluid"), tour_path(tour.id) %>
-                <% end %>         
+      <!--begin section new tour-->
+      <div class="section-content section-place">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="section-title text-center mt-4">
+                <h3><%= t("staticpages.home.newtour") %></h3>
+                <p><%= t("staticpages.home.newtourdescript") %></p>
               </div>
+            </div>
+          </div>
 
-              <div class="place-content">
-                <%= link_to tour do %>
-                  <h3><%= link_to tour.tour_name, tour %></h3>
-                <% end %>
-                <div class="row">
-                  <div class="col-lg-4">
-                    <span class="fas fa-umbrella-beach"></span>
-                    <span><%= tour.tour_amount %></span>
+          <div class="row">
+            <% for tour in @newtours do %>
+              <div class="col-lg-4">
+                <div class="place">
+                  <div class="thumb">
+                    <% if tour.images.attached? %>
+                      <%= link_to image_tag(tour.images[0], class:"img-fluid"), tour_path(tour.id) %>
+                    <%else%>
+                      <%= link_to image_tag("place1.png", class:"img-fluid"), tour_path(tour.id) %>
+                    <% end %>         
                   </div>
-                  <div class="col-lg-4">
-                    <span class="fas fa-clock"></span>
-                    <span><%= time_short(tour.time) %></span>
+
+                  <div class="place-content">
+                    <%= link_to tour do %>
+                      <h3><%= link_to tour.tour_name, tour %></h3>
+                    <% end %>
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <span class="fas fa-umbrella-beach"></span>
+                        <span><%= tour.tour_amount %></span>
+                      </div>
+                      <div class="col-lg-4">
+                        <span class="fas fa-clock"></span>
+                        <span><%= time_short(tour.time) %></span>
+                      </div>
+                      <div class="col-lg-4">
+                        <span class="fas fa-money-bill-alt"></span>
+                        <span><%= tour.price %>$</span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-lg-4">
-                    <span class="fas fa-money-bill-alt"></span>
-                    <span><%= tour.price %>$</span>
-                  </div>
-                </div>
+
+                </div>	
               </div>
-
-            </div>	
+            <% end %>
           </div>
-        <% end %>
-      </div>
-      
-    </div>
-  </div>
-	<!--end section new tour-->
-	<!--begin section polular tour-->
-  <div class="section-content section-place">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6">
-          <div class="section-title text-center">
-            <h3><%= t("staticpages.home.populartours") %></h3>
-            <p><%= t("staticpages.home.populartoursdescript") %></p>
-          </div>
+          
         </div>
       </div>
-      <div class="row">
-        <% for tour in @populartours do %>
-          <div class="col-lg-4">
-            <div class="place">
-
-              <div class="thumb">
-                <% if tour.images.attached? %>
-                  <%= link_to image_tag(tour.images[0], class:"img-fluid"), tour_path(tour.id) %>
-                <%else%>
-                  <%= link_to image_tag("place1.png", class:"img-fluid"), tour_path(tour.id) %>
-                <% end %>
+      <!--end section new tour-->
+      <!--begin section polular tour-->
+      <div class="section-content section-place">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="section-title text-center">
+                <h3><%= t("staticpages.home.populartours") %></h3>
+                <p><%= t("staticpages.home.populartoursdescript") %></p>
               </div>
-
-              <div class="place-content">
-                <%= link_to tour do %>
-                  <h4><%= tour.tour_name %></h4>
-                <% end %>
-
-                <div class="row">
-                  <div class="col-lg-4">
-                    <span class="fas fa-umbrella-beach"></span>
-                    <span><%= tour.tour_amount %></span>
-                  </div>
-                  <div class="col-lg-4">
-                    <span class="fas fa-clock"></span>
-                    <span><%= time_short(tour.time) %></span>
-                  </div>
-                  <div class="col-lg-4">
-                    <span class="fas fa-money-bill-alt"></span>
-                    <span><%= tour.price %>$</span>
-                  </div>
-                </div>
-
-              </div>
-            </div>	
+            </div>
           </div>
-        <% end %>
-      </div>
+          <div class="row">
+            <% for tour in @populartours do %>
+              <div class="col-lg-4">
+                <div class="place">
 
-      <div class="row">
-        <div class="col-lg-12 text-center mb-4">
-          <%= link_to t("staticpages.home.more"), tours_path, class: "btn btn-danger" %>
+                  <div class="thumb">
+                    <% if tour.images.attached? %>
+                      <%= link_to image_tag(tour.images[0], class:"img-fluid"), tour_path(tour.id) %>
+                    <%else%>
+                      <%= link_to image_tag("place1.png", class:"img-fluid"), tour_path(tour.id) %>
+                    <% end %>
+                  </div>
+
+                  <div class="place-content">
+                    <%= link_to tour do %>
+                      <h4><%= tour.tour_name %></h4>
+                    <% end %>
+
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <span class="fas fa-umbrella-beach"></span>
+                        <span><%= tour.tour_amount %></span>
+                      </div>
+                      <div class="col-lg-4">
+                        <span class="fas fa-clock"></span>
+                        <span><%= time_short(tour.time) %></span>
+                      </div>
+                      <div class="col-lg-4">
+                        <span class="fas fa-money-bill-alt"></span>
+                        <span><%= tour.price %>$</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>	
+              </div>
+            <% end %>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12 text-center mb-4">
+              <%= link_to t("staticpages.home.more"), tours_path, class: "btn btn-danger" %>
+            </div>
+          </div>
         </div>
       </div>
     </div>

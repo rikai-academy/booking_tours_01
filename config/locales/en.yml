@@ -40,6 +40,9 @@ en:
     lang: "EN"
     all: "All "
     search: "Search by name: "
+    tags: "Tags Widget"
+    week_tags: "Most Hot Tags In Week"
+    month_tags: "Most Hot Tags In Month"
   users:
     shared:
       not_found: "User not found"
