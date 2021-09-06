@@ -23,4 +23,9 @@ class UserMailer < ApplicationMailer
     emails = User.where(admin: 0).pluck(:email)
     mail(to: emails, subject: 'New tour')
   end
+
+  def statistic_report
+    emails = User.where(admin: 1).pluck(:email)
+    mail(to: emails, subject: 'Statistic Report')
+  end
 end

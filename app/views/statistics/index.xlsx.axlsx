@@ -1,0 +1,31 @@
+wb = xlsx_package.workbook
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "ABC") do |sheet|
+  sheet.merge_cells "A1:B1"
+  sheet.add_row [t("statistic.excel.title")]
+  sheet.add_row [t("statistic.excel.user"), @users.where(updated_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).count]
+  sheet.add_row [t("statistic.excel.revenues"), @revenues.where(updated_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).sum(:total)]
+  sheet.add_row [t("statistic.excel.booking"), @bookings.where(updated_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).count]
+  sheet.add_row [t("statistic.excel.review"), @reviews.where(updated_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).count]
+  revenue_list = @revenues.group_by_month(:updated_at).sum(:total)
+  sheet.add_row
+  sheet.merge_cells "A6:B6"
+  sheet.add_row [t("statistic.excel.revenuesbymonth")]
+  revenue_list.keys.each do |revenue|
+    sheet.add_row [revenue.month.to_s, revenue_list[revenue]]
+  end
+  
+  sheet.add_chart(Axlsx::Pie3DChart, :start_at => [3,2], :end_at => [8, 15], :title=> t("statistic.index.user")) do |chart|
+    chart.add_series :data => @users.group(:admin).count.values, :labels => ["user", "admin"]
+    chart.d_lbls.show_val = true
+    chart.d_lbls.show_percent = true
+    chart.d_lbls.d_lbl_pos = :outEnd
+    chart.d_lbls.show_leader_lines = true
+  end
+
+  sheet.add_chart(Axlsx::Bar3DChart, :start_at => "D17", :end_at => "L24") do |chart|
+      chart.add_series :data => sheet["B8:B9"], :labels => sheet["A8:A9"], 
+      :title => t("statistic.excel.revenuesbymonth"), 
+      :colors => ["00FF00", "0000FF"]
+  end
+end

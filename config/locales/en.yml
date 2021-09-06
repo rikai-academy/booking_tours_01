@@ -309,3 +309,18 @@ en:
       total: "Total amount:"
     totalbyday:
       total: "Total money by day:"
+  statistic:
+    index:
+      title: "Statistic Report"
+      download: "Download statistic"
+      user: "Users"
+      titlebooking: "Booking tour"
+      quantity: "Quantity"
+      titlereview: "Reviews"
+    excel:
+      title: "Statistical report by month "
+      user: "Total number of current users"
+      revenues: "Total revenue for the month"
+      booking: "Total booking tour for the month"
+      review: "Total reviews in the month"
+      revenuesbymonth: "Monthly revenue statistics"
