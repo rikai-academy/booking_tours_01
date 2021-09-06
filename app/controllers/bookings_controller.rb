@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   def create 
     @booking = Booking.create(booking_params)
     if @booking.save
-      BookingMailer.with(booking: @booking).booking_tour.deliver_later
+      AdminMailer.with(booking: @booking).booking_tour.deliver_later
       redirect_to bookings_path
     else
       flash[:danger] = t("bookings.shared.failed")

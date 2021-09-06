@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem "rails",                      "~> 6.1.3", ">= 6.1.3.2"
+gem "whenever", require: false
 gem "active_storage_validations", ">= 0.8.2"
 gem "money-rails"
 gem "rails-i18n"

@@ -7,19 +7,18 @@ class RatingsController < ApplicationController
     @rating = Rating.find_by(user_id: current_user.id, tour_id: rating_params[:tourId])
     errors = []
     if @rating
-      @rating.stars = rating_params[:stars]
+      @rating.update_attribute(:stars, rating_params[:stars])
       errors = [t("tour.index.fail")] unless @rating.save
     else
       @rating = Rating.create!(user_id: current_user.id, 
                               tour_id: rating_params[:tourId], 
                               stars: rating_params[:stars])
     end
-    count = @tour.ratings.count
-    avg = count > 0 ? (@tour.ratings.sum(:stars) / count.to_f) : 0
+    
     if errors.length > 0
       render json: {success: false, errors: errors}
     else
-      render json: {success: true, stars: @rating.stars, avg: avg}
+      render json: {success: true, stars: @rating.stars}
     end
   end
   private

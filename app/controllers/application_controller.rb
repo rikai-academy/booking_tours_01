@@ -55,6 +55,11 @@ class ApplicationController < ActionController::Base
       redirect_to root_url
     end
 
+    # Set categories to select
+    def set_category
+      @categories = Category.all.pluck(:category_name, :id)
+    end
+
     # i18n method
   
     def default_url_options
@@ -70,9 +75,5 @@ class ApplicationController < ActionController::Base
       if I18n.available_locales.map(&:to_s).include?(parsed_locale)
         parsed_locale.to_sym
       end
-    end
-
-    def set_category
-      @categories = Category.all.pluck(:category_name, :id)
     end
 end
