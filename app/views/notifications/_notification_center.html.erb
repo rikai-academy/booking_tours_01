@@ -1,0 +1,11 @@
+<div class="btn-group pull-right top-head-dropdown">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <%= render "notifications/counter", counter: current_user.notifications.unread.size %>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right">
+    <%= render partial: "notifications/notification", collection: current_user.notifications.order(created_at: :desc).first(10) %>
+    <li>
+      <div class="loader-topbar"></div>
+    </li>
+  </ul>
+</div>

@@ -243,6 +243,7 @@ vi:
       delete: "xóa"
       hide: "ẩn"
       appear: "hiện"
+      report: "báo cáo"
     shared:
       more: "Xem thêm"
       fail: "Đã xảy ra lỗi! Vui lòng thử lại sau"
@@ -323,3 +324,14 @@ vi:
     last: "Tháng này"
     revenues: "Doanh thu trong tháng này và tháng trước"
     download: "Tải xuống .xlsx"
+  notice:
+    review: "bài viết của bạn"
+    comment: "bình luận của bạn"
+    commented: "đã bình luận"
+    replied: "đã trả lời"
+    liked: "đã thích"
+    ago: " trước"
+    reported: "đã báo cáo"
+    areview: "một bài viết"
+    acomment: "một bình luận"
+    success: "Cảm ơn vì báo cáo của bạn, chúng tôi sẽ xử lí sớm"

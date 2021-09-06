@@ -243,6 +243,7 @@ en:
       delete: "delete"
       hide: "hide"
       appear: "appear"
+      report: "report"
     shared:
       more: "Read more"
       fail: "Error! An error occurred. Please try again later."
@@ -323,3 +324,14 @@ en:
     last: "Last month"
     revenues: "Revenues in this month and previous month"
     download: "Download as .xlsx"
+  notice:
+    review: "your review"
+    comment: "your comment"
+    commented: "commented"
+    replied: "replied"
+    liked: "liked"
+    ago: " ago"
+    reported: "reported"
+    areview: "a review"
+    acomment: "a comment"
+    success: "Thank you for your report, we will deal will it soon"

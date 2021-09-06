@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => "/cable"
   devise_for :users,
               controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
@@ -11,16 +12,19 @@ Rails.application.routes.draw do
     get "/success",             to: "checkout#success"
     get "/cancel",              to: "checkout#cancel"
     post "/login",              to: "sessions#create"
+    post "/read",               to: "notifications#read"
     delete "/logout",           to: "sessions#destroy"
     resources :reviews do
       member do
         put :check
         put :like
+        post :report
       end
     end
     resources :comments do
       member do
         put :check
+        post :report
       end
     end
     resources :ratings
@@ -41,5 +45,10 @@ Rails.application.routes.draw do
       resources :tours, only: :index
     end
     resources :popular, only: :create
+    resources :notifications do
+      member do
+        put :read
+      end
+    end
   end
 end

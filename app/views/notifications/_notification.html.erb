@@ -1,0 +1,6 @@
+<li>
+  <%= link_to read_notification_path(notification), method: :put, class: "top-text-block" do %>
+    <div class="top-text-heading <%= read_class(notification) %>"><%= message(notification) %></div>
+    <div class="top-text-light"><%= time_ago_in_words(notification.created_at) %><%= t("notice.ago") %></div>
+  <% end %>
+</li>

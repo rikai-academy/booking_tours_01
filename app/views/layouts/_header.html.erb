@@ -115,7 +115,7 @@
                 <%= t("staticpages.home.signup") %>
               <% end %>
             </li>
-          <% end %>
+          <% end %>         
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" 
                                                          aria-haspopup="true" aria-expanded="false">
@@ -126,6 +126,9 @@
               <%= link_to "VI", {locale:"vi"}, {class:"dropdown-item"} %>
             </div>
           </li>
+          <% if logged_in? %>
+            <%= render "notifications/notification_center" %>
+          <% end %>
         </ul>
       </div>
     </nav>

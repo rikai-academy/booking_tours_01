@@ -14,12 +14,15 @@
               </span>
             <% end %>
             <% if logged_in? %>
-              <% if (current_user.admin? || comment.user_id == current_user.id) %>
-                <span class="float-right">
-                  <small><%= link_to t("reviews.show.delete"), comment, method: :delete, data: { confirm: t("users.index.confirm") } %></small>
-              <% end %>
+              <span class="float-right">
               <% if current_user.admin? %>
                 <small><%= state_cmt(comment) %></small>
+              <% else %>
+                <small><%= link_to t("reviews.show.report"), report_comment_path(comment), method: :post, data: { confirm: t("users.index.confirm") } %></small>
+              <% end %>
+
+              <% if (current_user.admin? || comment.user_id == current_user.id) %>
+                | <small><%= link_to t("reviews.show.delete"), comment, method: :delete, data: { confirm: t("users.index.confirm") } %></small>
               <% end %>
               </span>
             <% end %>

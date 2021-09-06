@@ -2,7 +2,7 @@
   <div class="card-body">
     <%= form_with(model: [@review, @comment]) do |f| %>
       <%= f.hidden_field :parent_id %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :action, value: "replied" %>
       <div class="form-group">
         <%= f.label t("reviews.show.reply")%>
         <%= f.text_area :cmt_content, class: "form-control" %>
