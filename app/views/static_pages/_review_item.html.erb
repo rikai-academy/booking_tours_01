@@ -1,21 +1,23 @@
 <div class="row mt-4">
-    <% for review in @reviews %>
+<% if @category.descendent_reviews.any? %>
+  <% for review in @category.descendent_reviews %>
+    <% if review.appear? %>
       <div class="col-md-12 col-lg-12">
         <article class="post vt-post">
           <div class="row">
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4">
               <div class="post-type post-img">
                 <% if review.image.attached? %>
-                  <%= link_to image_tag(review.image, class:"img-responsive", alt:"image post"), review %>
-                <%else%>
-                  <%= link_to image_tag("place1.png", class:"img-responsive", alt:"image post"), review%>
+                  <%= link_to image_tag(review.image, class: "img-responsive", alt: "image post"), review %>
                 <% end %>
               </div> 
               <div class="author-info author-info-2">
                 <ul class="list-inline">
                   <li>
                     <div class="info">
-                      <p><%=t("review.review.posted")%> <span><%=review.created_at%></span></p>
+                      <%= t "reviews.show.posted" %>
+                      <%= time_ago_in_words(review.created_at) %>
+                      <%= t "reviews.show.ago" %>.
                     </div>
                   </li>
                 </ul>
@@ -23,15 +25,18 @@
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
               <div class="caption">
-                <h3 class="md-heading"><%=link_to review.review_name, review_path(review.id)%></h3>
-                <p class="truncate"><%=review.review_content%></p>
-                <%=link_to t("review.review.readmore"), review_path(review.id), class:"btn btn-default", role:"button"%>
+                <h3 class="md-heading"><%= link_to review.review_name, review_path(review.id) %></h3>
+                <p class="truncate"><%= review.review_content %></p>
+                <%= link_to t("reviews.shared.more"), review_path(review.id), class: "btn btn-default", role: "button"%>
               </div>
             </div>
           </div>
         </article>
-        <div class="clearfix">
-        </div>
+        <div class="clearfix"></div>
       </div>
-    <%end%>
-  </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <h3 class="text-secondary"><%= t "reviews.index.empty" %></h3>
+<% end %>
+</div>

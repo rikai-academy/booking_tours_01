@@ -1,37 +1,46 @@
 <div class="container">
   <div class="row d-flex justify-content-center">
-    <h1 class="md-heading"><%=@review.review_name%></h1>
+    <h1 class="md-heading"><%= @review.review_name %></h1>
   </div>
+
   <div class="row d-flex justify-content-center">
     <div class="col-lg-10 text-center">
       <% if @review.image.attached? %>
-        <%= link_to image_tag(@review.image, class:"img-fluid", alt:"image post"), @review%>
-      <%else%>
-        <%= link_to image_tag("place1.png", class:"img-fluid", alt:"image post"), @review%>
+        <%= link_to image_tag(@review.image, class: "img-fluid", alt: "image post"), @review %>
       <% end %>
     </div>
   </div>
+
   <div class="row d-flex justify-content-center mt-4">
     <div class="col-lg-10">
-    <p><%=@review.review_content%></p>
+      <p><%= @review.review_content %></p>
     </div>
   </div>
+
   <div class="row">
     <div class="col-lg-10 d-flex justify-content-end">
-      <span><%=t("review.show.author")%></span>
-      <span class="font-weight-bold"><%= @author.name %></span>
+      <span>
+        <%= t "reviews.show.author" %>
+        <strong><%= @author.name %></strong>
+      </span>
     </div>
   </div>
+  
   <div class="row d-flex justify-content-center">
     <div class="col-lg-10">
-      <span><%= @review.like_reviews.count %><span>
-      <span><%=t("review.show.countlike")%></span>
-      <%if logged_in?%>
-        <%if (current_user.admin?||@review.user_id==current_user.id)%>
-          <%= link_to t("review.edit.update"), edit_review_path(@review.id), {class:"btn btn-danger"} %>
-          <%= link_to t("review.edit.delete"), @review, method: :delete, data: { confirm: "You sure?" } ,class:"btn btn-danger"%>
-        <%end%>
-      <%end%>
+      <span><%= @review.like_reviews.size %><span>
+      <span><%= t("reviews.show.count") %></span>
+      <% if logged_in? %>
+        <% if (current_user.admin? || @review.user_id == current_user.id) %>
+          <span class="float-right">
+            <small><%= link_to t("reviews.show.edit"), edit_review_path(@review.id) %></small>
+            <small><%= link_to t("reviews.show.delete"), @review, method: :delete, data: { confirm: t("users.index.confirm") } %></small>
+        <% end %>
+        <% if current_user.admin? %>
+          <small><%= state(@review) %></small>
+        <% end %>
+        </span>
+      <% end %>
     </div>
   </div>
 </div>
