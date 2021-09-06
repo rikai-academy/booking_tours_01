@@ -1,3 +1,4 @@
+<% provide(:title, @review.review_name) %>
 <div class="container">
   <div class="container">
     <%= link_to t("reviews.show.back"), topic_path(@review.category_id), class: "btn btn-secondary" %>
@@ -22,7 +23,7 @@
         <p class="font-weight-bold"><%= t("reviews.show.comment") %></p>
         <%= form_with(model: [@review, @review.comments.build]) do |f| %>
           <% if logged_in? %>
-            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :action, value: "commented" %>
           <% end %>
           <div class="form-group">
             <%= f.text_area :cmt_content, class: "form-control" %>

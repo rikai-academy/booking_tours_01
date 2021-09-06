@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :logged_in_user, only: :create
-  before_action :load_comment, only: [:check, :destroy]
+  before_action :load_comment, only: [:check, :destroy, :report]
   before_action :pull_comment, only: [:new, :create]
   before_action :admin_user, only: :check
 
@@ -9,7 +9,13 @@ class CommentsController < ApplicationController
   end
   
   def create
-    @comment = @review.comments.create(comment_params)
+    @comment = @review.comments.create(user_id: current_user.id,
+                                       parent_id: comment_params[:parent_id],
+                                       cmt_content: comment_params[:cmt_content])
+    Notification.create(user_id: current_user.id,
+                        notifiable: @review,
+                        action: comment_params[:action],
+                        recipient_id: @review.user_id)
     redirect_to review_path(@comment.review_id)
   end
 
@@ -19,6 +25,15 @@ class CommentsController < ApplicationController
     else
       @comment.update_attribute(:status, "appear")
     end
+    redirect_to review_path(@comment.review_id)
+  end
+
+  def report
+    Notification.create(user_id: current_user.id,
+      notifiable: @comment.review,
+      action: "reported_cmt",
+      recipient_id: User.first.id)
+    flash[:success] = t("notice.success")
     redirect_to review_path(@comment.review_id)
   end
 
@@ -34,7 +49,7 @@ class CommentsController < ApplicationController
   private
 
     def comment_params
-      params.require(:comment).permit(:user_id, :parent_id, :cmt_content)
+      params.require(:comment).permit(:parent_id, :cmt_content, :action)
     end
 
     def load_comment

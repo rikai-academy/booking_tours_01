@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :logged_in_user, except: :show
   before_action :set_category, only: [:edit, :new, :create, :update]
   before_action :load_review, only: [:edit, :update, :destroy]
-  before_action :pull_review, only: [:show, :like, :check]
+  before_action :pull_review, only: [:show, :like, :check, :report]
   before_action :admin_user, only: [:check]
 
   def index
@@ -75,6 +75,15 @@ class ReviewsController < ApplicationController
     end
     redirect_to reviews_path
   end
+
+  def report
+    Notification.create(user_id: current_user.id,
+      notifiable: @review,
+      action: "reported_rw",
+      recipient_id: User.first.id)
+    flash[:success] = t("notice.success")
+    redirect_to review_path(@review)
+  end
   
   private
   
@@ -99,16 +108,23 @@ class ReviewsController < ApplicationController
       @review=Review.all.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       flash[:danger] = t("reviews.shared.fail")
-      redirect_to review_path(@review)
+      redirect_to root_url
     end
 
     def user_dislike
       LikeReview.find_by(review_id: params[:id], user_id: current_user.id).destroy!
+      Notification.find_by(user_id: current_user.id,
+                           action: "liked",
+                           recipient_id: @review.user_id).destroy!
       rescue ActiveRecord::RecordNotFound
         flash[:danger] = t("reviews.shared.fail")
     end
 
     def user_like
       LikeReview.create(review_id: @review.id, user_id: current_user.id)
+      Notification.create(user_id: current_user.id,
+                          notifiable: @review,
+                          action: "liked",
+                          recipient_id: @review.user_id)
     end
 end

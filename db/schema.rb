@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_30_051448) do
+ActiveRecord::Schema.define(version: 2021_08_31_024307) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -84,6 +84,18 @@ ActiveRecord::Schema.define(version: 2021_08_30_051448) do
     t.index ["review_id", "user_id"], name: "index_like_reviews_on_review_id_and_user_id", unique: true
     t.index ["review_id"], name: "index_like_reviews_on_review_id"
     t.index ["user_id"], name: "index_like_reviews_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "recipient_id"
+    t.string "action"
+    t.string "notifiable_type"
+    t.integer "notifiable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "status", default: false, null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -161,6 +173,7 @@ ActiveRecord::Schema.define(version: 2021_08_30_051448) do
   add_foreign_key "comments", "users"
   add_foreign_key "like_reviews", "reviews"
   add_foreign_key "like_reviews", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "ratings", "tours"
   add_foreign_key "ratings", "users"
   add_foreign_key "reviews", "categories"

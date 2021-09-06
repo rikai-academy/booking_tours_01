@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
   enum status: { appear: true, hide: false }
+  has_many :notifications, as: :notifiable
   belongs_to :category
   belongs_to :user
   has_many :like_reviews, dependent: :destroy
@@ -11,6 +12,7 @@ class Review < ApplicationRecord
                     content_type: [:png, :jpg, :jpeg],
                     size:         { less_than: 5.megabytes}
   scope :user_like, ->(user){where(user_id: user)}
+  scope :name_like, ->(name){where "review_name ILIKE ?", "%#{name}%"}
   # filter review
   def liked?(user)
     !!self.like_reviews.find{|like| like.user_id==user.id}
