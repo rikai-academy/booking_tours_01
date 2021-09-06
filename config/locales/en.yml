@@ -204,6 +204,7 @@ en:
       updated: "Updated success!"
       deleted: "Deleted success!"
       fail: "Done error out during deletion."
+      placeholder: "Đà Nẵng Tour...."
     edit:
       update: "Update tour"
     new:

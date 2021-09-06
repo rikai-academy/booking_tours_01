@@ -204,6 +204,7 @@ vi:
       updated: "Cập nhật thành công!"
       deleted: "Đã xóa thành công!"
       fail: "Đã xảy ra lỗi!"
+      placeholder: "Tour Đà Nẵng..."
     edit:
       update: "Cập nhật tour"
     new:

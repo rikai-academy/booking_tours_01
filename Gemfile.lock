@@ -160,6 +160,14 @@ GEM
       dry-equalizer (~> 0.2)
       dry-initializer (~> 3.0)
       dry-schema (~> 1.5, >= 1.5.2)
+    elasticsearch (7.13.3)
+      elasticsearch-api (= 7.13.3)
+      elasticsearch-transport (= 7.13.3)
+    elasticsearch-api (7.13.3)
+      multi_json
+    elasticsearch-transport (7.13.3)
+      faraday (~> 1)
+      multi_json
     erubi (1.10.0)
     et-orbi (1.2.4)
       tzinfo
@@ -368,6 +376,10 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    searchkick (4.6.0)
+      activemodel (>= 5)
+      elasticsearch (>= 6, < 7.14)
+      hashie
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -465,6 +477,7 @@ DEPENDENCIES
   rails-controller-testing (>= 1.0.5)
   rails-i18n
   sass-rails (>= 6.0.0)
+  searchkick
   selenium-webdriver (>= 3.142.7)
   sidekiq (~> 5.2.7)
   sidekiq-cron
