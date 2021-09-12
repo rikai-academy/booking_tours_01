@@ -23,8 +23,8 @@
             <th scope="row"><%=category.id%></th>
             <td><%=category.category_name%></td>
             <td>
-              <%= link_to t("category.category.updatebtn"), edit_category_path(category.id), {class:"btn btn-danger"} %>
-              <%= link_to t("category.category.deletebtn"), category, method: :delete, data: { confirm: "You sure?" } ,class:"btn btn-danger"%>
+              <%= link_to t("category.category.updatebtn"), edit_category_path(id: category.id), {class:"btn btn-danger"} %>
+              <%= link_to t("category.category.deletebtn"), category_path(id: category.id), method: :delete, data: { confirm: "You sure?" } ,class:"btn btn-danger"%>
             </td>
           </tr>
           <%end%>
