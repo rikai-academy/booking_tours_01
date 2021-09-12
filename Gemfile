@@ -33,6 +33,7 @@ group :development, :test do
   gem "sqlite3", "~> 1.4.2"
   gem "byebug",  "~> 11.1.3", platforms: [:mri, :mingw, :x64_mingw]
   gem "dotenv-rails"
+  gem "rspec-rails", "~> 5.0.0"
 end
 
 group :development do
@@ -52,6 +53,7 @@ group :test do
   gem "guard",                    ">= 2.16.2"
   gem "guard-minitest",           ">= 2.4.6"
   gem "win32console",             "~> 1.3.2"
+  gem "shoulda-matchers", "~> 5.0"
 end
 
 group :production do
